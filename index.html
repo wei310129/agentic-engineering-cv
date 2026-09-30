@@ -961,6 +961,7 @@ body.overlay-open #app-scroll { overflow:hidden; }
 .plain-project { padding:24px 0 8px; border-top:1px solid #cbd5e1; }
 .plain-project + .plain-project { margin-top:16px; }
 .plain-document strong { color:#101828; }
+.plain-document a, .plain-readme a { text-decoration:underline; text-underline-offset:3px; overflow-wrap:anywhere; }
 .readme-body { min-height:0; min-width:0; scroll-behavior:auto; overflow-x:hidden; }
 .readme-content { min-width:0; overflow-wrap:anywhere; }
 .readme-content pre { white-space:pre; overflow-wrap:normal; }
@@ -1249,7 +1250,7 @@ Claude Code 曾用於 My Mobile Secretary 前期及部分 PoC 開發。</p>
 <p class="plain-paragraph"><strong>主要技術：</strong>Java 21、Spring Boot、Spring AI、LINE、PostgreSQL／PostGIS／RLS、Redis、Flyway、Testcontainers。</p>
 
 <p class="plain-paragraph"><strong>Repo：</strong>
-https://github.com/wei310129/my-mobile-secretary</p></div>
+<a href="https://github.com/wei310129/my-mobile-secretary" target="_blank" rel="noopener noreferrer">https://github.com/wei310129/my-mobile-secretary</a></p></div>
 </section>
 <section class="plain-section anchor-section track-section" data-key="taiwan" id="text-taiwan">
 <div class="plain-head">
@@ -1350,10 +1351,10 @@ npm install
 npm run dev
 ```
 
-開啟 `http://localhost:5173`。開發模式的前後端都只監聽本機回環位址，並同時啟動：
+開啟 `<a href="http://localhost:5173" target="_blank" rel="noopener noreferrer">http://localhost:5173</a>`。開發模式的前後端都只監聽本機回環位址，並同時啟動：
 
-- Vue 前端：`http://localhost:5173`
-- Node.js API：`http://localhost:8787`
+- Vue 前端：`<a href="http://localhost:5173" target="_blank" rel="noopener noreferrer">http://localhost:5173</a>`
+- Node.js API：`<a href="http://localhost:8787" target="_blank" rel="noopener noreferrer">http://localhost:8787</a>`
 
 不再提供區域網路直連或 Windows 5173 portproxy。手機一律使用 ngrok 公開網址，不得為手機測試重新開放 Vite 或後端埠。
 
@@ -1485,7 +1486,7 @@ npm run build
 - 驗證重點：用 Sentinel 探索、ROLE／INFO replication 與 client 重連讀寫核對角色切換；故障判定設定與實際恢復時間分開記錄。
 - 架構取捨：Sentinel 管理非分片主從，Cluster 另處理分片；目前 emptyDir 部署不能據此宣稱持久化或零資料遺失。</p>
 
-<p class="plain-paragraph"><strong>Repo：</strong>https://github.com/wei310129/k8s-for-redis</p></article>
+<p class="plain-paragraph"><strong>Repo：</strong><a href="https://github.com/wei310129/k8s-for-redis" target="_blank" rel="noopener noreferrer">https://github.com/wei310129/k8s-for-redis</a></p></article>
 
 <article class="plain-project"><h3 class="plain-project-title">【專案 03-2】QPS Tuning</h3>
 <p class="plain-project-purpose">專案定位：Performance / Reliability / Observability</p>
@@ -1495,7 +1496,7 @@ npm run build
 - 實驗方法：對照 Redis 循序／Pipeline、OOM 寫入拒絕、Lua 忙等與 Sentinel 切換，搭配 JVM GC 負載；固定環境與輸入，再比較延遲、錯誤及資源。
 - 驗證範圍：提供可重現負載與故障觀察入口；目前自動化以 context 測試為主，尚未附固定環境的前後效能報告。</p>
 
-<p class="plain-paragraph"><strong>Repo：</strong>https://github.com/wei310129/QPS-tuning</p></article>
+<p class="plain-paragraph"><strong>Repo：</strong><a href="https://github.com/wei310129/QPS-tuning" target="_blank" rel="noopener noreferrer">https://github.com/wei310129/QPS-tuning</a></p></article>
 
 <article class="plain-project"><h3 class="plain-project-title">【專案 03-3】Pulse Platform</h3>
 <p class="plain-project-purpose">專案定位：Event-driven / High Throughput</p>
@@ -1505,7 +1506,7 @@ npm run build
 - 一致性取捨：event_id UNIQUE 防止 PostgreSQL 重複落地；資料庫成功後 Redis 失敗的重播仍可能漏聚合，這是跨儲存一致性待補強的邊界。
 - 完成與驗證：已實作核心管線與聚合 mock 單元測試；Dashboard、DLQ、k6 壓測及自動擴容尚待完成，HTTP 202 也不等於持久化成功。</p>
 
-<p class="plain-paragraph"><strong>Repo：</strong>https://github.com/wei310129/pulse-platform</p></article>
+<p class="plain-paragraph"><strong>Repo：</strong><a href="https://github.com/wei310129/pulse-platform" target="_blank" rel="noopener noreferrer">https://github.com/wei310129/pulse-platform</a></p></article>
 
 <article class="plain-project"><h3 class="plain-project-title">【專案 03-4】RescueHero</h3>
 <p class="plain-project-purpose">專案定位：救援任務派遣平台 / DDD / Distributed System MVP</p>
@@ -1517,7 +1518,7 @@ npm run build
 - 架構取捨：PostgreSQL／MongoDB／Redis 分別承擔關聯資料、聊天文件與登入狀態；多實例 fan-out 的文件去重、topic 副本與聊天室授權仍需補強。
 - 驗證範圍：Playwright 以 mock API 驗證登入／註冊 UI；多實例容器配置尚不能代替真實聊天、故障恢復與可靠送達驗收。</p>
 
-<p class="plain-paragraph"><strong>Repo：</strong>https://github.com/wei310129/RescueHero</p></article>
+<p class="plain-paragraph"><strong>Repo：</strong><a href="https://github.com/wei310129/RescueHero" target="_blank" rel="noopener noreferrer">https://github.com/wei310129/RescueHero</a></p></article>
 
 <article class="plain-project"><h3 class="plain-project-title">【專案 03-5】Java-gRPC</h3>
 <p class="plain-project-purpose">專案定位：gRPC 通訊與 Netty 網路程式設計</p>
@@ -1527,7 +1528,7 @@ npm run build
 - Netty 核心：ByteBuf 長度檢查／reader index 回滾；length-field pipeline 示範黏包／半包，IdleStateHandler 管理閒置，ChannelGroup 處理 room 廣播及移除。
 - 驗證範圍：三個 EmbeddedChannel Demo 可執行，另有 Controller 單元與 context 測試；尚未提供正式 TCP server、TLS 或完整端到端驗收。</p>
 
-<p class="plain-paragraph"><strong>Repo：</strong>https://github.com/wei310129/Java-gRPC</p></article>
+<p class="plain-paragraph"><strong>Repo：</strong><a href="https://github.com/wei310129/Java-gRPC" target="_blank" rel="noopener noreferrer">https://github.com/wei310129/Java-gRPC</a></p></article>
 
 <article class="plain-project"><h3 class="plain-project-title">【專案 03-6】jfr-jmc</h3>
 <p class="plain-project-purpose">專案定位：JVM Profiling / JFR / JMC</p>
@@ -1537,7 +1538,7 @@ npm run build
 - 錄製與分析：自訂 JFR profile，連續保留最近 5 分鐘、60 秒定時或 JMX 手動錄製，再以 JMC 離線／即時及 Event Browser 核對。
 - 驗證範圍：自訂事件錄製／讀取與 Service 整合測試；HttpRequest 事件尚未接入請求流程，Repo 未附調校改善幅度或示例 .jfr。</p>
 
-<p class="plain-paragraph"><strong>Repo：</strong>https://github.com/wei310129/jfr-jmc</p></article></div>
+<p class="plain-paragraph"><strong>Repo：</strong><a href="https://github.com/wei310129/jfr-jmc" target="_blank" rel="noopener noreferrer">https://github.com/wei310129/jfr-jmc</a></p></article></div>
 </section>
 <pre hidden="" id="copy-all-source">陳政瑋的 AI 履歷
 
