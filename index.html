@@ -1009,7 +1009,7 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline:3px so
 <button class="nav-btn active" data-key="overview" type="button"><span class="nav-title"><span class="n">00</span><span class="nav-name">總覽</span></span><span class="nav-description">Agentic Coding 能力</span></button>
 <button class="nav-btn" data-key="mms" type="button"><span class="nav-title"><span class="n">01</span><span class="nav-name">My Mobile Secretary</span></span><span class="nav-description">AI Agent 個人智慧助理專案</span></button>
 <button class="nav-btn" data-key="taiwan" type="button"><span class="nav-title"><span class="n">02</span><span class="nav-name">Taiwan Weighted Index Prediction</span></span><span class="nav-description">量化策略研究與回測平台專案</span></button>
-<button class="nav-btn" data-key="poc" type="button"><span class="nav-title"><span class="n">03</span><span class="nav-name">Backend PoC / MVP 專案</span></span><span class="nav-description">k8s-for-redis · QPS Tuning · Pulse Platform · RescueHero</span></button>
+<button class="nav-btn" data-key="poc" type="button"><span class="nav-title"><span class="n">03</span><span class="nav-name">Backend PoC / MVP 專案</span></span><span class="nav-description">k8s-for-redis · QPS Tuning · Pulse Platform · RescueHero · Java-gRPC · jfr-jmc</span></button>
 </nav>
 </div>
 </header>
@@ -1048,8 +1048,8 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline:3px so
 </button>
 <button class="overview-card" data-jump="poc" type="button">
 <div class="ov-top"><span class="ov-num">03 · BACKEND PoC / MVP 專案</span></div>
-<strong>k8s-for-redis · QPS Tuning · Pulse Platform · RescueHero</strong>
-<p>Redis 高可用工作實務，以及 Performance、Observability、Kafka、DDD 等技術驗證。</p>
+<strong>k8s-for-redis · QPS Tuning · Pulse Platform · RescueHero · Java-gRPC · jfr-jmc</strong>
+<p>Redis 高可用工作實務，以及 Performance、Observability、Kafka、DDD、gRPC / Netty 與 JFR / JMC 等技術驗證。</p>
 </button>
 </div>
 </section>
@@ -1160,7 +1160,7 @@ Performance Report</pre>
 <div class="section-kicker">延伸 AI-assisted Backend PoC / MVP</div>
 <section class="anchor-section track-section" data-key="poc" id="visual-poc">
 <h2 class="poc-heading">Backend PoC / MVP 專案</h2>
-<div class="poc-intro">四個代表專案涵蓋 Redis 高可用工作實務、Performance / Observability、Event-driven / High Throughput 與 Distributed MVP。k8s-for-redis 包含實際工作中使用的 Sentinel、Cluster 方案及 Failover 測試經驗。</div>
+<div class="poc-intro">六個代表專案涵蓋 Redis 高可用工作實務、Performance / Observability、Event-driven / High Throughput、Distributed MVP、gRPC / Netty 封包解析與 JVM Profiling。k8s-for-redis 包含實際工作中使用的 Sentinel、Cluster 方案及 Failover 測試經驗。</div>
 <p class="project-tools poc-tools">開發工具：ChatGPT、Codex；部分 PoC 曾使用 Claude Code。</p>
 <div class="poc-grid">
 <article class="poc-card" id="redis-work-project">
@@ -1189,6 +1189,18 @@ Performance Report</pre>
 <p><strong>專案緣起：</strong>緣起於 2025 年 9 月花蓮馬太鞍溪堰塞湖潰壩事件。有感於災後志工登記與任務分派的協作需求，開發救援任務派遣平台，讓組織與志工能統一調度、即時溝通，減少資訊分散造成的人力物力耗損。</p>
 <p>DDD、Kafka、Redis、PostgreSQL、MongoDB、WebSocket、JWT、Docker Compose，驗證完整事件驅動與分散式 Web Application 架構。</p>
 <a href="https://github.com/wei310129/RescueHero" rel="noopener" target="_blank">GitHub →</a>
+</article>
+<article class="poc-card">
+<span class="poc-focus">gRPC · Netty ByteBuf</span>
+<h3>Java-gRPC</h3>
+<p>實作 Unary RPC、Server Streaming、跨 Server 轉發、Deadline 傳播與全域例外處理；使用 Netty ByteBuf 練習封包長度檢查、Reader Index 回滾及 unsigned 讀取。</p>
+<a href="https://github.com/wei310129/Java-gRPC" rel="noopener" target="_blank">GitHub →</a>
+</article>
+<article class="poc-card">
+<span class="poc-focus">JVM Profiling · JFR / JMC</span>
+<h3>jfr-jmc</h3>
+<p>建立 CPU、記憶體、鎖爭用與慢速操作等可重現負載，搭配自訂 JFR 事件與事件測試；透過 JFR 離線分析及 JMX / JMC 即時監控觀察 JVM 行為。</p>
+<a href="https://github.com/wei310129/jfr-jmc" rel="noopener" target="_blank">GitHub →</a>
 </article>
 </div>
 </section>
@@ -1222,7 +1234,7 @@ Claude Code 曾用於 My Mobile Secretary 前期及部分 PoC 開發。</p>
 <p class="plain-paragraph"><strong>代表專案：</strong>
 1. My Mobile Secretary：AI Agent / Spring AI / LLM 應用開發
 2. Taiwan Weighted Index Prediction：AI-assisted Software Engineering / 量化研究與回測平台
-3. Backend PoC / MVP 與工作實務：Redis 高可用、Performance、Observability、Event-driven、Distributed System</p></div>
+3. Backend PoC / MVP 與工作實務：Redis 高可用、Performance、Observability、Event-driven、Distributed System、gRPC / Netty、JFR / JMC</p></div>
 </section>
 <section class="plain-section anchor-section track-section" data-key="mms" id="text-mms">
 <div class="plain-head">
@@ -1858,7 +1870,31 @@ Yahoo Finance 與本專案中的行情資料均不應視為交易所保證的下
 - 使用 DDD、Kafka、Redis、PostgreSQL、MongoDB、WebSocket、JWT、Docker Compose。
 - 驗證 Domain Design、事件驅動、即時通訊與分散式 Web Application 架構。</p>
 
-<p class="plain-paragraph"><strong>Repo：</strong>https://github.com/wei310129/RescueHero</p></article></div>
+<p class="plain-paragraph"><strong>Repo：</strong>https://github.com/wei310129/RescueHero</p></article>
+
+<article class="plain-project"><h3 class="plain-project-title">【專案 03-5】Java-gRPC</h3>
+<p class="plain-project-purpose">專案定位：gRPC 通訊與 Netty 封包解析</p>
+
+<p class="plain-paragraph"><strong>實作與驗證：</strong>
+- 實作 Unary RPC、Server Streaming、跨 Server 轉發與全域例外處理。
+- 沿用上游 Deadline，無 Deadline 時設定下游 Timeout，管理呼叫鏈逾時與取消。
+- 使用 Netty ByteBuf 解析二進位封包：讀取前檢查長度、資料不足時回滾 Reader Index，並使用 unsigned 讀取。</p>
+
+<p class="plain-paragraph"><strong>主要技術：</strong>Java、Spring Boot、gRPC、Protocol Buffers、Netty ByteBuf。</p>
+
+<p class="plain-paragraph"><strong>Repo：</strong>https://github.com/wei310129/Java-gRPC</p></article>
+
+<article class="plain-project"><h3 class="plain-project-title">【專案 03-6】jfr-jmc</h3>
+<p class="plain-project-purpose">專案定位：JVM Profiling / JFR / JMC</p>
+
+<p class="plain-paragraph"><strong>實作與驗證：</strong>
+- 建立 CPU、記憶體、執行緒爭用與慢速操作等可重現負載情境。
+- 自訂 Service Operation 與 HTTP Request JFR 事件，搭配事件錄製、讀取與整合測試。
+- 使用 JFR 錄製檔離線分析，或透過 JMX / JMC 即時監控 CPU 熱點、GC / Heap 趨勢與鎖爭用。</p>
+
+<p class="plain-paragraph"><strong>主要技術：</strong>Java、Spring Boot、Java Flight Recorder、Java Mission Control、JMX。</p>
+
+<p class="plain-paragraph"><strong>Repo：</strong>https://github.com/wei310129/jfr-jmc</p></article></div>
 </section>
 <pre hidden="" id="copy-all-source">陳政瑋的 AI 履歷
 
@@ -1877,7 +1913,7 @@ Claude Code 曾用於 My Mobile Secretary 前期及部分 PoC 開發。
 代表專案：
 1. My Mobile Secretary：AI Agent / Spring AI / LLM 應用開發
 2. Taiwan Weighted Index Prediction：AI-assisted Software Engineering / 量化研究與回測平台
-3. Backend PoC / MVP 與工作實務：Redis 高可用、Performance、Observability、Event-driven、Distributed System
+3. Backend PoC / MVP 與工作實務：Redis 高可用、Performance、Observability、Event-driven、Distributed System、gRPC / Netty、JFR / JMC
 
 1. My Mobile Secretary — AI Agent 個人智慧助理【主要專案】
 
@@ -1973,7 +2009,31 @@ Repo：https://github.com/wei310129/pulse-platform
 - 使用 DDD、Kafka、Redis、PostgreSQL、MongoDB、WebSocket、JWT、Docker Compose。
 - 驗證 Domain Design、事件驅動、即時通訊與分散式 Web Application 架構。
 
-Repo：https://github.com/wei310129/RescueHero</pre>
+Repo：https://github.com/wei310129/RescueHero
+
+【專案 03-5】Java-gRPC
+專案定位：gRPC 通訊與 Netty 封包解析
+
+實作與驗證：
+- 實作 Unary RPC、Server Streaming、跨 Server 轉發與全域例外處理。
+- 沿用上游 Deadline，無 Deadline 時設定下游 Timeout，管理呼叫鏈逾時與取消。
+- 使用 Netty ByteBuf 解析二進位封包：讀取前檢查長度、資料不足時回滾 Reader Index，並使用 unsigned 讀取。
+
+主要技術：Java、Spring Boot、gRPC、Protocol Buffers、Netty ByteBuf。
+
+Repo：https://github.com/wei310129/Java-gRPC
+
+【專案 03-6】jfr-jmc
+專案定位：JVM Profiling / JFR / JMC
+
+實作與驗證：
+- 建立 CPU、記憶體、執行緒爭用與慢速操作等可重現負載情境。
+- 自訂 Service Operation 與 HTTP Request JFR 事件，搭配事件錄製、讀取與整合測試。
+- 使用 JFR 錄製檔離線分析，或透過 JMX / JMC 即時監控 CPU 熱點、GC / Heap 趨勢與鎖爭用。
+
+主要技術：Java、Spring Boot、Java Flight Recorder、Java Mission Control、JMX。
+
+Repo：https://github.com/wei310129/jfr-jmc</pre>
 </main>
 </div>
 <!-- ==================== README Overlay ==================== -->
