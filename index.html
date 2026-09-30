@@ -951,6 +951,14 @@ body.overlay-open #app-scroll { overflow:hidden; }
 .project-tools { margin:12px 0 0; color:#475467; font-size:12px; }
 .project-tools strong { color:#344054; }
 .poc-tools { margin:0 2px 12px; }
+.plain-document { white-space:normal; font-size:14px; line-height:1.8; }
+.plain-document p { margin:0 0 16px; white-space:pre-line; overflow-wrap:anywhere; }
+.plain-project-title { margin:0 0 12px; color:#101828; font-size:17px; font-weight:800; line-height:1.5; overflow-wrap:anywhere; }
+.plain-project-purpose { color:#475467; }
+.plain-subheading { margin:22px 0 8px; color:#101828; font-size:14px; font-weight:750; }
+.plain-project { padding:24px 0 8px; border-top:1px solid #cbd5e1; }
+.plain-project + .plain-project { margin-top:16px; }
+.plain-document strong { color:#101828; }
 .readme-body { min-height:0; min-width:0; scroll-behavior:auto; overflow-x:hidden; }
 .readme-content { min-width:0; overflow-wrap:anywhere; }
 .readme-content pre { white-space:pre; overflow-wrap:normal; }
@@ -968,6 +976,8 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline:3px so
   .hero-copy { display:block; overflow:visible; }
   .agentic-summary ul { font-size:12.5px; }
   .poc-heading { font-size:18px; }
+  .plain-document { font-size:13px; }
+  .plain-project-title { font-size:16px; }
 }
 @media (prefers-reduced-motion:reduce) {
   *, *::before, *::after { scroll-behavior:auto !important; transition:none !important; }
@@ -1194,79 +1204,79 @@ Performance Report</pre>
 <h2>00 · 總覽：Agentic Coding 能力</h2>
 <button class="copy-btn" data-copy-target="plain-overview" type="button">複製此段</button>
 </div>
-<pre class="plain-text" id="plain-overview">陳政瑋的 AI 履歷
+<div class="plain-text plain-document" id="plain-overview"><h3 class="plain-project-title">陳政瑋的 AI 履歷</h3>
 
-以 AI 輔助軟體工程，將需求拆解、架構設計、實作、測試與驗證串成完整開發流程。實作經驗涵蓋 AI Agent、量化研究平台、Backend PoC / MVP 與 Redis 高可用工作實務。
+<p class="plain-paragraph">以 AI 輔助軟體工程，將需求拆解、架構設計、實作、測試與驗證串成完整開發流程。實作經驗涵蓋 AI Agent、量化研究平台、Backend PoC / MVP 與 Redis 高可用工作實務。</p>
 
-Agentic Coding 能力：
+<p class="plain-paragraph">Agentic Coding 能力：
 - 需求與任務拆解：以 AI 協助需求分析與架構方案比較，將需求拆成可實作的模組與任務。
 - 架構與執行邊界：透過 Interface、Domain Boundary 與 Validation，分離 LLM 理解、規則驗證與業務執行。
 - 程式實作與迭代：使用 ChatGPT、Codex、Claude Code 協助 Coding、Refactoring 與 Debug，整合成可運作的專案。
 - 測試與品質把關：以自動化測試、型別檢查、CI 與 Regression Guard 驗證 AI 產出與改版行為。
-- 效能與研究驗證：以壓力測試、Metrics / Tracing、Validation / Holdout 與 Integrity Audit 驗證結果。
+- 效能與研究驗證：以壓力測試、Metrics / Tracing、Validation / Holdout 與 Integrity Audit 驗證結果。</p>
 
-個人 AI 工具池：ChatGPT、Codex、Claude Code。
-Claude Code 曾用於 My Mobile Secretary 前期及部分 PoC 開發。
+<p class="plain-paragraph"><strong>個人 AI 工具池：</strong>ChatGPT、Codex、Claude Code。
+Claude Code 曾用於 My Mobile Secretary 前期及部分 PoC 開發。</p>
 
-代表專案：
+<p class="plain-paragraph"><strong>代表專案：</strong>
 1. My Mobile Secretary：AI Agent / Spring AI / LLM 應用開發
 2. Taiwan Weighted Index Prediction：AI-assisted Software Engineering / 量化研究與回測平台
-3. Backend PoC / MVP 與工作實務：Redis 高可用、Performance、Observability、Event-driven、Distributed System</pre>
+3. Backend PoC / MVP 與工作實務：Redis 高可用、Performance、Observability、Event-driven、Distributed System</p></div>
 </section>
 <section class="plain-section anchor-section track-section" data-key="mms" id="text-mms">
 <div class="plain-head">
 <h2>01 · My Mobile Secretary</h2>
 <button class="copy-btn" data-copy-target="plain-mms" type="button">複製此段</button>
 </div>
-<pre class="plain-text" id="plain-mms">1. My Mobile Secretary — AI Agent 個人智慧助理【主要專案】
+<div class="plain-text plain-document" id="plain-mms"><h3 class="plain-project-title">1. My Mobile Secretary — AI Agent 個人智慧助理【主要專案】</h3>
 
-定位：Java Backend + Spring AI + LLM / AI Agent
+<p class="plain-paragraph"><strong>定位：</strong>Java Backend + Spring AI + LLM / AI Agent</p>
 
-開發工具：Claude Code（前期）、ChatGPT、Codex
+<p class="plain-paragraph"><strong>開發工具：</strong>Claude Code（前期）、ChatGPT、Codex</p>
 
-使用 Java / Spring Boot / Spring AI 開發個人 AI 助理，整合 LINE Webhook、LLM 意圖解析、任務派送與 Session 管理。
+<p class="plain-paragraph">使用 Java / Spring Boot / Spring AI 開發個人 AI 助理，整合 LINE Webhook、LLM 意圖解析、任務派送與 Session 管理。</p>
 
-主要實作重點：
+<p class="plain-paragraph"><strong>主要實作重點：</strong>
 - 以 LLM 將自然語言轉換成後端可處理的結構化 Intent。
 - 建立 Intent Interpreter、AI Dispatcher、Session / Trigger 等模組。
 - 將 LLM 語意判斷與 Backend Domain / Tool Execution 分離，避免模型直接控制核心業務流程。
 - 專案前期曾使用 Claude Code；亦使用 ChatGPT / Codex 協助需求拆解、架構設計、Coding、Refactoring、Testing 與 Debug。
 - 以 Interface、Domain Boundary、Validation 限制 AI 修改與執行範圍。
-- 透過自動化測試驗證 Intent Interpretation 與 Provider-neutral 行為，降低 Prompt / Model 調整或長 Context 造成的 Regression。
+- 透過自動化測試驗證 Intent Interpretation 與 Provider-neutral 行為，降低 Prompt / Model 調整或長 Context 造成的 Regression。</p>
 
-主要技術：
-Java 21、Spring Boot、Spring AI、LLM、AI Agent、LINE Webhook、Domain Design、Automated Testing
+<p class="plain-paragraph"><strong>主要技術：</strong>
+Java 21、Spring Boot、Spring AI、LLM、AI Agent、LINE Webhook、Domain Design、Automated Testing</p>
 
-Repo：
-https://github.com/wei310129/my-mobile-secretary</pre>
+<p class="plain-paragraph"><strong>Repo：</strong>
+https://github.com/wei310129/my-mobile-secretary</p></div>
 </section>
 <section class="plain-section anchor-section track-section" data-key="taiwan" id="text-taiwan">
 <div class="plain-head">
 <h2>02 · Taiwan Weighted Index Prediction</h2>
 <button class="copy-btn" data-copy-target="plain-taiwan" type="button">複製此段</button>
 </div>
-<pre class="plain-text" id="plain-taiwan">2. Taiwan Weighted Index Prediction — AI 輔助量化研究與回測平台【主要專案】
+<div class="plain-text plain-document" id="plain-taiwan"><h3 class="plain-project-title">2. Taiwan Weighted Index Prediction — AI 輔助量化研究與回測平台【主要專案】</h3>
 
-定位：AI-assisted Software Engineering + Quant Research / Backtesting Platform
+<p class="plain-paragraph"><strong>定位：</strong>AI-assisted Software Engineering + Quant Research / Backtesting Platform</p>
 
-開發工具：ChatGPT、Codex
+<p class="plain-paragraph"><strong>開發工具：</strong>ChatGPT、Codex</p>
 
-將市場資料、策略研究、歷史回測、研究驗證與決策輔助整合成一套可長期維護的研究平台。AI 深度參與需求拆解、架構設計、程式實作、Refactoring、Testing 與文件治理。
+<p class="plain-paragraph">將市場資料、策略研究、歷史回測、研究驗證與決策輔助整合成一套可長期維護的研究平台。AI 深度參與需求拆解、架構設計、程式實作、Refactoring、Testing 與文件治理。</p>
 
-主要實作重點：
+<p class="plain-paragraph"><strong>主要實作重點：</strong>
 - 建立 Market Data → Data Reliability → Research / Feature → Strategy Engine → Backtest → Validation / Audit → Performance Report 的研究 Pipeline。
 - 防止 Look-ahead Bias，將策略訊號產生與實際成交時點分離。
 - 將手續費、交易稅、滑價與商品限制納入 Backtest。
 - 處理行情完整度、Cache / Resume、企業行動、Fallback / Degraded Mode 與 Data Gate。
 - 建立 Research Integrity Audit 與 Performance Regression Guard，避免策略改版後歷史績效退化被靜默覆蓋。
 - 採用 Discovery / Validation / Holdout、Walk-forward、Sensitivity Test 等方式驗證研究結果。
-- 使用 AI 輔助需求分析、架構方案比較、Coding、Refactoring、Testing 與研究文件整理。
+- 使用 AI 輔助需求分析、架構方案比較、Coding、Refactoring、Testing 與研究文件整理。</p>
 
-主要技術：
-Vue 3、TypeScript、Node.js / Express、SQLite、Backtesting、Research Validation、GitHub Actions、AI-assisted Development
+<p class="plain-paragraph"><strong>主要技術：</strong>
+Vue 3、TypeScript、Node.js / Express、SQLite、Backtesting、Research Validation、GitHub Actions、AI-assisted Development</p>
 
-Repo 狀態：
-Private。完整 README 已內嵌，不需要 GitHub 權限即可閱讀。</pre>
+<p class="plain-paragraph"><strong>Repo 狀態：</strong>
+Private。完整 README 已內嵌，不需要 GitHub 權限即可閱讀。</p></div>
 <details class="plain-details">
 <summary>完整 README（Private Repo 備份，可直接選取 / 複製）</summary>
 <div style="padding:10px 12px 0;">
@@ -1798,37 +1808,54 @@ Yahoo Finance 與本專案中的行情資料均不應視為交易所保證的下
 <h2>03 · Backend PoC / MVP 專案</h2>
 <button class="copy-btn" data-copy-target="plain-poc" type="button">複製此段</button>
 </div>
-<pre class="plain-text" id="plain-poc">3. Backend PoC / MVP 與 Redis 高可用工作實務【延伸經驗】
+<div class="plain-text plain-document" id="plain-poc"><h3 class="plain-project-title">3. Backend PoC / MVP 與 Redis 高可用工作實務【延伸經驗】</h3>
 
-開發工具：ChatGPT、Codex；部分 PoC 曾使用 Claude Code。
+<p class="plain-paragraph"><strong>開發工具：</strong>ChatGPT、Codex；部分 PoC 曾使用 Claude Code。</p>
 
-使用 ChatGPT / Codex 加速 Backend Architecture、High Concurrency、Distributed System、Observability 等技術的研究與 PoC / MVP 建置，並透過壓力測試、Metrics、Tracing 或自動化測試驗證 AI 產出。
+<p class="plain-paragraph">使用 ChatGPT / Codex 加速 Backend Architecture、High Concurrency、Distributed System、Observability 等技術的研究與 PoC / MVP 建置，並透過壓力測試、Metrics、Tracing 或自動化測試驗證 AI 產出。</p>
 
-代表性專案：
+<h4 class="plain-subheading">代表性專案：</h4>
 
-k8s-for-redis — Kubernetes / Redis 高可用【工作實務】
+<article class="plain-project"><h3 class="plain-project-title">【專案 03-1】k8s-for-redis</h3>
+<p class="plain-project-purpose">專案定位：Kubernetes / Redis 高可用【工作實務】</p>
+
+<p class="plain-paragraph"><strong>實作與驗證：</strong>
 - 實際工作中使用 Redis，實作 Sentinel 與 Cluster 兩種方案，並實際測試 Failover。
 - 涵蓋 Redis 主從複寫、高可用架構及故障切換驗證。
-- 公開 Repository 目前收錄 Kubernetes 上的 Sentinel 部署設定；Cluster 方案屬工作實作經驗。
-部署與驗證工具：Kubernetes、kubectl、redis-cli。
-Repo：https://github.com/wei310129/k8s-for-redis
+- 公開 Repository 目前收錄 Kubernetes 上的 Sentinel 部署設定；Cluster 方案屬工作實作經驗。</p>
 
-QPS Tuning — Performance / Reliability / Observability
+<p class="plain-paragraph"><strong>部署與驗證工具：</strong>Kubernetes、kubectl、redis-cli。</p>
+
+<p class="plain-paragraph"><strong>Repo：</strong>https://github.com/wei310129/k8s-for-redis</p></article>
+
+<article class="plain-project"><h3 class="plain-project-title">【專案 03-2】QPS Tuning</h3>
+<p class="plain-project-purpose">專案定位：Performance / Reliability / Observability</p>
+
+<p class="plain-paragraph"><strong>實作與驗證：</strong>
 - 驗證 Redis Distributed Rate Limit / Semaphore、Pipeline、Redis OOM、Sentinel Failover、JVM GC。
 - 導入 Micrometer + Prometheus + Grafana 觀察 HTTP Latency、錯誤率與 JVM Metrics。
-- 使用 Micrometer Tracing / OpenTelemetry + Grafana Tempo 分析 Distributed Trace。
-Repo：https://github.com/wei310129/QPS-tuning
+- 使用 Micrometer Tracing / OpenTelemetry + Grafana Tempo 分析 Distributed Trace。</p>
 
-Pulse Platform — Event-driven / High Throughput
+<p class="plain-paragraph"><strong>Repo：</strong>https://github.com/wei310129/QPS-tuning</p></article>
+
+<article class="plain-project"><h3 class="plain-project-title">【專案 03-3】Pulse Platform</h3>
+<p class="plain-project-purpose">專案定位：Event-driven / High Throughput</p>
+
+<p class="plain-paragraph"><strong>實作與驗證：</strong>
 - 建立 Ingestion API → Kafka → Consumer → Redis / PostgreSQL 的事件處理 Pipeline。
 - 驗證 Kafka Partition、Consumer Group、水平擴展、即時資料聚合與訊息可靠性。
-- 搭配 Micrometer / Prometheus 與 k6 進行效能觀測與壓力測試。
-Repo：https://github.com/wei310129/pulse-platform
+- 搭配 Micrometer / Prometheus 與 k6 進行效能觀測與壓力測試。</p>
 
-RescueHero — DDD / Distributed System MVP
+<p class="plain-paragraph"><strong>Repo：</strong>https://github.com/wei310129/pulse-platform</p></article>
+
+<article class="plain-project"><h3 class="plain-project-title">【專案 03-4】RescueHero</h3>
+<p class="plain-project-purpose">專案定位：DDD / Distributed System MVP</p>
+
+<p class="plain-paragraph"><strong>實作與驗證：</strong>
 - 使用 DDD、Kafka、Redis、PostgreSQL、MongoDB、WebSocket、JWT、Docker Compose。
-- 驗證 Domain Design、事件驅動、即時通訊與分散式 Web Application 架構。
-Repo：https://github.com/wei310129/RescueHero</pre>
+- 驗證 Domain Design、事件驅動、即時通訊與分散式 Web Application 架構。</p>
+
+<p class="plain-paragraph"><strong>Repo：</strong>https://github.com/wei310129/RescueHero</p></article></div>
 </section>
 <pre hidden="" id="copy-all-source">陳政瑋的 AI 履歷
 
@@ -1902,28 +1929,45 @@ Private。完整 README 已內嵌，不需要 GitHub 權限即可閱讀。
 
 代表性專案：
 
-k8s-for-redis — Kubernetes / Redis 高可用【工作實務】
+【專案 03-1】k8s-for-redis
+專案定位：Kubernetes / Redis 高可用【工作實務】
+
+實作與驗證：
 - 實際工作中使用 Redis，實作 Sentinel 與 Cluster 兩種方案，並實際測試 Failover。
 - 涵蓋 Redis 主從複寫、高可用架構及故障切換驗證。
 - 公開 Repository 目前收錄 Kubernetes 上的 Sentinel 部署設定；Cluster 方案屬工作實作經驗。
+
 部署與驗證工具：Kubernetes、kubectl、redis-cli。
+
 Repo：https://github.com/wei310129/k8s-for-redis
 
-QPS Tuning — Performance / Reliability / Observability
+【專案 03-2】QPS Tuning
+專案定位：Performance / Reliability / Observability
+
+實作與驗證：
 - 驗證 Redis Distributed Rate Limit / Semaphore、Pipeline、Redis OOM、Sentinel Failover、JVM GC。
 - 導入 Micrometer + Prometheus + Grafana 觀察 HTTP Latency、錯誤率與 JVM Metrics。
 - 使用 Micrometer Tracing / OpenTelemetry + Grafana Tempo 分析 Distributed Trace。
+
 Repo：https://github.com/wei310129/QPS-tuning
 
-Pulse Platform — Event-driven / High Throughput
+【專案 03-3】Pulse Platform
+專案定位：Event-driven / High Throughput
+
+實作與驗證：
 - 建立 Ingestion API → Kafka → Consumer → Redis / PostgreSQL 的事件處理 Pipeline。
 - 驗證 Kafka Partition、Consumer Group、水平擴展、即時資料聚合與訊息可靠性。
 - 搭配 Micrometer / Prometheus 與 k6 進行效能觀測與壓力測試。
+
 Repo：https://github.com/wei310129/pulse-platform
 
-RescueHero — DDD / Distributed System MVP
+【專案 03-4】RescueHero
+專案定位：DDD / Distributed System MVP
+
+實作與驗證：
 - 使用 DDD、Kafka、Redis、PostgreSQL、MongoDB、WebSocket、JWT、Docker Compose。
 - 驗證 Domain Design、事件驅動、即時通訊與分散式 Web Application 架構。
+
 Repo：https://github.com/wei310129/RescueHero</pre>
 </main>
 </div>
