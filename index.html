@@ -1,0 +1,2583 @@
+<!DOCTYPE html>
+
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+<meta content="light" name="color-scheme"/>
+<title>陳政瑋的 AI 履歷</title>
+<style>
+:root {
+  --bg:#f4f6fa;
+  --surface:#ffffff;
+  --text:#172033;
+  --muted:#667085;
+  --line:#e4e7ec;
+  --blue:#175cd3;
+  --blue-soft:#eff4ff;
+  --green:#027a48;
+  --green-soft:#ecfdf3;
+  --amber:#b54708;
+  --amber-soft:#fffaeb;
+  --teal:#087e8b;
+  --teal-soft:#ecfdff;
+  --purple:#6941c6;
+  --purple-soft:#f4f3ff;
+  --shadow:0 12px 34px rgba(16,24,40,.07);
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; scroll-padding-top:110px; }
+body {
+  margin:0;
+  color:var(--text);
+  background:var(--bg);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+body.overlay-open { overflow:hidden; }
+a { color:var(--blue); text-decoration:none; }
+button { font:inherit; }
+[hidden] { display:none !important; }
+
+/* ========== Sticky header ========== */
+.site-header {
+  position:sticky;
+  top:0;
+  z-index:100;
+  padding-top:env(safe-area-inset-top);
+  background:rgba(244,246,250,.96);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(228,231,236,.95);
+}
+.header-inner {
+  max-width:1080px;
+  margin:0 auto;
+  padding:7px 18px 9px;
+}
+.header-top {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  min-height:38px;
+}
+.brand-wrap {
+  min-width:0;
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+.brand-dot {
+  flex:0 0 auto;
+  width:9px;
+  height:9px;
+  border-radius:50%;
+  background:var(--blue);
+  box-shadow:0 0 0 5px rgba(23,92,211,.10);
+}
+.brand-text {
+  min-width:0;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  font-size:14px;
+  font-weight:850;
+}
+.current-section {
+  display:inline-flex;
+  align-items:center;
+  max-width:190px;
+  padding:4px 8px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:#fff;
+  color:#667085;
+  font-size:10.5px;
+  font-weight:800;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.mode-switch {
+  flex:0 0 auto;
+  display:flex;
+  padding:2px;
+  border:1px solid #d0d5dd;
+  border-radius:10px;
+  background:#fff;
+}
+.mode-btn {
+  border:0;
+  cursor:pointer;
+  padding:6px 9px;
+  border-radius:7px;
+  background:transparent;
+  color:#667085;
+  font-size:11px;
+  font-weight:850;
+}
+.mode-btn.active {
+  background:#101828;
+  color:#fff;
+}
+.main-nav {
+  display:flex;
+  gap:6px;
+  overflow-x:auto;
+  scrollbar-width:none;
+  overscroll-behavior-inline:contain;
+  padding-top:6px;
+}
+.main-nav::-webkit-scrollbar { display:none; }
+.nav-btn {
+  flex:0 0 auto;
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  min-height:34px;
+  padding:6px 9px;
+  border:1px solid transparent;
+  border-radius:9px;
+  background:transparent;
+  color:#475467;
+  cursor:pointer;
+  font-size:12px;
+  font-weight:780;
+  transition:.15s ease;
+}
+.nav-btn .n {
+  color:#98a2b3;
+  font-size:10px;
+  font-weight:900;
+}
+.nav-btn.active {
+  border-color:#b2ccff;
+  background:var(--blue-soft);
+  color:var(--blue);
+}
+.nav-btn.active .n { color:var(--blue); }
+
+/* ========== Shared layout ========== */
+.shell {
+  max-width:1080px;
+  margin:0 auto;
+  padding:18px 18px 60px;
+}
+.anchor-section {
+  scroll-margin-top:110px;
+}
+.hero {
+  padding:26px;
+  border:1px solid var(--line);
+  border-radius:20px;
+  background:linear-gradient(135deg,#fff 0%,#f9fbff 60%,#eef4ff 100%);
+  box-shadow:var(--shadow);
+}
+.kicker {
+  display:inline-flex;
+  margin-bottom:10px;
+  padding:5px 9px;
+  border-radius:999px;
+  background:var(--blue-soft);
+  color:var(--blue);
+  font-size:11px;
+  font-weight:850;
+  letter-spacing:.05em;
+}
+h1 {
+  margin:0;
+  font-size:30px;
+  line-height:1.2;
+  letter-spacing:-.02em;
+}
+.hero-copy {
+  margin:10px 0 0;
+  max-width:860px;
+  color:#475467;
+  font-size:14px;
+}
+.overview-label {
+  margin:18px 0 9px;
+  color:#667085;
+  font-size:11px;
+  font-weight:850;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.overview-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:11px;
+}
+.overview-card {
+  display:block;
+  min-height:118px;
+  padding:14px;
+  border:1px solid var(--line);
+  border-radius:15px;
+  background:#fff;
+  color:inherit;
+  cursor:pointer;
+}
+.overview-card:hover {
+  text-decoration:none;
+  border-color:#b9c5d6;
+}
+.ov-top {
+  display:flex;
+  justify-content:space-between;
+  gap:6px;
+}
+.ov-num {
+  color:var(--blue);
+  font-size:10px;
+  font-weight:900;
+}
+.ov-priority {
+  padding:3px 6px;
+  border-radius:999px;
+  background:var(--green-soft);
+  color:var(--green);
+  font-size:9px;
+  font-weight:850;
+}
+.overview-card strong {
+  display:block;
+  margin:7px 0 4px;
+  font-size:15px;
+  line-height:1.35;
+}
+.overview-card p {
+  margin:0;
+  color:#667085;
+  font-size:12px;
+  line-height:1.5;
+}
+.section-kicker {
+  margin:26px 2px 9px;
+  color:#667085;
+  font-size:11px;
+  font-weight:850;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.card {
+  margin-bottom:16px;
+  overflow:hidden;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:#fff;
+  box-shadow:var(--shadow);
+}
+.card-head {
+  padding:20px 22px 14px;
+  border-bottom:1px solid #eef0f3;
+}
+.title-row {
+  display:flex;
+  align-items:center;
+  gap:9px;
+  flex-wrap:wrap;
+}
+.project-num {
+  display:inline-flex;
+  width:30px;
+  height:30px;
+  align-items:center;
+  justify-content:center;
+  border-radius:9px;
+  background:var(--blue-soft);
+  color:var(--blue);
+  font-size:12px;
+  font-weight:900;
+}
+.card h2 {
+  margin:0;
+  font-size:22px;
+  line-height:1.3;
+}
+.badge {
+  padding:4px 7px;
+  border-radius:999px;
+  font-size:9.5px;
+  font-weight:850;
+}
+.badge.major {
+  background:var(--green-soft);
+  color:var(--green);
+}
+.badge.private {
+  background:var(--amber-soft);
+  color:var(--amber);
+}
+.position {
+  margin-top:7px;
+  color:#667085;
+  font-size:12px;
+  font-weight:700;
+}
+.card-body {
+  padding:18px 22px 22px;
+}
+.one-liner {
+  margin:0 0 14px;
+  padding:12px 13px;
+  border-left:4px solid var(--blue);
+  border-radius:0 11px 11px 0;
+  background:#f8faff;
+  color:#344054;
+  font-size:13px;
+}
+.fact-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+}
+.fact {
+  padding:14px;
+  border:1px solid var(--line);
+  border-radius:13px;
+}
+.fact h3 {
+  margin:0 0 6px;
+  font-size:13px;
+}
+.fact ul {
+  margin:0;
+  padding-left:18px;
+  color:#475467;
+  font-size:12px;
+}
+.fact li + li { margin-top:5px; }
+.pipeline {
+  margin:0;
+  padding:12px 13px;
+  overflow:auto;
+  border-radius:11px;
+  background:#101828;
+  color:#e4e7ec;
+  font:11.5px/1.5 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+.tags {
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:14px;
+}
+.tag {
+  padding:4px 7px;
+  border-radius:999px;
+  background:#f2f4f7;
+  color:#344054;
+  font-size:10px;
+  font-weight:760;
+}
+.actions {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:15px;
+}
+.btn {
+  appearance:none;
+  border:0;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:37px;
+  padding:8px 11px;
+  border-radius:9px;
+  font-size:11px;
+  font-weight:850;
+}
+.btn-primary {
+  background:#101828;
+  color:#fff;
+}
+.btn-secondary {
+  border:1px solid #d0d5dd;
+  background:#fff;
+  color:#344054;
+}
+.private-note {
+  margin-top:9px;
+  color:#667085;
+  font-size:11px;
+}
+.poc-intro {
+  margin-bottom:11px;
+  padding:14px 15px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:#fff;
+  color:#475467;
+  font-size:12px;
+}
+.poc-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+.poc-card {
+  padding:15px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:#fff;
+}
+.poc-focus {
+  display:inline-block;
+  margin-bottom:7px;
+  padding:4px 7px;
+  border-radius:999px;
+  font-size:9.5px;
+  font-weight:850;
+}
+.poc-focus.blue {
+  background:var(--blue-soft);
+  color:var(--blue);
+}
+.poc-focus.teal {
+  background:var(--teal-soft);
+  color:var(--teal);
+}
+.poc-focus.purple {
+  background:var(--purple-soft);
+  color:var(--purple);
+}
+.poc-card h3 {
+  margin:0 0 5px;
+  font-size:14px;
+}
+.poc-card p {
+  margin:0;
+  color:#667085;
+  font-size:11.5px;
+}
+.poc-card a {
+  display:inline-block;
+  margin-top:9px;
+  font-size:11px;
+  font-weight:850;
+}
+
+/* ========== Plain text mode ========== */
+.text-toolbar {
+  position:sticky;
+  top:98px;
+  z-index:40;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  margin-bottom:11px;
+  padding:9px 10px;
+  border:1px solid var(--line);
+  border-radius:12px;
+  background:rgba(255,255,255,.97);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+}
+.text-toolbar span {
+  color:#667085;
+  font-size:11px;
+  font-weight:750;
+}
+.copy-all {
+  border:0;
+  cursor:pointer;
+  padding:7px 10px;
+  border-radius:8px;
+  background:#101828;
+  color:#fff;
+  font-size:11px;
+  font-weight:850;
+}
+.plain-section {
+  margin-bottom:12px;
+  padding:18px;
+  border:1px solid var(--line);
+  border-radius:15px;
+  background:#fff;
+}
+.plain-head {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:11px;
+}
+.plain-head h2 {
+  margin:0;
+  font-size:17px;
+}
+.copy-btn {
+  flex:0 0 auto;
+  border:1px solid #d0d5dd;
+  cursor:pointer;
+  padding:6px 8px;
+  border-radius:8px;
+  background:#fff;
+  color:#344054;
+  font-size:10.5px;
+  font-weight:850;
+}
+.plain-text {
+  margin:0;
+  white-space:pre-wrap;
+  word-break:break-word;
+  color:#344054;
+  font:12.5px/1.72 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+}
+.plain-details {
+  margin-top:12px;
+  border:1px solid var(--line);
+  border-radius:11px;
+  overflow:hidden;
+}
+.plain-details summary {
+  cursor:pointer;
+  padding:11px 12px;
+  background:#f8fafc;
+  color:#344054;
+  font-size:11.5px;
+  font-weight:850;
+}
+.plain-details .plain-readme {
+  max-height:58vh;
+  overflow:auto;
+  padding:14px;
+  white-space:pre-wrap;
+  word-break:break-word;
+  background:#fff;
+  color:#344054;
+  font:11.5px/1.65 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+.copy-status {
+  position:fixed;
+  left:50%;
+  bottom:calc(18px + env(safe-area-inset-bottom));
+  z-index:250;
+  opacity:0;
+  pointer-events:none;
+  transform:translateX(-50%) translateY(20px);
+  padding:8px 12px;
+  border-radius:999px;
+  background:#101828;
+  color:#fff;
+  font-size:11px;
+  font-weight:800;
+  transition:.18s ease;
+}
+.copy-status.show {
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+/* ========== README overlay — no <dialog>, works in iOS/WebView ========== */
+.readme-overlay {
+  position:fixed;
+  inset:0;
+  z-index:220;
+  display:none;
+  background:rgba(16,24,40,.58);
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+}
+.readme-overlay.open {
+  display:block;
+}
+.readme-panel {
+  position:absolute;
+  inset:12px;
+  max-width:980px;
+  margin:auto;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  border:1px solid #d0d5dd;
+  border-radius:20px;
+  background:#fff;
+  box-shadow:0 28px 90px rgba(16,24,40,.30);
+}
+.readme-head {
+  flex:0 0 auto;
+  padding:13px 15px 9px;
+  border-bottom:1px solid var(--line);
+  background:#fff;
+}
+.readme-title-row {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+}
+.readme-title {
+  min-width:0;
+}
+.readme-title strong {
+  display:block;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  font-size:14px;
+}
+.readme-title span {
+  display:block;
+  margin-top:2px;
+  color:#667085;
+  font-size:10px;
+}
+.readme-actions {
+  display:flex;
+  gap:6px;
+  align-items:center;
+}
+.overlay-copy {
+  border:1px solid #d0d5dd;
+  cursor:pointer;
+  padding:6px 8px;
+  border-radius:8px;
+  background:#fff;
+  color:#344054;
+  font-size:10px;
+  font-weight:850;
+}
+.close-btn {
+  width:34px;
+  height:34px;
+  border:1px solid #d0d5dd;
+  border-radius:9px;
+  background:#fff;
+  cursor:pointer;
+  color:#344054;
+  font-size:19px;
+  line-height:1;
+}
+.readme-nav {
+  display:flex;
+  gap:5px;
+  margin-top:8px;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+.readme-nav::-webkit-scrollbar { display:none; }
+.readme-tab {
+  flex:0 0 auto;
+  min-height:30px;
+  padding:5px 8px;
+  border:1px solid #e4e7ec;
+  border-radius:8px;
+  background:#fff;
+  color:#475467;
+  cursor:pointer;
+  font-size:10px;
+  font-weight:800;
+}
+.readme-tab.active {
+  border-color:#b2ccff;
+  background:var(--blue-soft);
+  color:var(--blue);
+}
+.readme-body {
+  flex:1 1 auto;
+  overflow:auto;
+  scroll-behavior:smooth;
+  scroll-padding-top:15px;
+  padding:0 26px 36px;
+  overscroll-behavior:contain;
+}
+.readme-banner {
+  position:sticky;
+  top:0;
+  z-index:3;
+  margin:0 -26px 18px;
+  padding:8px 26px;
+  border-bottom:1px solid #f2e4c9;
+  background:#fffcf5;
+  color:#7a2e0e;
+  font-size:10.5px;
+}
+.readme-content {
+  max-width:820px;
+  margin:0 auto;
+  color:#344054;
+  font-size:13.5px;
+}
+.readme-content > h1 {
+  margin:6px 0 12px;
+  color:#101828;
+  font-size:27px;
+  line-height:1.2;
+}
+.readme-content h2 {
+  scroll-margin-top:18px;
+  margin:30px 0 11px;
+  padding:10px 12px;
+  border:1px solid #e4e7ec;
+  border-radius:11px;
+  background:linear-gradient(90deg,#f8faff,#fff);
+  color:#101828;
+  font-size:18px;
+}
+.readme-content h3 {
+  margin:22px 0 7px;
+  color:#1d2939;
+  font-size:15px;
+}
+.readme-content blockquote {
+  margin:13px 0;
+  padding:10px 12px;
+  border-left:4px solid var(--blue);
+  border-radius:0 9px 9px 0;
+  background:#f8faff;
+}
+.readme-content code {
+  padding:2px 5px;
+  border-radius:5px;
+  background:#f2f4f7;
+  font:.92em ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+.readme-content pre {
+  margin:11px 0;
+  padding:14px;
+  overflow:auto;
+  border-radius:11px;
+  background:#101828;
+  color:#e4e7ec;
+  font:11.5px/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+.readme-content pre code {
+  padding:0;
+  background:transparent;
+  color:inherit;
+  font-size:inherit;
+}
+.table-scroll {
+  width:100%;
+  overflow-x:auto;
+  margin:11px 0;
+  border:1px solid #e4e7ec;
+  border-radius:11px;
+}
+.readme-content table {
+  width:100%;
+  min-width:560px;
+  border-collapse:collapse;
+  margin:0;
+  font-size:12px;
+}
+.readme-content th,
+.readme-content td {
+  padding:8px 9px;
+  border-bottom:1px solid #e4e7ec;
+  text-align:left;
+  vertical-align:top;
+}
+.readme-content th {
+  background:#f8fafc;
+  white-space:nowrap;
+}
+.private-path {
+  display:inline-block;
+  padding:1px 5px;
+  border-radius:5px;
+  background:#f2f4f7;
+  color:#667085;
+  font:.9em ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+.footer {
+  margin-top:26px;
+  text-align:center;
+  color:#98a2b3;
+  font-size:10px;
+}
+
+@media (max-width:760px) {
+  html { scroll-padding-top:104px; }
+  .header-inner { padding:6px 10px 8px; }
+  .header-top { min-height:36px; }
+  .brand-text { max-width:35vw; font-size:12.5px; }
+  .current-section { max-width:82px; padding:3px 6px; font-size:9.5px; }
+  .mode-btn { padding:5px 7px; font-size:10px; }
+  .main-nav { padding-top:5px; }
+  .nav-btn { min-height:32px; padding:5px 8px; font-size:11px; }
+
+  .shell { padding:12px 11px 42px; }
+  .anchor-section { scroll-margin-top:104px; }
+  .hero { padding:18px 16px; border-radius:17px; }
+  h1 { font-size:24px; }
+  .hero-copy {
+    display:-webkit-box;
+    -webkit-line-clamp:4;
+    -webkit-box-orient:vertical;
+    overflow:hidden;
+    margin-top:8px;
+    font-size:12.5px;
+  }
+  .overview-grid {
+    display:flex;
+    gap:9px;
+    overflow-x:auto;
+    scrollbar-width:none;
+    scroll-snap-type:x proximity;
+    margin:0 -16px;
+    padding:0 16px 3px;
+  }
+  .overview-grid::-webkit-scrollbar { display:none; }
+  .overview-card {
+    flex:0 0 78vw;
+    max-width:295px;
+    min-height:112px;
+    scroll-snap-align:start;
+    padding:13px;
+  }
+  .section-kicker { margin-top:20px; }
+  .card {
+    border-radius:16px;
+    margin-bottom:13px;
+  }
+  .card-head { padding:16px 15px 12px; }
+  .card-body { padding:14px 15px 17px; }
+  .card h2 { font-size:18px; }
+  .project-num { width:28px; height:28px; }
+  .one-liner { font-size:12.5px; }
+  .fact-grid { grid-template-columns:1fr; gap:8px; }
+  .fact { padding:12px; }
+  .actions .btn { flex:1 1 auto; }
+  .poc-grid {
+    display:flex;
+    gap:9px;
+    overflow-x:auto;
+    scrollbar-width:none;
+    scroll-snap-type:x proximity;
+    margin:0 -11px;
+    padding:0 11px 4px;
+  }
+  .poc-grid::-webkit-scrollbar { display:none; }
+  .poc-card {
+    flex:0 0 82vw;
+    max-width:310px;
+    scroll-snap-align:start;
+  }
+  .text-toolbar {
+    top:91px;
+    margin:0 0 9px;
+  }
+  .plain-section { padding:14px; }
+  .plain-head h2 { font-size:15px; }
+  .plain-text { font-size:12px; }
+
+  .readme-panel {
+    inset:0;
+    max-width:none;
+    border:0;
+    border-radius:0;
+  }
+  .readme-head {
+    padding:calc(7px + env(safe-area-inset-top)) 11px 7px;
+  }
+  .readme-title strong { font-size:13px; }
+  .readme-tab {
+    min-height:29px;
+    font-size:9.8px;
+  }
+  .readme-body {
+    padding:0 14px calc(26px + env(safe-area-inset-bottom));
+  }
+  .readme-banner {
+    margin:0 -14px 15px;
+    padding:7px 14px;
+    font-size:10px;
+  }
+  .readme-content { font-size:12.5px; }
+  .readme-content > h1 { font-size:23px; }
+  .readme-content h2 {
+    margin-top:24px;
+    font-size:16px;
+  }
+  .readme-content h3 { font-size:14px; }
+  .readme-content pre { font-size:10.8px; }
+}
+
+@media print {
+  .site-header,.text-toolbar { display:none; }
+  body { background:#fff; }
+  .shell { max-width:none; padding:0; }
+  .hero,.card,.poc-card,.poc-intro,.plain-section {
+    box-shadow:none;
+    break-inside:avoid;
+  }
+  .readme-overlay { display:none !important; }
+}
+
+/* A bounded scroll root works both standalone and inside ChatGPT's iframe. */
+html, body { height:100%; overflow:hidden; scroll-behavior:auto; }
+#app-scroll {
+  position:relative;
+  width:100%;
+  height:100vh;
+  height:100dvh;
+  min-height:0;
+  overflow:auto;
+  overscroll-behavior:contain;
+  --header-height:95px;
+}
+body.overlay-open #app-scroll { overflow:hidden; }
+.text-toolbar { top:var(--header-height); }
+/* Let the final section reach the reading line even on a tall desktop.
+   Otherwise a clamped jump to the preceding project is mistaken for page end. */
+#visual-poc, #text-poc { min-height:calc(100dvh - var(--header-height) - 30px); }
+.overview-card { text-align:left; }
+.main-nav { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; overflow:visible; }
+.nav-btn { min-width:0; width:100%; flex-direction:column; align-items:flex-start; justify-content:flex-start; gap:5px; padding:9px 10px; text-align:left; white-space:normal; }
+.nav-title { display:flex; align-items:baseline; gap:6px; }
+.nav-title .n { flex:0 0 auto; }
+.nav-name { min-width:0; overflow-wrap:anywhere; }
+.nav-description { font-size:11px; font-weight:600; color:#667085; line-height:1.45; overflow-wrap:anywhere; }
+.nav-btn.active .nav-description { color:var(--blue); }
+.agentic-summary { margin-top:18px; }
+.agentic-summary h2 { margin:0 0 8px; font-size:16px; }
+.agentic-summary ul { margin:0; padding-left:20px; color:#475467; font-size:13px; line-height:1.6; }
+.agentic-summary li + li { margin-top:7px; }
+.agentic-summary strong { color:#344054; }
+.poc-heading { margin:0 2px 12px; font-size:22px; line-height:1.3; }
+.ai-tool-pool { margin-top:18px; padding-top:14px; border-top:1px solid var(--line); }
+.ai-tool-pool h2 { margin:0; font-size:14px; font-weight:850; }
+.ai-tool-pool .tags { margin-top:8px; }
+.project-tools { margin:12px 0 0; color:#475467; font-size:12px; }
+.project-tools strong { color:#344054; }
+.poc-tools { margin:0 2px 12px; }
+.readme-body { min-height:0; min-width:0; scroll-behavior:auto; overflow-x:hidden; }
+.readme-content { min-width:0; overflow-wrap:anywhere; }
+.readme-content pre { white-space:pre; overflow-wrap:normal; }
+.readme-content img { max-width:100%; height:auto; }
+.readme-panel { min-height:0; }
+.readme-title { flex:1; }
+.readme-actions { flex-shrink:0; }
+button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline:3px solid #175cd3; outline-offset:3px; }
+@media (max-width:760px) {
+  .main-nav { grid-template-columns:repeat(2,minmax(0,1fr)); gap:6px; }
+  .nav-btn { padding:7px 8px; gap:4px; font-size:11.5px; }
+  .nav-description { font-size:11px; }
+  .current-section { display:none; }
+  .brand-text { max-width:none; }
+  .hero-copy { display:block; overflow:visible; }
+  .agentic-summary ul { font-size:12.5px; }
+  .poc-heading { font-size:18px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  *, *::before, *::after { scroll-behavior:auto !important; transition:none !important; }
+}
+@media print {
+  html, body { height:auto; overflow:visible; }
+  #app-scroll { height:auto; overflow:visible; }
+  #visual-poc, #text-poc { min-height:0; }
+}
+
+</style>
+</head>
+<body>
+<div id="app-scroll" tabindex="0" aria-label="履歷內容">
+<header class="site-header">
+<div class="header-inner">
+<div class="header-top">
+<div class="brand-wrap">
+<span class="brand-dot"></span>
+<span class="brand-text">陳政瑋的 AI 履歷</span>
+<span class="current-section" id="current-section">總覽</span>
+</div>
+<div aria-label="顯示模式" class="mode-switch">
+<button class="mode-btn active" data-mode="visual" type="button">版面</button>
+<button class="mode-btn" data-mode="text" type="button">純文字</button>
+</div>
+</div>
+<nav aria-label="主要內容導覽" class="main-nav" id="main-nav">
+<button class="nav-btn active" data-key="overview" type="button"><span class="nav-title"><span class="n">00</span><span class="nav-name">總覽</span></span><span class="nav-description">Agentic Coding 能力</span></button>
+<button class="nav-btn" data-key="mms" type="button"><span class="nav-title"><span class="n">01</span><span class="nav-name">My Mobile Secretary</span></span><span class="nav-description">AI Agent 個人智慧助理專案</span></button>
+<button class="nav-btn" data-key="taiwan" type="button"><span class="nav-title"><span class="n">02</span><span class="nav-name">Taiwan Weighted Index Prediction</span></span><span class="nav-description">量化策略研究與回測平台專案</span></button>
+<button class="nav-btn" data-key="poc" type="button"><span class="nav-title"><span class="n">03</span><span class="nav-name">Backend PoC / MVP 專案</span></span><span class="nav-description">QPS Tuning · Pulse Platform · RescueHero</span></button>
+</nav>
+</div>
+</header>
+<!-- ==================== Visual Mode ==================== -->
+<main class="shell" id="visual-view">
+<section class="hero anchor-section track-section" data-key="overview" id="visual-overview">
+<div class="kicker">AI RESUME · SOFTWARE ENGINEERING</div>
+<h1>陳政瑋的 AI 履歷</h1>
+<p class="hero-copy">以 AI 輔助軟體工程，將需求拆解、架構設計、實作、測試與驗證串成完整開發流程。實作經驗涵蓋 AI Agent、量化研究平台與 Backend PoC / MVP。</p>
+<section class="agentic-summary" aria-labelledby="agentic-coding-title">
+<h2 id="agentic-coding-title">Agentic Coding 能力</h2>
+<ul>
+<li><strong>需求與任務拆解：</strong>以 AI 協助需求分析與架構方案比較，將需求拆成可實作的模組與任務。</li>
+<li><strong>架構與執行邊界：</strong>透過 Interface、Domain Boundary 與 Validation，分離 LLM 理解、規則驗證與業務執行。</li>
+<li><strong>程式實作與迭代：</strong>使用 ChatGPT、Codex、Claude Code 協助 Coding、Refactoring 與 Debug，整合成可運作的專案。</li>
+<li><strong>測試與品質把關：</strong>以自動化測試、型別檢查、CI 與 Regression Guard 驗證 AI 產出與改版行為。</li>
+<li><strong>效能與研究驗證：</strong>以壓力測試、Metrics / Tracing、Validation / Holdout 與 Integrity Audit 驗證結果。</li>
+</ul>
+</section>
+<section class="ai-tool-pool" aria-labelledby="ai-tools-title">
+<h2 id="ai-tools-title">個人 AI 工具池</h2>
+<div class="tags"><span class="tag">ChatGPT</span><span class="tag">Codex</span><span class="tag">Claude Code</span></div>
+<p class="project-tools">Claude Code 曾用於 My Mobile Secretary 前期及部分 PoC 開發。</p>
+</section>
+<div class="overview-label">代表專案</div>
+<div class="overview-grid">
+<button class="overview-card" data-jump="mms" type="button">
+<div class="ov-top"><span class="ov-num">01 · AI PRODUCT</span><span class="ov-priority">主打</span></div>
+<strong>My Mobile Secretary</strong>
+<p>Spring AI + LLM + Agent / Intent / Session，真正把 AI 放進 Backend 系統。</p>
+</button>
+<button class="overview-card" data-jump="taiwan" type="button">
+<div class="ov-top"><span class="ov-num">02 · AI-ASSISTED ENGINEERING</span><span class="ov-priority">主打</span></div>
+<strong>Taiwan Weighted Index Prediction</strong>
+<p>AI 參與需求、架構、Coding、測試與研究治理；Private README 可直接閱讀。</p>
+</button>
+<button class="overview-card" data-jump="poc" type="button">
+<div class="ov-top"><span class="ov-num">03 · BACKEND PoC / MVP 專案</span></div>
+<strong>QPS Tuning · Pulse Platform · RescueHero</strong>
+<p>Performance、Observability、Kafka、DDD 等代表性技術驗證。</p>
+</button>
+</div>
+</section>
+<div class="section-kicker">核心 AI 專案</div>
+<section class="card anchor-section track-section" data-key="mms" id="visual-mms">
+<div class="card-head">
+<div class="title-row">
+<span class="project-num">01</span>
+<h2>My Mobile Secretary</h2>
+<span class="badge major">主要專案</span>
+</div>
+<div class="position">Java Backend · Spring AI · LLM / AI Agent 個人智慧助理</div>
+</div>
+<div class="card-body">
+<p class="one-liner">
+        使用 Java / Spring Boot / Spring AI 建立個人 AI 助理；讓 LLM 負責理解意圖，
+        Backend 負責規則驗證與真正執行，避免模型直接控制核心業務。
+      </p>
+<div class="fact-grid">
+<div class="fact">
+<h3>AI / Agent 核心</h3>
+<ul>
+<li>LINE Webhook + LLM，多輪 Session 與自然語言意圖解析。</li>
+<li>Intent Interpreter / AI Dispatcher / Trigger 等模組化設計。</li>
+<li>將 LLM Interpretation 與 Domain / Tool Execution 分離。</li>
+<li>朝行事曆、提醒、規劃、外部服務整合的個人助理方向擴充。</li>
+</ul>
+</div>
+<div class="fact">
+<h3>AI Coding Governance</h3>
+<ul>
+<li>My Mobile Secretary 前期曾使用 Claude Code；ChatGPT / Codex 用於需求拆解、Architecture、Coding、Refactoring、Testing、Debug。</li>
+<li>以 Interface、Domain Boundary、Validation 限制 AI 修改與執行範圍。</li>
+<li>自動化測試驗證 Intent Interpretation 與 Provider-neutral 行為。</li>
+<li>降低 Prompt / Model 調整或長 Context 造成的 Regression。</li>
+</ul>
+</div>
+</div>
+<div class="tags">
+<span class="tag">Java 21</span><span class="tag">Spring Boot</span><span class="tag">Spring AI</span>
+<span class="tag">LLM</span><span class="tag">AI Agent</span><span class="tag">LINE Webhook</span>
+<span class="tag">Domain Design</span><span class="tag">Automated Testing</span>
+</div>
+<p class="project-tools"><strong>開發工具：</strong>Claude Code（前期）、ChatGPT、Codex</p>
+<div class="actions">
+<a class="btn btn-primary" href="https://github.com/wei310129/my-mobile-secretary" rel="noopener" target="_blank">GitHub Repository ↗</a>
+</div>
+</div>
+</section>
+<section class="card anchor-section track-section" data-key="taiwan" id="visual-taiwan">
+<div class="card-head">
+<div class="title-row">
+<span class="project-num">02</span>
+<h2>Taiwan Weighted Index Prediction</h2>
+<span class="badge major">主要專案</span>
+<span class="badge private">Private Repo</span>
+</div>
+<div class="position">AI-assisted Software Engineering · Quant Research / Backtesting Platform</div>
+</div>
+<div class="card-body">
+<p class="one-liner">
+        將市場資料、策略研究、Backtest、Validation / Holdout、Integrity Audit 與決策輔助整合成一套可長期維護的研究平台；
+        AI 深度參與需求拆解、架構設計、實作、重構、測試與文件治理。
+      </p>
+<div class="fact-grid">
+<div class="fact">
+<h3>研究 / 工程 Pipeline</h3>
+<pre class="pipeline">Market Data
+    ↓
+Data Reliability
+    ↓
+Research / Feature
+    ↓
+Strategy Engine
+    ↓
+Backtest
+    ↓
+Validation / Audit
+    ↓
+Performance Report</pre>
+</div>
+<div class="fact">
+<h3>最值得看的工程點</h3>
+<ul>
+<li>防止 Look-ahead Bias，訊號與成交時點分離。</li>
+<li>交易成本、滑價、商品限制納入 Backtest。</li>
+<li>Market Data completeness / cache / fallback / data gate。</li>
+<li>Research Integrity Audit + Performance Regression Guard。</li>
+<li>Discovery / Validation / Holdout、Walk-forward、Sensitivity Test。</li>
+</ul>
+</div>
+</div>
+<div class="tags">
+<span class="tag">Vue 3</span><span class="tag">TypeScript</span><span class="tag">Node.js / Express</span>
+<span class="tag">Backtesting</span><span class="tag">Research Validation</span><span class="tag">SQLite</span>
+<span class="tag">GitHub Actions</span><span class="tag">AI-assisted Development</span>
+</div>
+<p class="project-tools"><strong>開發工具：</strong>ChatGPT、Codex</p>
+<div class="actions">
+<button class="btn btn-primary" id="open-readme" type="button">查看完整 README</button>
+<button class="btn btn-secondary" data-readme-jump="readme-section-4" type="button">直接看 Engineering Highlights</button>
+</div>
+<div class="private-note">
+        Repository 為 Private；可在此頁直接閱讀完整 README。
+      </div>
+</div>
+</section>
+<div class="section-kicker">延伸 AI-assisted Backend PoC / MVP</div>
+<section class="anchor-section track-section" data-key="poc" id="visual-poc">
+<h2 class="poc-heading">Backend PoC / MVP 專案</h2>
+<div class="poc-intro">
+      代表性 PoC 只保留三個：一個看 Performance / Observability、一個看 Event-driven / High Throughput、
+      一個看完整 Distributed MVP；避免 Repo 太多分散閱讀焦點。
+    </div>
+<p class="project-tools poc-tools">開發工具：ChatGPT、Codex；部分 PoC 曾使用 Claude Code。</p>
+<div class="poc-grid">
+<article class="poc-card">
+<span class="poc-focus blue">Performance · Observability</span>
+<h3>QPS Tuning</h3>
+<p>Redis Rate Limit / Semaphore、Pipeline、OOM、Sentinel Failover、JVM GC；Micrometer + Prometheus + Grafana + OpenTelemetry + Tempo。</p>
+<a href="https://github.com/wei310129/QPS-tuning" rel="noopener" target="_blank">GitHub →</a>
+</article>
+<article class="poc-card">
+<span class="poc-focus teal">Event-driven · High Throughput</span>
+<h3>Pulse Platform</h3>
+<p>Ingestion API → Kafka → Consumer → Redis / PostgreSQL；驗證 Partition、Consumer Group、水平擴展，並搭配 Micrometer / Prometheus 與 k6。</p>
+<a href="https://github.com/wei310129/pulse-platform" rel="noopener" target="_blank">GitHub →</a>
+</article>
+<article class="poc-card">
+<span class="poc-focus purple">DDD · Distributed MVP</span>
+<h3>RescueHero</h3>
+<p>DDD、Kafka、Redis、PostgreSQL、MongoDB、WebSocket、JWT、Docker Compose，驗證完整事件驅動與分散式 Web Application 架構。</p>
+<a href="https://github.com/wei310129/RescueHero" rel="noopener" target="_blank">GitHub →</a>
+</article>
+</div>
+</section>
+<div class="footer">陳政瑋 · AI 應用與軟體開發經驗</div>
+</main>
+<!-- ==================== Plain Text Mode ==================== -->
+<main class="shell" hidden="" id="text-view">
+<div class="text-toolbar">
+<span>純文字模式：每一段都可單獨複製</span>
+<button class="copy-all" data-copy-target="copy-all-source" type="button">複製全部</button>
+</div>
+<section class="plain-section anchor-section track-section" data-key="overview" id="text-overview">
+<div class="plain-head">
+<h2>00 · 總覽：Agentic Coding 能力</h2>
+<button class="copy-btn" data-copy-target="plain-overview" type="button">複製此段</button>
+</div>
+<pre class="plain-text" id="plain-overview">陳政瑋的 AI 履歷
+
+以 AI 輔助軟體工程，將需求拆解、架構設計、實作、測試與驗證串成完整開發流程。實作經驗涵蓋 AI Agent、量化研究平台與 Backend PoC / MVP。
+
+Agentic Coding 能力：
+- 需求與任務拆解：以 AI 協助需求分析與架構方案比較，將需求拆成可實作的模組與任務。
+- 架構與執行邊界：透過 Interface、Domain Boundary 與 Validation，分離 LLM 理解、規則驗證與業務執行。
+- 程式實作與迭代：使用 ChatGPT、Codex、Claude Code 協助 Coding、Refactoring 與 Debug，整合成可運作的專案。
+- 測試與品質把關：以自動化測試、型別檢查、CI 與 Regression Guard 驗證 AI 產出與改版行為。
+- 效能與研究驗證：以壓力測試、Metrics / Tracing、Validation / Holdout 與 Integrity Audit 驗證結果。
+
+個人 AI 工具池：ChatGPT、Codex、Claude Code。
+Claude Code 曾用於 My Mobile Secretary 前期及部分 PoC 開發。
+
+代表專案：
+1. My Mobile Secretary：AI Agent / Spring AI / LLM 應用開發
+2. Taiwan Weighted Index Prediction：AI-assisted Software Engineering / 量化研究與回測平台
+3. Backend PoC / MVP：Performance、Observability、Event-driven、Distributed System 技術驗證</pre>
+</section>
+<section class="plain-section anchor-section track-section" data-key="mms" id="text-mms">
+<div class="plain-head">
+<h2>01 · My Mobile Secretary</h2>
+<button class="copy-btn" data-copy-target="plain-mms" type="button">複製此段</button>
+</div>
+<pre class="plain-text" id="plain-mms">1. My Mobile Secretary — AI Agent 個人智慧助理【主要專案】
+
+定位：Java Backend + Spring AI + LLM / AI Agent
+
+開發工具：Claude Code（前期）、ChatGPT、Codex
+
+使用 Java / Spring Boot / Spring AI 開發個人 AI 助理，整合 LINE Webhook、LLM 意圖解析、任務派送與 Session 管理。
+
+主要實作重點：
+- 以 LLM 將自然語言轉換成後端可處理的結構化 Intent。
+- 建立 Intent Interpreter、AI Dispatcher、Session / Trigger 等模組。
+- 將 LLM 語意判斷與 Backend Domain / Tool Execution 分離，避免模型直接控制核心業務流程。
+- 專案前期曾使用 Claude Code；亦使用 ChatGPT / Codex 協助需求拆解、架構設計、Coding、Refactoring、Testing 與 Debug。
+- 以 Interface、Domain Boundary、Validation 限制 AI 修改與執行範圍。
+- 透過自動化測試驗證 Intent Interpretation 與 Provider-neutral 行為，降低 Prompt / Model 調整或長 Context 造成的 Regression。
+
+主要技術：
+Java 21、Spring Boot、Spring AI、LLM、AI Agent、LINE Webhook、Domain Design、Automated Testing
+
+Repo：
+https://github.com/wei310129/my-mobile-secretary</pre>
+</section>
+<section class="plain-section anchor-section track-section" data-key="taiwan" id="text-taiwan">
+<div class="plain-head">
+<h2>02 · Taiwan Weighted Index Prediction</h2>
+<button class="copy-btn" data-copy-target="plain-taiwan" type="button">複製此段</button>
+</div>
+<pre class="plain-text" id="plain-taiwan">2. Taiwan Weighted Index Prediction — AI 輔助量化研究與回測平台【主要專案】
+
+定位：AI-assisted Software Engineering + Quant Research / Backtesting Platform
+
+開發工具：ChatGPT、Codex
+
+將市場資料、策略研究、歷史回測、研究驗證與決策輔助整合成一套可長期維護的研究平台。AI 深度參與需求拆解、架構設計、程式實作、Refactoring、Testing 與文件治理。
+
+主要實作重點：
+- 建立 Market Data → Data Reliability → Research / Feature → Strategy Engine → Backtest → Validation / Audit → Performance Report 的研究 Pipeline。
+- 防止 Look-ahead Bias，將策略訊號產生與實際成交時點分離。
+- 將手續費、交易稅、滑價與商品限制納入 Backtest。
+- 處理行情完整度、Cache / Resume、企業行動、Fallback / Degraded Mode 與 Data Gate。
+- 建立 Research Integrity Audit 與 Performance Regression Guard，避免策略改版後歷史績效退化被靜默覆蓋。
+- 採用 Discovery / Validation / Holdout、Walk-forward、Sensitivity Test 等方式驗證研究結果。
+- 使用 AI 輔助需求分析、架構方案比較、Coding、Refactoring、Testing 與研究文件整理。
+
+主要技術：
+Vue 3、TypeScript、Node.js / Express、SQLite、Backtesting、Research Validation、GitHub Actions、AI-assisted Development
+
+Repo 狀態：
+Private。完整 README 已內嵌，不需要 GitHub 權限即可閱讀。</pre>
+<details class="plain-details">
+<summary>完整 README（Private Repo 備份，可直接選取 / 複製）</summary>
+<div style="padding:10px 12px 0;">
+<button class="copy-btn" data-copy-target="plain-readme" type="button">複製完整 README</button>
+</div>
+<pre class="plain-readme" id="plain-readme"># 衡策｜量化策略研究平台
+
+衡策是一套將**市場資料、策略研究、歷史回測、研究驗證與決策輔助**整合在同一系統中的量化研究平台。
+
+系統以實際歷史行情為基礎，在一致的資料可見範圍、成交時點與交易成本下比較不同策略，並特別處理前視偏誤（look-ahead bias）、資料缺漏、企業行動、參數尋優以及策略改版造成的績效退化。
+
+&gt; 專案目標不是找出歷史報酬最高的策略，而是建立一套**可重現、可驗證、可比較、可追溯**的研究流程。
+
+目前研究範圍包含臺灣 50 系列、金融股策略，以及臺指選擇權買方策略。部分金融與衍生商品研究仍屬 Beta／研究觀察階段，不代表正式投資建議。
+
+---
+
+## 專案重點
+
+這個專案不只實作技術指標或單一回測公式，而是將策略研究視為一個需要長期維護的工程系統。
+
+核心設計包含：
+
+- 不同策略使用一致的時間範圍、成交假設與成本模型比較。
+- 訊號只能使用決策當下已完成、當時可取得的資料。
+- ETF、股票與選擇權使用各自實際行情，不用其他商品報酬人工合成。
+- 手續費、交易稅、滑價／價差等交易成本納入績效。
+- 對行情來源建立資料閘門、快取、續傳、降級與缺漏修復機制。
+- 策略或回測邏輯修改時，CI 會要求產生改版前後績效比較。
+- 研究結果、integrity audit 與 performance report 保存在 repository 中。
+- 對可能存在過度配適的結果保留研究觀察狀態，而不是直接升格為正式策略。
+
+---
+
+## Research Pipeline
+
+```text
+Market Data
+    │
+    ├─ Yahoo Finance
+    ├─ TWSE
+    ├─ TAIFEX
+    └─ Fact Book / auxiliary data
+    │
+    ▼
+Data Reliability Layer
+    │
+    ├─ completeness check
+    ├─ cache / resume
+    ├─ corporate action adjustment
+    ├─ fallback / degraded mode
+    └─ data gate
+    │
+    ▼
+Research / Feature Layer
+    │
+    ├─ trend
+    ├─ momentum
+    ├─ volume / volatility
+    ├─ market regime
+    └─ multi-timeframe conditions
+    │
+    ▼
+Strategy Engine
+    │
+    ▼
+Backtest Engine
+    │
+    ├─ execution timing
+    ├─ transaction cost
+    ├─ position sizing
+    └─ benchmark
+    │
+    ▼
+Validation / Holdout / Audit
+    │
+    ▼
+Performance Report
+    │
+    ▼
+Decision UI / LINE Notification
+```
+
+---
+
+## 目前研究範圍
+
+### 臺灣 50 系列
+
+- `0050`
+- `00631L`
+- `00632R`
+- `T50COMBO`：0050／正 2／反 1 三資產輪動研究
+
+槓桿與反向 ETF 均使用自身實際歷史行情、企業行動、交易成本與基準，不以 0050 日報酬直接乘以 `2` 或 `-1` 合成。
+
+### 金融研究（Beta）
+
+目前包含：
+
+- `0055`
+- `2882`
+- `2891`
+- `2886`
+- `2885`
+
+金融標的使用自己的行情與金融產業特徵，不直接沿用臺灣 50 或槓反策略的訊號與排名。
+
+### 臺指選擇權研究（Beta）
+
+- `TXO`：臺指月選
+- `TXOW`：臺指週選
+- 僅研究 Call／Put **買方策略**
+- 不建立裸賣部位
+- 不使用選擇權賣方保證金模型
+
+月選與週選的契約、快取、績效、研究紀錄與帳本彼此分離；尚未通過研究門檻的版本只保留為研究觀察，不指定為正式策略。
+
+---
+
+## Engineering Highlights
+
+### 1. 防止 Look-ahead Bias
+
+回測中的訊號產生與成交時點刻意分離。
+
+```text
+T-1 已完成資料
+      │
+      ▼
+產生策略訊號
+      │
+      ▼
+T / 下一可交易時點
+      │
+      ▼
+執行部位調整
+```
+
+未完成的日 K、週 K、雙週 K、月 K 或季 K 不得提前進入策略判斷。
+
+指定歷史回測截止日後，行情、指標、研究樣本與策略決策都必須同步截斷，不允許使用截止日之後的資料。
+
+### 2. 真實商品行情，不使用合成捷徑
+
+0050、00631L、00632R 與金融標的各自使用自己的實際歷史行情。
+
+例如：
+
+```text
+錯誤做法
+0050 daily return × 2
+        ↓
+模擬 00631L
+
+衡策
+00631L actual OHLCV
+        ↓
+Backtest
+```
+
+這避免忽略槓桿 ETF 的每日重設、波動耗損、複利路徑與實際交易價格。
+
+### 3. Transaction-cost-aware Backtest
+
+策略比較會納入：
+
+- 券商手續費
+- 商品適用的證交稅
+- 滑價／價差隱含成本
+- 實際進出場時點
+- 整股或整數口數限制
+
+績效指標包含：
+
+- 累積報酬
+- 年化報酬
+- 最大回撤
+- Sharpe Ratio
+- Calmar Ratio
+- 勝率
+- 交易次數
+- 成本拆分
+
+買進持有作為比較基準，不直接參與主動策略首選。
+
+### 4. Research Integrity 與 Performance Regression Guard
+
+策略研究不是只比較「新版報酬有沒有比較高」。
+
+repository 中保留：
+
+```text
+docs/
+├─ research-preregistrations/
+├─ strategy-integrity-audits/
+├─ strategy-performance-reports/
+├─ *-research.md
+└─ *-protocol.md
+```
+
+策略計算或研究檔變更時：
+
+```bash
+npm run guard:strategy-performance
+```
+
+會要求產生新版／舊版的績效比較。
+
+若新版報酬下降，研究結果必須留下原因與風險交換說明，例如：
+
+- 維持舊版
+- 保留新版為研究觀察
+- 接受較低報酬換取較低回撤／較低頻率
+- 判定沒有增量效益
+
+避免策略邏輯改版後，歷史績效退化卻被靜默覆蓋。
+
+### 5. Development / Validation / Holdout
+
+部分研究採分段方式進行，例如：
+
+```text
+Historical Data
+│
+├─ 60% Discovery
+│
+├─ 20% Validation
+│
+└─ 20% Holdout / Out-of-sample
+```
+
+研究過程中也保留固定樣本、walk-forward、事件研究與 sensitivity test 等不同驗證方式。
+
+README 不將單一歷史高報酬視為策略有效性的充分證據；實際研究證據以 `docs/` 中的 protocol、audit 與 performance report 為準。
+
+### 6. Market Data Reliability
+
+行情資料不是單純「API 有回就算成功」。
+
+資料層會處理：
+
+- 預期交易日與實際資料完整度
+- 快取與缺漏月份補抓
+- 中間缺日與尾端缺日
+- 企業行動（split / reverse split）
+- 官方資料交叉確認
+- 資料源失效時的降級與告警
+- 服務啟動時的 data gate
+
+完整契約請參閱：
+
+- [`docs/market-data-reliability.md`](docs/market-data-reliability.md)
+- [`docs/data-maintenance-sop.md`](docs/data-maintenance-sop.md)
+
+---
+
+## Backtest Contract
+
+README 僅保留最重要的回測契約；商品與策略的完整規則放在各研究文件中。
+
+1. **只使用當時可見資料**  
+   策略訊號不能讀取未來資料。
+
+2. **訊號與成交時間分離**  
+   完成資料產生訊號後，才在下一個合法成交時點執行。
+
+3. **公平比較**  
+   同一組策略比較使用一致的起訖日、資金、成本與 benchmark。
+
+4. **交易成本不可忽略**  
+   手續費、稅負、滑價與商品限制均納入。
+
+5. **高週期資料必須完整收盤**  
+   未完成的週／月／季資料不得提早進入判斷。
+
+6. **商品使用自身實際行情**  
+   不以其他商品報酬人工生成歷史價格。
+
+7. **研究結果與正式策略分離**  
+   少量樣本、高報酬或單一期間成功，不代表策略已通過正式研究門檻。
+
+8. **歷史績效退化不可靜默覆蓋**  
+   策略改版需留下 performance comparison 與研究決策。
+
+更多限制與 guardrail 請參閱：
+
+- [`docs/backtest-settings-guardrails.md`](docs/backtest-settings-guardrails.md)
+- [`docs/option-native-strategy-research.md`](docs/option-native-strategy-research.md)
+- [`docs/weekly-option-strategy-research.md`](docs/weekly-option-strategy-research.md)
+
+---
+
+## 系統架構
+
+```text
+Browser
+  │
+  ▼
+Vue 3 + TypeScript
+  │
+  ▼
+Node.js / Express API
+  │
+  ├─ Authentication / Consent
+  ├─ Market Data Service
+  ├─ Strategy Engine
+  ├─ Backtest Engine
+  ├─ Research Engine
+  ├─ Portfolio / Cash-flow Calculation
+  └─ LINE Notification
+        │
+        ├─ SQLite / local cache
+        ├─ Yahoo Finance
+        ├─ TWSE
+        ├─ TAIFEX
+        └─ auxiliary research data
+```
+
+正式公開環境：
+
+```text
+Internet
+   │
+   ▼
+ngrok HTTPS Tunnel
+   │
+   ▼
+Nginx
+   │
+   ▼
+Unix Socket
+   │
+   ▼
+Node.js
+```
+
+Node.js 正式服務不直接暴露公開 TCP API，由 reverse proxy 與後端存取控制共同處理外部入口。
+
+Google OAuth、系統 allowlist、Admin／一般使用者權限、單一裝置 Session 與版本化 consent 均由後端驗證。
+
+詳細部署與故障排查流程請參閱：
+
+[`docs/public-google-sso.md`](docs/public-google-sso.md)
+
+---
+
+## 決策與通知
+
+系統可以依投入資金、目前持倉與策略目標曝險，換算：
+
+- 買進
+- 賣出
+- 維持
+- 目標部位
+- 策略判斷理由
+
+白名單帳號可綁定 LINE 官方帳號並設定研究方案通知。
+
+LINE 通知屬於**決策輔助**：
+
+```text
+Research Result
+      │
+      ▼
+Decision
+      │
+      ▼
+LINE Notification
+      │
+      X
+Automatic Order
+```
+
+系統不會自動下單。
+
+---
+
+## 測試與 CI
+
+本機驗證：
+
+```bash
+npm test
+npm run typecheck
+npm run build
+```
+
+CI 驗證：
+
+```bash
+npm run ci:validate
+```
+
+主要包含：
+
+```text
+Strategy Performance Guard
+        │
+        ▼
+Automated Tests
+        │
+        ▼
+Type Check
+        │
+        ▼
+Production Build
+```
+
+測試涵蓋的核心風險包括：
+
+- 前視偏誤
+- 成交時點
+- 成本扣除
+- 參數邊界
+- 部位／建議股數
+- 市場資料完整性
+- 策略 regression
+
+新增或修正回測規則時，以失敗案例先固定預期行為，再修改實作。
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+| --- | --- |
+| Frontend | Vue 3, TypeScript, Vite |
+| Backend | Node.js, Express, TypeScript |
+| Test | Vitest, vue-tsc |
+| Data | SQLite, filesystem cache |
+| Market Data | Yahoo Finance, TWSE, TAIFEX |
+| Auth | Google OAuth, allowlist, server-side session |
+| Notification | LINE Messaging |
+| Reverse Proxy | Nginx |
+| Public Tunnel | ngrok |
+| Process | systemd |
+| CI/CD | GitHub Actions + project validation scripts |
+
+---
+
+## 本機執行
+
+需求：
+
+- Node.js 20+
+
+```bash
+npm install
+npm run dev
+```
+
+預設：
+
+```text
+Vue frontend : http://localhost:5173
+Node API     : http://localhost:8787
+```
+
+完整的開發規範、共用元件、介面契約與瀏覽器驗證要求請參閱：
+
+[`docs/development-guidelines.md`](docs/development-guidelines.md)
+
+---
+
+## Documentation
+
+README 只提供整體入口；策略細節、研究證據與操作 SOP 依用途分開保存。
+
+```text
+docs/
+│
+├─ development-guidelines.md
+├─ market-data-reliability.md
+├─ data-maintenance-sop.md
+├─ backtest-settings-guardrails.md
+│
+├─ research-preregistrations/
+├─ strategy-integrity-audits/
+├─ strategy-performance-reports/
+│
+├─ option-native-strategy-research.md
+├─ weekly-option-strategy-research.md
+└─ other strategy / protocol / research documents
+```
+
+### 建議閱讀順序
+
+想了解工程設計：
+
+1. `README.md`
+2. `docs/market-data-reliability.md`
+3. `docs/backtest-settings-guardrails.md`
+4. `docs/development-guidelines.md`
+
+想了解策略研究：
+
+1. 對應的 `*-protocol.md`
+2. 對應的 `*-research.md`
+3. `docs/strategy-integrity-audits/`
+4. `docs/strategy-performance-reports/`
+
+---
+
+## 資料與限制
+
+日線主資料以 Yahoo Finance 為主要來源，並搭配證交所／期交所官方資料進行確認、補齊或研究。
+
+對 ETF 的分割／反分割會依企業行動調整，避免把企業行動誤判成市場暴漲暴跌。
+
+所有畫面上的策略判斷僅使用最近一個已完成交易時點的資料。即時行情、歷史回測行情與實際券商成交行情並不等價。
+
+Yahoo Finance 與本專案中的行情資料均不應視為交易所保證的下單價格；實際交易前仍需自行確認市場與券商資訊。
+
+---
+
+## Disclaimer
+
+本專案是**量化研究與決策輔助工具**，不是自動交易系統，也不保證獲利。
+
+歷史績效、回測結果、勝率、Sharpe Ratio、最大回撤或任何策略研究結果都不代表未來表現。
+
+研究中保留的 Beta、候選策略與研究觀察結果，可能因樣本數、資料期間、過度配適、市場結構改變或交易成本而失效。
+</pre>
+</details>
+</section>
+<section class="plain-section anchor-section track-section" data-key="poc" id="text-poc">
+<div class="plain-head">
+<h2>03 · Backend PoC / MVP 專案</h2>
+<button class="copy-btn" data-copy-target="plain-poc" type="button">複製此段</button>
+</div>
+<pre class="plain-text" id="plain-poc">3. AI 輔助 Backend Architecture / Performance / Observability PoC &amp; MVP【延伸經驗】
+
+開發工具：ChatGPT、Codex；部分 PoC 曾使用 Claude Code。
+
+使用 ChatGPT / Codex 加速 Backend Architecture、High Concurrency、Distributed System、Observability 等技術的研究與 PoC / MVP 建置，並透過壓力測試、Metrics、Tracing 或自動化測試驗證 AI 產出。
+
+代表性專案：
+
+QPS Tuning — Performance / Reliability / Observability
+- 驗證 Redis Distributed Rate Limit / Semaphore、Pipeline、Redis OOM、Sentinel Failover、JVM GC。
+- 導入 Micrometer + Prometheus + Grafana 觀察 HTTP Latency、錯誤率與 JVM Metrics。
+- 使用 Micrometer Tracing / OpenTelemetry + Grafana Tempo 分析 Distributed Trace。
+Repo：https://github.com/wei310129/QPS-tuning
+
+Pulse Platform — Event-driven / High Throughput
+- 建立 Ingestion API → Kafka → Consumer → Redis / PostgreSQL 的事件處理 Pipeline。
+- 驗證 Kafka Partition、Consumer Group、水平擴展、即時資料聚合與訊息可靠性。
+- 搭配 Micrometer / Prometheus 與 k6 進行效能觀測與壓力測試。
+Repo：https://github.com/wei310129/pulse-platform
+
+RescueHero — DDD / Distributed System MVP
+- 使用 DDD、Kafka、Redis、PostgreSQL、MongoDB、WebSocket、JWT、Docker Compose。
+- 驗證 Domain Design、事件驅動、即時通訊與分散式 Web Application 架構。
+Repo：https://github.com/wei310129/RescueHero</pre>
+</section>
+<pre hidden="" id="copy-all-source">陳政瑋的 AI 履歷
+
+以 AI 輔助軟體工程，將需求拆解、架構設計、實作、測試與驗證串成完整開發流程。實作經驗涵蓋 AI Agent、量化研究平台與 Backend PoC / MVP。
+
+Agentic Coding 能力：
+- 需求與任務拆解：以 AI 協助需求分析與架構方案比較，將需求拆成可實作的模組與任務。
+- 架構與執行邊界：透過 Interface、Domain Boundary 與 Validation，分離 LLM 理解、規則驗證與業務執行。
+- 程式實作與迭代：使用 ChatGPT、Codex、Claude Code 協助 Coding、Refactoring 與 Debug，整合成可運作的專案。
+- 測試與品質把關：以自動化測試、型別檢查、CI 與 Regression Guard 驗證 AI 產出與改版行為。
+- 效能與研究驗證：以壓力測試、Metrics / Tracing、Validation / Holdout 與 Integrity Audit 驗證結果。
+
+個人 AI 工具池：ChatGPT、Codex、Claude Code。
+Claude Code 曾用於 My Mobile Secretary 前期及部分 PoC 開發。
+
+代表專案：
+1. My Mobile Secretary：AI Agent / Spring AI / LLM 應用開發
+2. Taiwan Weighted Index Prediction：AI-assisted Software Engineering / 量化研究與回測平台
+3. Backend PoC / MVP：Performance、Observability、Event-driven、Distributed System 技術驗證
+
+1. My Mobile Secretary — AI Agent 個人智慧助理【主要專案】
+
+定位：Java Backend + Spring AI + LLM / AI Agent
+
+開發工具：Claude Code（前期）、ChatGPT、Codex
+
+使用 Java / Spring Boot / Spring AI 開發個人 AI 助理，整合 LINE Webhook、LLM 意圖解析、任務派送與 Session 管理。
+
+主要實作重點：
+- 以 LLM 將自然語言轉換成後端可處理的結構化 Intent。
+- 建立 Intent Interpreter、AI Dispatcher、Session / Trigger 等模組。
+- 將 LLM 語意判斷與 Backend Domain / Tool Execution 分離，避免模型直接控制核心業務流程。
+- 專案前期曾使用 Claude Code；亦使用 ChatGPT / Codex 協助需求拆解、架構設計、Coding、Refactoring、Testing 與 Debug。
+- 以 Interface、Domain Boundary、Validation 限制 AI 修改與執行範圍。
+- 透過自動化測試驗證 Intent Interpretation 與 Provider-neutral 行為，降低 Prompt / Model 調整或長 Context 造成的 Regression。
+
+主要技術：
+Java 21、Spring Boot、Spring AI、LLM、AI Agent、LINE Webhook、Domain Design、Automated Testing
+
+Repo：
+https://github.com/wei310129/my-mobile-secretary
+
+2. Taiwan Weighted Index Prediction — AI 輔助量化研究與回測平台【主要專案】
+
+定位：AI-assisted Software Engineering + Quant Research / Backtesting Platform
+
+開發工具：ChatGPT、Codex
+
+將市場資料、策略研究、歷史回測、研究驗證與決策輔助整合成一套可長期維護的研究平台。AI 深度參與需求拆解、架構設計、程式實作、Refactoring、Testing 與文件治理。
+
+主要實作重點：
+- 建立 Market Data → Data Reliability → Research / Feature → Strategy Engine → Backtest → Validation / Audit → Performance Report 的研究 Pipeline。
+- 防止 Look-ahead Bias，將策略訊號產生與實際成交時點分離。
+- 將手續費、交易稅、滑價與商品限制納入 Backtest。
+- 處理行情完整度、Cache / Resume、企業行動、Fallback / Degraded Mode 與 Data Gate。
+- 建立 Research Integrity Audit 與 Performance Regression Guard，避免策略改版後歷史績效退化被靜默覆蓋。
+- 採用 Discovery / Validation / Holdout、Walk-forward、Sensitivity Test 等方式驗證研究結果。
+- 使用 AI 輔助需求分析、架構方案比較、Coding、Refactoring、Testing 與研究文件整理。
+
+主要技術：
+Vue 3、TypeScript、Node.js / Express、SQLite、Backtesting、Research Validation、GitHub Actions、AI-assisted Development
+
+Repo 狀態：
+Private。完整 README 已內嵌，不需要 GitHub 權限即可閱讀。
+
+3. AI 輔助 Backend Architecture / Performance / Observability PoC &amp; MVP【延伸經驗】
+
+開發工具：ChatGPT、Codex；部分 PoC 曾使用 Claude Code。
+
+使用 ChatGPT / Codex 加速 Backend Architecture、High Concurrency、Distributed System、Observability 等技術的研究與 PoC / MVP 建置，並透過壓力測試、Metrics、Tracing 或自動化測試驗證 AI 產出。
+
+代表性專案：
+
+QPS Tuning — Performance / Reliability / Observability
+- 驗證 Redis Distributed Rate Limit / Semaphore、Pipeline、Redis OOM、Sentinel Failover、JVM GC。
+- 導入 Micrometer + Prometheus + Grafana 觀察 HTTP Latency、錯誤率與 JVM Metrics。
+- 使用 Micrometer Tracing / OpenTelemetry + Grafana Tempo 分析 Distributed Trace。
+Repo：https://github.com/wei310129/QPS-tuning
+
+Pulse Platform — Event-driven / High Throughput
+- 建立 Ingestion API → Kafka → Consumer → Redis / PostgreSQL 的事件處理 Pipeline。
+- 驗證 Kafka Partition、Consumer Group、水平擴展、即時資料聚合與訊息可靠性。
+- 搭配 Micrometer / Prometheus 與 k6 進行效能觀測與壓力測試。
+Repo：https://github.com/wei310129/pulse-platform
+
+RescueHero — DDD / Distributed System MVP
+- 使用 DDD、Kafka、Redis、PostgreSQL、MongoDB、WebSocket、JWT、Docker Compose。
+- 驗證 Domain Design、事件驅動、即時通訊與分散式 Web Application 架構。
+Repo：https://github.com/wei310129/RescueHero</pre>
+</main>
+</div>
+<!-- ==================== README Overlay ==================== -->
+<div aria-hidden="true" class="readme-overlay" id="readme-overlay">
+<div aria-labelledby="readme-title" aria-modal="true" class="readme-panel" role="dialog">
+<div class="readme-head">
+<div class="readme-title-row">
+<div class="readme-title">
+<strong id="readme-title">Taiwan Weighted Index Prediction · README</strong>
+<span>Private Repo · 內嵌完整 README，不需要 GitHub 權限</span>
+</div>
+<div class="readme-actions">
+<button class="overlay-copy" data-copy-target="plain-readme" type="button">複製 README</button>
+<button aria-label="關閉 README" class="close-btn" id="close-readme" type="button">×</button>
+</div>
+</div>
+<nav aria-label="README 章節導覽" class="readme-nav"><button class="readme-tab" data-readme-target="readme-section-1" type="button">專案重點</button><button class="readme-tab" data-readme-target="readme-section-2" type="button">Research Pipeline</button><button class="readme-tab" data-readme-target="readme-section-4" type="button">Engineering Highlights</button><button class="readme-tab" data-readme-target="readme-section-5" type="button">Backtest Contract</button><button class="readme-tab" data-readme-target="readme-section-6" type="button">系統架構</button><button class="readme-tab" data-readme-target="readme-section-8" type="button">測試與 CI</button><button class="readme-tab" data-readme-target="readme-section-9" type="button">Tech Stack</button><button class="readme-tab" data-readme-target="readme-section-12" type="button">資料與限制</button></nav>
+</div>
+<div class="readme-body" id="readme-body" tabindex="0" aria-label="README 內容">
+<div class="readme-banner">
+        此為 Private Repository 的 README，完整內容已內嵌；相關文件路徑僅供參考。
+      </div>
+<article class="readme-content"><h1>衡策｜量化策略研究平台</h1>
+<p>衡策是一套將<strong>市場資料、策略研究、歷史回測、研究驗證與決策輔助</strong>整合在同一系統中的量化研究平台。</p>
+<p>系統以實際歷史行情為基礎，在一致的資料可見範圍、成交時點與交易成本下比較不同策略，並特別處理前視偏誤（look-ahead bias）、資料缺漏、企業行動、參數尋優以及策略改版造成的績效退化。</p>
+<blockquote>
+<p>專案目標不是找出歷史報酬最高的策略，而是建立一套<strong>可重現、可驗證、可比較、可追溯</strong>的研究流程。</p>
+</blockquote>
+<p>目前研究範圍包含臺灣 50 系列、金融股策略，以及臺指選擇權買方策略。部分金融與衍生商品研究仍屬 Beta／研究觀察階段，不代表正式投資建議。</p>
+<hr/>
+<h2 id="readme-section-1">專案重點</h2>
+<p>這個專案不只實作技術指標或單一回測公式，而是將策略研究視為一個需要長期維護的工程系統。</p>
+<p>核心設計包含：</p>
+<ul>
+<li>不同策略使用一致的時間範圍、成交假設與成本模型比較。</li>
+<li>訊號只能使用決策當下已完成、當時可取得的資料。</li>
+<li>ETF、股票與選擇權使用各自實際行情，不用其他商品報酬人工合成。</li>
+<li>手續費、交易稅、滑價／價差等交易成本納入績效。</li>
+<li>對行情來源建立資料閘門、快取、續傳、降級與缺漏修復機制。</li>
+<li>策略或回測邏輯修改時，CI 會要求產生改版前後績效比較。</li>
+<li>研究結果、integrity audit 與 performance report 保存在 repository 中。</li>
+<li>對可能存在過度配適的結果保留研究觀察狀態，而不是直接升格為正式策略。</li>
+</ul>
+<hr/>
+<h2 id="readme-section-2">Research Pipeline</h2>
+<pre><code class="language-text">Market Data
+    │
+    ├─ Yahoo Finance
+    ├─ TWSE
+    ├─ TAIFEX
+    └─ Fact Book / auxiliary data
+    │
+    ▼
+Data Reliability Layer
+    │
+    ├─ completeness check
+    ├─ cache / resume
+    ├─ corporate action adjustment
+    ├─ fallback / degraded mode
+    └─ data gate
+    │
+    ▼
+Research / Feature Layer
+    │
+    ├─ trend
+    ├─ momentum
+    ├─ volume / volatility
+    ├─ market regime
+    └─ multi-timeframe conditions
+    │
+    ▼
+Strategy Engine
+    │
+    ▼
+Backtest Engine
+    │
+    ├─ execution timing
+    ├─ transaction cost
+    ├─ position sizing
+    └─ benchmark
+    │
+    ▼
+Validation / Holdout / Audit
+    │
+    ▼
+Performance Report
+    │
+    ▼
+Decision UI / LINE Notification
+</code></pre>
+<hr/>
+<h2 id="readme-section-3">目前研究範圍</h2>
+<h3 id="readme-sub-1">臺灣 50 系列</h3>
+<ul>
+<li><code>0050</code></li>
+<li><code>00631L</code></li>
+<li><code>00632R</code></li>
+<li><code>T50COMBO</code>：0050／正 2／反 1 三資產輪動研究</li>
+</ul>
+<p>槓桿與反向 ETF 均使用自身實際歷史行情、企業行動、交易成本與基準，不以 0050 日報酬直接乘以 <code>2</code> 或 <code>-1</code> 合成。</p>
+<h3 id="readme-sub-2">金融研究（Beta）</h3>
+<p>目前包含：</p>
+<ul>
+<li><code>0055</code></li>
+<li><code>2882</code></li>
+<li><code>2891</code></li>
+<li><code>2886</code></li>
+<li><code>2885</code></li>
+</ul>
+<p>金融標的使用自己的行情與金融產業特徵，不直接沿用臺灣 50 或槓反策略的訊號與排名。</p>
+<h3 id="readme-sub-3">臺指選擇權研究（Beta）</h3>
+<ul>
+<li><code>TXO</code>：臺指月選</li>
+<li><code>TXOW</code>：臺指週選</li>
+<li>僅研究 Call／Put <strong>買方策略</strong></li>
+<li>不建立裸賣部位</li>
+<li>不使用選擇權賣方保證金模型</li>
+</ul>
+<p>月選與週選的契約、快取、績效、研究紀錄與帳本彼此分離；尚未通過研究門檻的版本只保留為研究觀察，不指定為正式策略。</p>
+<hr/>
+<h2 id="readme-section-4">Engineering Highlights</h2>
+<h3 id="readme-sub-4">1. 防止 Look-ahead Bias</h3>
+<p>回測中的訊號產生與成交時點刻意分離。</p>
+<pre><code class="language-text">T-1 已完成資料
+      │
+      ▼
+產生策略訊號
+      │
+      ▼
+T / 下一可交易時點
+      │
+      ▼
+執行部位調整
+</code></pre>
+<p>未完成的日 K、週 K、雙週 K、月 K 或季 K 不得提前進入策略判斷。</p>
+<p>指定歷史回測截止日後，行情、指標、研究樣本與策略決策都必須同步截斷，不允許使用截止日之後的資料。</p>
+<h3 id="readme-sub-5">2. 真實商品行情，不使用合成捷徑</h3>
+<p>0050、00631L、00632R 與金融標的各自使用自己的實際歷史行情。</p>
+<p>例如：</p>
+<pre><code class="language-text">錯誤做法
+0050 daily return × 2
+        ↓
+模擬 00631L
+
+衡策
+00631L actual OHLCV
+        ↓
+Backtest
+</code></pre>
+<p>這避免忽略槓桿 ETF 的每日重設、波動耗損、複利路徑與實際交易價格。</p>
+<h3 id="readme-sub-6">3. Transaction-cost-aware Backtest</h3>
+<p>策略比較會納入：</p>
+<ul>
+<li>券商手續費</li>
+<li>商品適用的證交稅</li>
+<li>滑價／價差隱含成本</li>
+<li>實際進出場時點</li>
+<li>整股或整數口數限制</li>
+</ul>
+<p>績效指標包含：</p>
+<ul>
+<li>累積報酬</li>
+<li>年化報酬</li>
+<li>最大回撤</li>
+<li>Sharpe Ratio</li>
+<li>Calmar Ratio</li>
+<li>勝率</li>
+<li>交易次數</li>
+<li>成本拆分</li>
+</ul>
+<p>買進持有作為比較基準，不直接參與主動策略首選。</p>
+<h3 id="readme-sub-7">4. Research Integrity 與 Performance Regression Guard</h3>
+<p>策略研究不是只比較「新版報酬有沒有比較高」。</p>
+<p>repository 中保留：</p>
+<pre><code class="language-text">docs/
+├─ research-preregistrations/
+├─ strategy-integrity-audits/
+├─ strategy-performance-reports/
+├─ *-research.md
+└─ *-protocol.md
+</code></pre>
+<p>策略計算或研究檔變更時：</p>
+<pre><code class="language-bash">npm run guard:strategy-performance
+</code></pre>
+<p>會要求產生新版／舊版的績效比較。</p>
+<p>若新版報酬下降，研究結果必須留下原因與風險交換說明，例如：</p>
+<ul>
+<li>維持舊版</li>
+<li>保留新版為研究觀察</li>
+<li>接受較低報酬換取較低回撤／較低頻率</li>
+<li>判定沒有增量效益</li>
+</ul>
+<p>避免策略邏輯改版後，歷史績效退化卻被靜默覆蓋。</p>
+<h3 id="readme-sub-8">5. Development / Validation / Holdout</h3>
+<p>部分研究採分段方式進行，例如：</p>
+<pre><code class="language-text">Historical Data
+│
+├─ 60% Discovery
+│
+├─ 20% Validation
+│
+└─ 20% Holdout / Out-of-sample
+</code></pre>
+<p>研究過程中也保留固定樣本、walk-forward、事件研究與 sensitivity test 等不同驗證方式。</p>
+<p>README 不將單一歷史高報酬視為策略有效性的充分證據；實際研究證據以 <code>docs/</code> 中的 protocol、audit 與 performance report 為準。</p>
+<h3 id="readme-sub-9">6. Market Data Reliability</h3>
+<p>行情資料不是單純「API 有回就算成功」。</p>
+<p>資料層會處理：</p>
+<ul>
+<li>預期交易日與實際資料完整度</li>
+<li>快取與缺漏月份補抓</li>
+<li>中間缺日與尾端缺日</li>
+<li>企業行動（split / reverse split）</li>
+<li>官方資料交叉確認</li>
+<li>資料源失效時的降級與告警</li>
+<li>服務啟動時的 data gate</li>
+</ul>
+<p>完整契約請參閱：</p>
+<ul>
+<li><span class="private-path" title="Private repository path">docs/market-data-reliability.md</span></li>
+<li><span class="private-path" title="Private repository path">docs/data-maintenance-sop.md</span></li>
+</ul>
+<hr/>
+<h2 id="readme-section-5">Backtest Contract</h2>
+<p>README 僅保留最重要的回測契約；商品與策略的完整規則放在各研究文件中。</p>
+<ol>
+<li><p><strong>只使用當時可見資料</strong><br/>
+策略訊號不能讀取未來資料。</p>
+</li>
+<li><p><strong>訊號與成交時間分離</strong><br/>
+完成資料產生訊號後，才在下一個合法成交時點執行。</p>
+</li>
+<li><p><strong>公平比較</strong><br/>
+同一組策略比較使用一致的起訖日、資金、成本與 benchmark。</p>
+</li>
+<li><p><strong>交易成本不可忽略</strong><br/>
+手續費、稅負、滑價與商品限制均納入。</p>
+</li>
+<li><p><strong>高週期資料必須完整收盤</strong><br/>
+未完成的週／月／季資料不得提早進入判斷。</p>
+</li>
+<li><p><strong>商品使用自身實際行情</strong><br/>
+不以其他商品報酬人工生成歷史價格。</p>
+</li>
+<li><p><strong>研究結果與正式策略分離</strong><br/>
+少量樣本、高報酬或單一期間成功，不代表策略已通過正式研究門檻。</p>
+</li>
+<li><p><strong>歷史績效退化不可靜默覆蓋</strong><br/>
+策略改版需留下 performance comparison 與研究決策。</p>
+</li>
+</ol>
+<p>更多限制與 guardrail 請參閱：</p>
+<ul>
+<li><span class="private-path" title="Private repository path">docs/backtest-settings-guardrails.md</span></li>
+<li><span class="private-path" title="Private repository path">docs/option-native-strategy-research.md</span></li>
+<li><span class="private-path" title="Private repository path">docs/weekly-option-strategy-research.md</span></li>
+</ul>
+<hr/>
+<h2 id="readme-section-6">系統架構</h2>
+<pre><code class="language-text">Browser
+  │
+  ▼
+Vue 3 + TypeScript
+  │
+  ▼
+Node.js / Express API
+  │
+  ├─ Authentication / Consent
+  ├─ Market Data Service
+  ├─ Strategy Engine
+  ├─ Backtest Engine
+  ├─ Research Engine
+  ├─ Portfolio / Cash-flow Calculation
+  └─ LINE Notification
+        │
+        ├─ SQLite / local cache
+        ├─ Yahoo Finance
+        ├─ TWSE
+        ├─ TAIFEX
+        └─ auxiliary research data
+</code></pre>
+<p>正式公開環境：</p>
+<pre><code class="language-text">Internet
+   │
+   ▼
+ngrok HTTPS Tunnel
+   │
+   ▼
+Nginx
+   │
+   ▼
+Unix Socket
+   │
+   ▼
+Node.js
+</code></pre>
+<p>Node.js 正式服務不直接暴露公開 TCP API，由 reverse proxy 與後端存取控制共同處理外部入口。</p>
+<p>Google OAuth、系統 allowlist、Admin／一般使用者權限、單一裝置 Session 與版本化 consent 均由後端驗證。</p>
+<p>詳細部署與故障排查流程請參閱：</p>
+<p><span class="private-path" title="Private repository path">docs/public-google-sso.md</span></p>
+<hr/>
+<h2 id="readme-section-7">決策與通知</h2>
+<p>系統可以依投入資金、目前持倉與策略目標曝險，換算：</p>
+<ul>
+<li>買進</li>
+<li>賣出</li>
+<li>維持</li>
+<li>目標部位</li>
+<li>策略判斷理由</li>
+</ul>
+<p>白名單帳號可綁定 LINE 官方帳號並設定研究方案通知。</p>
+<p>LINE 通知屬於<strong>決策輔助</strong>：</p>
+<pre><code class="language-text">Research Result
+      │
+      ▼
+Decision
+      │
+      ▼
+LINE Notification
+      │
+      X
+Automatic Order
+</code></pre>
+<p>系統不會自動下單。</p>
+<hr/>
+<h2 id="readme-section-8">測試與 CI</h2>
+<p>本機驗證：</p>
+<pre><code class="language-bash">npm test
+npm run typecheck
+npm run build
+</code></pre>
+<p>CI 驗證：</p>
+<pre><code class="language-bash">npm run ci:validate
+</code></pre>
+<p>主要包含：</p>
+<pre><code class="language-text">Strategy Performance Guard
+        │
+        ▼
+Automated Tests
+        │
+        ▼
+Type Check
+        │
+        ▼
+Production Build
+</code></pre>
+<p>測試涵蓋的核心風險包括：</p>
+<ul>
+<li>前視偏誤</li>
+<li>成交時點</li>
+<li>成本扣除</li>
+<li>參數邊界</li>
+<li>部位／建議股數</li>
+<li>市場資料完整性</li>
+<li>策略 regression</li>
+</ul>
+<p>新增或修正回測規則時，以失敗案例先固定預期行為，再修改實作。</p>
+<hr/>
+<h2 id="readme-section-9">Tech Stack</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Technology</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Frontend</td>
+<td>Vue 3, TypeScript, Vite</td>
+</tr>
+<tr>
+<td>Backend</td>
+<td>Node.js, Express, TypeScript</td>
+</tr>
+<tr>
+<td>Test</td>
+<td>Vitest, vue-tsc</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>SQLite, filesystem cache</td>
+</tr>
+<tr>
+<td>Market Data</td>
+<td>Yahoo Finance, TWSE, TAIFEX</td>
+</tr>
+<tr>
+<td>Auth</td>
+<td>Google OAuth, allowlist, server-side session</td>
+</tr>
+<tr>
+<td>Notification</td>
+<td>LINE Messaging</td>
+</tr>
+<tr>
+<td>Reverse Proxy</td>
+<td>Nginx</td>
+</tr>
+<tr>
+<td>Public Tunnel</td>
+<td>ngrok</td>
+</tr>
+<tr>
+<td>Process</td>
+<td>systemd</td>
+</tr>
+<tr>
+<td>CI/CD</td>
+<td>GitHub Actions + project validation scripts</td>
+</tr>
+</tbody>
+</table></div>
+<hr/>
+<h2 id="readme-section-10">本機執行</h2>
+<p>需求：</p>
+<ul>
+<li>Node.js 20+</li>
+</ul>
+<pre><code class="language-bash">npm install
+npm run dev
+</code></pre>
+<p>預設：</p>
+<pre><code class="language-text">Vue frontend : http://localhost:5173
+Node API     : http://localhost:8787
+</code></pre>
+<p>完整的開發規範、共用元件、介面契約與瀏覽器驗證要求請參閱：</p>
+<p><span class="private-path" title="Private repository path">docs/development-guidelines.md</span></p>
+<hr/>
+<h2 id="readme-section-11">Documentation</h2>
+<p>README 只提供整體入口；策略細節、研究證據與操作 SOP 依用途分開保存。</p>
+<pre><code class="language-text">docs/
+│
+├─ development-guidelines.md
+├─ market-data-reliability.md
+├─ data-maintenance-sop.md
+├─ backtest-settings-guardrails.md
+│
+├─ research-preregistrations/
+├─ strategy-integrity-audits/
+├─ strategy-performance-reports/
+│
+├─ option-native-strategy-research.md
+├─ weekly-option-strategy-research.md
+└─ other strategy / protocol / research documents
+</code></pre>
+<h3 id="readme-sub-10">建議閱讀順序</h3>
+<p>想了解工程設計：</p>
+<ol>
+<li><code>README.md</code></li>
+<li><code>docs/market-data-reliability.md</code></li>
+<li><code>docs/backtest-settings-guardrails.md</code></li>
+<li><code>docs/development-guidelines.md</code></li>
+</ol>
+<p>想了解策略研究：</p>
+<ol>
+<li>對應的 <code>*-protocol.md</code></li>
+<li>對應的 <code>*-research.md</code></li>
+<li><code>docs/strategy-integrity-audits/</code></li>
+<li><code>docs/strategy-performance-reports/</code></li>
+</ol>
+<hr/>
+<h2 id="readme-section-12">資料與限制</h2>
+<p>日線主資料以 Yahoo Finance 為主要來源，並搭配證交所／期交所官方資料進行確認、補齊或研究。</p>
+<p>對 ETF 的分割／反分割會依企業行動調整，避免把企業行動誤判成市場暴漲暴跌。</p>
+<p>所有畫面上的策略判斷僅使用最近一個已完成交易時點的資料。即時行情、歷史回測行情與實際券商成交行情並不等價。</p>
+<p>Yahoo Finance 與本專案中的行情資料均不應視為交易所保證的下單價格；實際交易前仍需自行確認市場與券商資訊。</p>
+<hr/>
+<h2 id="readme-section-13">Disclaimer</h2>
+<p>本專案是<strong>量化研究與決策輔助工具</strong>，不是自動交易系統，也不保證獲利。</p>
+<p>歷史績效、回測結果、勝率、Sharpe Ratio、最大回撤或任何策略研究結果都不代表未來表現。</p>
+<p>研究中保留的 Beta、候選策略與研究觀察結果，可能因樣本數、資料期間、過度配適、市場結構改變或交易成本而失效。</p>
+</article>
+</div>
+</div>
+</div>
+<div class="copy-status" id="copy-status" role="status" aria-live="polite">已複製</div>
+<script>
+(() => {
+  'use strict';
+  const app = document.getElementById('app-scroll');
+  const header = document.querySelector('.site-header');
+  const views = { visual: document.getElementById('visual-view'), text: document.getElementById('text-view') };
+  const modes = [...document.querySelectorAll('.mode-btn')];
+  const nav = [...document.querySelectorAll('.nav-btn')];
+  const label = document.getElementById('current-section');
+  const labels = { overview: '總覽', mms: 'My Mobile Secretary', taiwan: 'Taiwan Weighted Index Prediction', poc: 'Backend PoC / MVP 專案' };
+  const overlay = document.getElementById('readme-overlay');
+  const reader = document.getElementById('readme-body');
+  const close = document.getElementById('close-readme');
+  const tabs = [...document.querySelectorAll('.readme-tab')];
+  const toast = document.getElementById('copy-status');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let mode = 'visual', activeKey = 'overview', readmeActive = null;
+  let trackFrame = 0, readerFrame = 0, toastTimer, opener;
+  const behavior = () => reducedMotion.matches ? 'instant' : 'smooth';
+
+  // Scroll only the horizontal strip. scrollIntoView also scrolls ancestors
+  // and can cancel an in-progress vertical navigation in an embedded viewer.
+  function revealButton(button) {
+    const strip = button.parentElement;
+    const b = button.getBoundingClientRect(), s = strip.getBoundingClientRect();
+    if (b.left < s.left || b.right > s.right) {
+      strip.scrollTo({ left: strip.scrollLeft + b.left - s.left - (s.width - b.width) / 2, behavior: behavior() });
+    }
+  }
+  function setActive(key) {
+    if (!labels[key]) return;
+    const changed = activeKey !== key;
+    activeKey = key;
+    label.textContent = labels[key];
+    nav.forEach(button => {
+      const on = button.dataset.key === key;
+      button.classList.toggle('active', on);
+      if (on) button.setAttribute('aria-current', 'location');
+      else button.removeAttribute('aria-current');
+      if (on && changed) revealButton(button);
+    });
+  }
+  function topInset() {
+    const toolbar = mode === 'text' ? views.text.querySelector('.text-toolbar') : null;
+    return header.getBoundingClientRect().height + (toolbar ? toolbar.getBoundingClientRect().height + 12 : 0) + 14;
+  }
+  function positionIn(container, target) {
+    return container.scrollTop + target.getBoundingClientRect().top - container.getBoundingClientRect().top - container.clientTop;
+  }
+  function track() {
+    trackFrame = 0;
+    if (overlay.classList.contains('open')) return;
+    const sections = [...views[mode].querySelectorAll('.track-section')];
+    const threshold = app.getBoundingClientRect().top + topInset() + 2;
+    let candidate = sections[0];
+    for (const section of sections) if (section.getBoundingClientRect().top <= threshold) candidate = section;
+    if (app.scrollTop > 0 && app.scrollHeight - app.clientHeight - app.scrollTop <= 2) candidate = sections.at(-1);
+    setActive(candidate.dataset.key);
+  }
+  function requestTrack() { if (!trackFrame) trackFrame = requestAnimationFrame(track); }
+  function jump(key, motion = behavior()) {
+    const target = document.getElementById(`${mode}-${key}`);
+    if (!target) return;
+    app.scrollTo({ top: Math.max(0, positionIn(app, target) - topInset()), behavior: motion });
+    requestTrack();
+  }
+  nav.forEach(button => button.addEventListener('click', () => jump(button.dataset.key)));
+  document.querySelectorAll('[data-jump]').forEach(button => button.addEventListener('click', () => jump(button.dataset.jump)));
+  modes.forEach(button => button.addEventListener('click', () => {
+    const next = button.dataset.mode;
+    if (next === mode) return;
+    const keep = activeKey;
+    mode = next;
+    Object.entries(views).forEach(([key, view]) => { view.hidden = key !== mode; });
+    modes.forEach(control => {
+      const on = control.dataset.mode === mode;
+      control.classList.toggle('active', on);
+      control.setAttribute('aria-pressed', String(on));
+    });
+    measure();
+    jump(keep, 'instant');
+  }));
+  app.addEventListener('scroll', requestTrack, { passive: true });
+  function measure() {
+    app.style.setProperty('--header-height', `${header.getBoundingClientRect().height}px`);
+    requestTrack();
+    requestReaderTrack();
+  }
+  window.addEventListener('resize', measure);
+  if (window.visualViewport) window.visualViewport.addEventListener('resize', measure);
+  if (typeof ResizeObserver !== 'undefined') new ResizeObserver(measure).observe(header);
+
+  function readerInset() { return reader.querySelector('.readme-banner').getBoundingClientRect().height + 12; }
+  function readerJump(id, motion = behavior()) {
+    const target = document.getElementById(id);
+    if (target && reader.contains(target)) reader.scrollTo({ top: Math.max(0, positionIn(reader, target) - readerInset()), behavior: motion });
+    requestReaderTrack();
+  }
+  function trackReader() {
+    readerFrame = 0;
+    if (!overlay.classList.contains('open')) return;
+    const threshold = reader.getBoundingClientRect().top + readerInset() + 2;
+    let key = tabs[0].dataset.readmeTarget;
+    for (const tab of tabs) {
+      const target = document.getElementById(tab.dataset.readmeTarget);
+      if (target.getBoundingClientRect().top <= threshold) key = target.id;
+    }
+    if (reader.scrollHeight - reader.clientHeight - reader.scrollTop <= 2) key = tabs.at(-1).dataset.readmeTarget;
+    const changed = readmeActive !== key;
+    readmeActive = key;
+    tabs.forEach(tab => {
+      const on = tab.dataset.readmeTarget === key;
+      tab.classList.toggle('active', on);
+      if (on) tab.setAttribute('aria-current', 'location');
+      else tab.removeAttribute('aria-current');
+      if (on && changed) revealButton(tab);
+    });
+  }
+  function requestReaderTrack() { if (!readerFrame) readerFrame = requestAnimationFrame(trackReader); }
+  function openReader(id = null) {
+    opener = document.activeElement;
+    overlay.classList.add('open');
+    overlay.setAttribute('aria-hidden', 'false');
+    app.inert = true;
+    document.body.classList.add('overlay-open');
+    close.focus({ preventScroll: true });
+    // Read layout after display changes; use one coordinate system for both
+    // scrolling and tracking, including the sticky README banner.
+    if (id) readerJump(id, 'instant');
+    else reader.scrollTo({ top: 0, behavior: 'instant' });
+    trackReader();
+  }
+  function closeReader() {
+    overlay.classList.remove('open');
+    overlay.setAttribute('aria-hidden', 'true');
+    app.inert = false;
+    document.body.classList.remove('overlay-open');
+    opener?.focus({ preventScroll: true });
+    requestTrack();
+  }
+  document.getElementById('open-readme').addEventListener('click', () => openReader());
+  close.addEventListener('click', closeReader);
+  document.querySelectorAll('[data-readme-jump]').forEach(button => button.addEventListener('click', () => openReader(button.dataset.readmeJump)));
+  overlay.addEventListener('click', event => { if (event.target === overlay) closeReader(); });
+  tabs.forEach(tab => tab.addEventListener('click', () => readerJump(tab.dataset.readmeTarget)));
+  reader.addEventListener('scroll', requestReaderTrack, { passive: true });
+  document.addEventListener('keydown', event => {
+    if (!overlay.classList.contains('open')) return;
+    if (event.key === 'Escape') { event.preventDefault(); closeReader(); }
+    if (event.key === 'Tab') {
+      const controls = [...overlay.querySelectorAll('button, a[href], [tabindex="0"]')].filter(el => el.getClientRects().length);
+      const first = controls[0], last = controls.at(-1);
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus({ preventScroll: true }); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus({ preventScroll: true }); }
+    }
+  });
+
+  function notify(message) {
+    toast.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 2400);
+  }
+  function fallbackCopy(text) {
+    const previous = document.activeElement;
+    const input = document.createElement('textarea');
+    input.value = text;
+    input.setAttribute('readonly', '');
+    input.style.cssText = 'position:fixed;left:0;top:0;width:1px;height:1px;opacity:0;font-size:16px';
+    // The dialog stays usable when the rest of the page is inert.
+    (overlay.classList.contains('open') ? overlay : document.body).appendChild(input);
+    let ok = false;
+    try {
+      input.focus({ preventScroll: true });
+      input.select();
+      input.setSelectionRange(0, input.value.length);
+      ok = document.execCommand('copy');
+    } catch (_) { /* Clipboard can be denied in embedded viewers. */ }
+    finally { input.remove(); previous?.focus({ preventScroll: true }); }
+    return ok;
+  }
+  document.querySelectorAll('[data-copy-target]').forEach(button => button.addEventListener('click', async () => {
+    const target = document.getElementById(button.dataset.copyTarget);
+    const text = target?.textContent || '';
+    if (!text.trim()) { notify('沒有可複製的內容'); return; }
+    try {
+      if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
+      await navigator.clipboard.writeText(text);
+      notify('已複製');
+    } catch (_) { notify(fallbackCopy(text) ? '已複製' : '無法存取剪貼簿，請長按選取文字複製'); }
+  }));
+  modes.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.mode === mode)));
+  measure();
+  track();
+})();
+
+</script>
+</body>
+</html>
