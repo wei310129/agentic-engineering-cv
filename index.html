@@ -944,6 +944,7 @@ body.overlay-open #app-scroll { overflow:hidden; }
 .agentic-summary li + li { margin-top:7px; }
 .agentic-summary strong { color:#344054; }
 .poc-heading { margin:0 2px 12px; font-size:22px; line-height:1.3; }
+@media (min-width:761px) { .poc-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 .ai-tool-pool { margin-top:18px; padding-top:14px; border-top:1px solid var(--line); }
 .ai-tool-pool h2 { margin:0; font-size:14px; font-weight:850; }
 .ai-tool-pool .tags { margin-top:8px; }
@@ -998,7 +999,7 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline:3px so
 <button class="nav-btn active" data-key="overview" type="button"><span class="nav-title"><span class="n">00</span><span class="nav-name">總覽</span></span><span class="nav-description">Agentic Coding 能力</span></button>
 <button class="nav-btn" data-key="mms" type="button"><span class="nav-title"><span class="n">01</span><span class="nav-name">My Mobile Secretary</span></span><span class="nav-description">AI Agent 個人智慧助理專案</span></button>
 <button class="nav-btn" data-key="taiwan" type="button"><span class="nav-title"><span class="n">02</span><span class="nav-name">Taiwan Weighted Index Prediction</span></span><span class="nav-description">量化策略研究與回測平台專案</span></button>
-<button class="nav-btn" data-key="poc" type="button"><span class="nav-title"><span class="n">03</span><span class="nav-name">Backend PoC / MVP 專案</span></span><span class="nav-description">QPS Tuning · Pulse Platform · RescueHero</span></button>
+<button class="nav-btn" data-key="poc" type="button"><span class="nav-title"><span class="n">03</span><span class="nav-name">Backend PoC / MVP 專案</span></span><span class="nav-description">k8s-for-redis · QPS Tuning · Pulse Platform · RescueHero</span></button>
 </nav>
 </div>
 </header>
@@ -1007,7 +1008,7 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline:3px so
 <section class="hero anchor-section track-section" data-key="overview" id="visual-overview">
 <div class="kicker">AI RESUME · SOFTWARE ENGINEERING</div>
 <h1>陳政瑋的 AI 履歷</h1>
-<p class="hero-copy">以 AI 輔助軟體工程，將需求拆解、架構設計、實作、測試與驗證串成完整開發流程。實作經驗涵蓋 AI Agent、量化研究平台與 Backend PoC / MVP。</p>
+<p class="hero-copy">以 AI 輔助軟體工程，將需求拆解、架構設計、實作、測試與驗證串成完整開發流程。實作經驗涵蓋 AI Agent、量化研究平台、Backend PoC / MVP 與 Redis 高可用工作實務。</p>
 <section class="agentic-summary" aria-labelledby="agentic-coding-title">
 <h2 id="agentic-coding-title">Agentic Coding 能力</h2>
 <ul>
@@ -1037,8 +1038,8 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline:3px so
 </button>
 <button class="overview-card" data-jump="poc" type="button">
 <div class="ov-top"><span class="ov-num">03 · BACKEND PoC / MVP 專案</span></div>
-<strong>QPS Tuning · Pulse Platform · RescueHero</strong>
-<p>Performance、Observability、Kafka、DDD 等代表性技術驗證。</p>
+<strong>k8s-for-redis · QPS Tuning · Pulse Platform · RescueHero</strong>
+<p>Redis 高可用工作實務，以及 Performance、Observability、Kafka、DDD 等技術驗證。</p>
 </button>
 </div>
 </section>
@@ -1149,12 +1150,17 @@ Performance Report</pre>
 <div class="section-kicker">延伸 AI-assisted Backend PoC / MVP</div>
 <section class="anchor-section track-section" data-key="poc" id="visual-poc">
 <h2 class="poc-heading">Backend PoC / MVP 專案</h2>
-<div class="poc-intro">
-      代表性 PoC 只保留三個：一個看 Performance / Observability、一個看 Event-driven / High Throughput、
-      一個看完整 Distributed MVP；避免 Repo 太多分散閱讀焦點。
-    </div>
+<div class="poc-intro">四個代表專案涵蓋 Redis 高可用工作實務、Performance / Observability、Event-driven / High Throughput 與 Distributed MVP。k8s-for-redis 包含實際工作中使用的 Sentinel、Cluster 方案及 Failover 測試經驗。</div>
 <p class="project-tools poc-tools">開發工具：ChatGPT、Codex；部分 PoC 曾使用 Claude Code。</p>
 <div class="poc-grid">
+<article class="poc-card" id="redis-work-project">
+<span class="poc-focus teal">工作實務 · Redis High Availability</span>
+<h3>k8s-for-redis</h3>
+<p>實際工作中實作 Redis Sentinel 與 Cluster 方案，並實際測試 Failover；公開 Repository 收錄 Kubernetes Sentinel 部署設定。</p>
+<p class="project-tools"><strong>部署與驗證工具：</strong>Kubernetes、kubectl、redis-cli</p>
+<a href="https://github.com/wei310129/k8s-for-redis" rel="noopener" target="_blank">GitHub →</a>
+</article>
+
 <article class="poc-card">
 <span class="poc-focus blue">Performance · Observability</span>
 <h3>QPS Tuning</h3>
@@ -1190,7 +1196,7 @@ Performance Report</pre>
 </div>
 <pre class="plain-text" id="plain-overview">陳政瑋的 AI 履歷
 
-以 AI 輔助軟體工程，將需求拆解、架構設計、實作、測試與驗證串成完整開發流程。實作經驗涵蓋 AI Agent、量化研究平台與 Backend PoC / MVP。
+以 AI 輔助軟體工程，將需求拆解、架構設計、實作、測試與驗證串成完整開發流程。實作經驗涵蓋 AI Agent、量化研究平台、Backend PoC / MVP 與 Redis 高可用工作實務。
 
 Agentic Coding 能力：
 - 需求與任務拆解：以 AI 協助需求分析與架構方案比較，將需求拆成可實作的模組與任務。
@@ -1205,7 +1211,7 @@ Claude Code 曾用於 My Mobile Secretary 前期及部分 PoC 開發。
 代表專案：
 1. My Mobile Secretary：AI Agent / Spring AI / LLM 應用開發
 2. Taiwan Weighted Index Prediction：AI-assisted Software Engineering / 量化研究與回測平台
-3. Backend PoC / MVP：Performance、Observability、Event-driven、Distributed System 技術驗證</pre>
+3. Backend PoC / MVP 與工作實務：Redis 高可用、Performance、Observability、Event-driven、Distributed System</pre>
 </section>
 <section class="plain-section anchor-section track-section" data-key="mms" id="text-mms">
 <div class="plain-head">
@@ -1792,13 +1798,20 @@ Yahoo Finance 與本專案中的行情資料均不應視為交易所保證的下
 <h2>03 · Backend PoC / MVP 專案</h2>
 <button class="copy-btn" data-copy-target="plain-poc" type="button">複製此段</button>
 </div>
-<pre class="plain-text" id="plain-poc">3. AI 輔助 Backend Architecture / Performance / Observability PoC &amp; MVP【延伸經驗】
+<pre class="plain-text" id="plain-poc">3. Backend PoC / MVP 與 Redis 高可用工作實務【延伸經驗】
 
 開發工具：ChatGPT、Codex；部分 PoC 曾使用 Claude Code。
 
 使用 ChatGPT / Codex 加速 Backend Architecture、High Concurrency、Distributed System、Observability 等技術的研究與 PoC / MVP 建置，並透過壓力測試、Metrics、Tracing 或自動化測試驗證 AI 產出。
 
 代表性專案：
+
+k8s-for-redis — Kubernetes / Redis 高可用【工作實務】
+- 實際工作中使用 Redis，實作 Sentinel 與 Cluster 兩種方案，並實際測試 Failover。
+- 涵蓋 Redis 主從複寫、高可用架構及故障切換驗證。
+- 公開 Repository 目前收錄 Kubernetes 上的 Sentinel 部署設定；Cluster 方案屬工作實作經驗。
+部署與驗證工具：Kubernetes、kubectl、redis-cli。
+Repo：https://github.com/wei310129/k8s-for-redis
 
 QPS Tuning — Performance / Reliability / Observability
 - 驗證 Redis Distributed Rate Limit / Semaphore、Pipeline、Redis OOM、Sentinel Failover、JVM GC。
@@ -1819,7 +1832,7 @@ Repo：https://github.com/wei310129/RescueHero</pre>
 </section>
 <pre hidden="" id="copy-all-source">陳政瑋的 AI 履歷
 
-以 AI 輔助軟體工程，將需求拆解、架構設計、實作、測試與驗證串成完整開發流程。實作經驗涵蓋 AI Agent、量化研究平台與 Backend PoC / MVP。
+以 AI 輔助軟體工程，將需求拆解、架構設計、實作、測試與驗證串成完整開發流程。實作經驗涵蓋 AI Agent、量化研究平台、Backend PoC / MVP 與 Redis 高可用工作實務。
 
 Agentic Coding 能力：
 - 需求與任務拆解：以 AI 協助需求分析與架構方案比較，將需求拆成可實作的模組與任務。
@@ -1834,7 +1847,7 @@ Claude Code 曾用於 My Mobile Secretary 前期及部分 PoC 開發。
 代表專案：
 1. My Mobile Secretary：AI Agent / Spring AI / LLM 應用開發
 2. Taiwan Weighted Index Prediction：AI-assisted Software Engineering / 量化研究與回測平台
-3. Backend PoC / MVP：Performance、Observability、Event-driven、Distributed System 技術驗證
+3. Backend PoC / MVP 與工作實務：Redis 高可用、Performance、Observability、Event-driven、Distributed System
 
 1. My Mobile Secretary — AI Agent 個人智慧助理【主要專案】
 
@@ -1881,13 +1894,20 @@ Vue 3、TypeScript、Node.js / Express、SQLite、Backtesting、Research Validat
 Repo 狀態：
 Private。完整 README 已內嵌，不需要 GitHub 權限即可閱讀。
 
-3. AI 輔助 Backend Architecture / Performance / Observability PoC &amp; MVP【延伸經驗】
+3. Backend PoC / MVP 與 Redis 高可用工作實務【延伸經驗】
 
 開發工具：ChatGPT、Codex；部分 PoC 曾使用 Claude Code。
 
 使用 ChatGPT / Codex 加速 Backend Architecture、High Concurrency、Distributed System、Observability 等技術的研究與 PoC / MVP 建置，並透過壓力測試、Metrics、Tracing 或自動化測試驗證 AI 產出。
 
 代表性專案：
+
+k8s-for-redis — Kubernetes / Redis 高可用【工作實務】
+- 實際工作中使用 Redis，實作 Sentinel 與 Cluster 兩種方案，並實際測試 Failover。
+- 涵蓋 Redis 主從複寫、高可用架構及故障切換驗證。
+- 公開 Repository 目前收錄 Kubernetes 上的 Sentinel 部署設定；Cluster 方案屬工作實作經驗。
+部署與驗證工具：Kubernetes、kubectl、redis-cli。
+Repo：https://github.com/wei310129/k8s-for-redis
 
 QPS Tuning — Performance / Reliability / Observability
 - 驗證 Redis Distributed Rate Limit / Semaphore、Pipeline、Redis OOM、Sentinel Failover、JVM GC。
