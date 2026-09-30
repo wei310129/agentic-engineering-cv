@@ -944,6 +944,8 @@ body.overlay-open #app-scroll { overflow:hidden; }
 .agentic-summary li + li { margin-top:7px; }
 .agentic-summary strong { color:#344054; }
 .poc-heading { margin:0 2px 12px; font-size:22px; line-height:1.3; }
+.poc-card p + p { margin-top:9px; }
+.poc-card p strong { color:#344054; }
 @media (min-width:761px) { .poc-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 .ai-tool-pool { margin-top:18px; padding-top:14px; border-top:1px solid var(--line); }
 .ai-tool-pool h2 { margin:0; font-size:14px; font-weight:850; }
@@ -1160,7 +1162,7 @@ Performance Report</pre>
 <div class="section-kicker">延伸 AI-assisted Backend PoC / MVP</div>
 <section class="anchor-section track-section" data-key="poc" id="visual-poc">
 <h2 class="poc-heading">Backend PoC / MVP 專案</h2>
-<div class="poc-intro">六個代表專案涵蓋 Redis 高可用工作實務、Performance / Observability、Event-driven / High Throughput、Distributed MVP、gRPC / Netty 封包解析與 JVM Profiling。k8s-for-redis 包含實際工作中使用的 Sentinel、Cluster 方案及 Failover 測試經驗。</div>
+<div class="poc-intro">六個代表專案涵蓋 Redis 高可用工作實務、Performance / Observability、Event-driven / High Throughput、Distributed MVP、gRPC / Netty 網路程式設計與 JVM Profiling。k8s-for-redis 包含實際工作中使用的 Sentinel、Cluster 方案及 Failover 測試經驗。</div>
 <p class="project-tools poc-tools">開發工具：ChatGPT、Codex；部分 PoC 曾使用 Claude Code。</p>
 <div class="poc-grid">
 <article class="poc-card" id="redis-work-project">
@@ -1191,15 +1193,19 @@ Performance Report</pre>
 <a href="https://github.com/wei310129/RescueHero" rel="noopener" target="_blank">GitHub →</a>
 </article>
 <article class="poc-card">
-<span class="poc-focus">gRPC · Netty ByteBuf</span>
+<span class="poc-focus">gRPC · Netty 網路程式設計</span>
 <h3>Java-gRPC</h3>
-<p>實作 Unary RPC、Server Streaming、跨 Server 轉發、Deadline 傳播與全域例外處理；使用 Netty ByteBuf 練習封包長度檢查、Reader Index 回滾及 unsigned 讀取。</p>
+<p><strong>通訊流程：</strong>Unary RPC、Server Streaming、跨 Server 轉發、Deadline 傳播與全域例外處理；以 ByteBuf 解析自訂二進位封包並提供 HTTP 入口。</p>
+<p><strong>Netty 核心：</strong>長度欄位解碼與 pipeline 處理黏包／半包；IdleStateHandler 示範讀取閒置逾時與模擬心跳；ChannelGroup 示範群組廣播、room 篩選及 channel 移除。</p>
+<p><strong>驗證方式：</strong>三個 EmbeddedChannel Demo 可直接執行，搭配 Controller 單元測試與 Spring Boot context 測試；目前以本機 PoC 驗證為範圍。</p>
 <a href="https://github.com/wei310129/Java-gRPC" rel="noopener" target="_blank">GitHub →</a>
 </article>
 <article class="poc-card">
 <span class="poc-focus">JVM Profiling · JFR / JMC</span>
 <h3>jfr-jmc</h3>
-<p>建立 CPU、記憶體、鎖爭用與慢速操作等可重現負載，搭配自訂 JFR 事件與事件測試；透過 JFR 離線分析及 JMX / JMC 即時監控觀察 JVM 行為。</p>
+<p><strong>負載與事件：</strong>以 API 觸發 CPU、記憶體配置、鎖爭用與慢速操作；ServiceOperation 自訂事件記錄操作名稱、輸入規模、結果與 duration，對照 JVM 行為。</p>
+<p><strong>分析流程：</strong>自訂 JFR profile 與連續／60 秒定時／JMX 手動錄製三種模式；用 JMC 離線分析 .jfr 或即時連線，觀察 CPU 熱點、GC／Heap、鎖爭用與 Thread Sleep。</p>
+<p><strong>驗證範圍：</strong>事件錄製／讀取與 Service 整合測試；HttpRequest 事件類別已定義，尚未接入 HTTP 請求流程。</p>
 <a href="https://github.com/wei310129/jfr-jmc" rel="noopener" target="_blank">GitHub →</a>
 </article>
 </div>
@@ -1873,14 +1879,18 @@ Yahoo Finance 與本專案中的行情資料均不應視為交易所保證的下
 <p class="plain-paragraph"><strong>Repo：</strong>https://github.com/wei310129/RescueHero</p></article>
 
 <article class="plain-project"><h3 class="plain-project-title">【專案 03-5】Java-gRPC</h3>
-<p class="plain-project-purpose">專案定位：gRPC 通訊與 Netty 封包解析</p>
+<p class="plain-project-purpose">專案定位：gRPC 通訊與 Netty 網路程式設計</p>
 
 <p class="plain-paragraph"><strong>實作與驗證：</strong>
 - 實作 Unary RPC、Server Streaming、跨 Server 轉發與全域例外處理。
-- 沿用上游 Deadline，無 Deadline 時設定下游 Timeout，管理呼叫鏈逾時與取消。
-- 使用 Netty ByteBuf 解析二進位封包：讀取前檢查長度、資料不足時回滾 Reader Index，並使用 unsigned 讀取。</p>
+- 下游沿用上游 Deadline，無 Deadline 時設定 3 秒期限，限制呼叫鏈等待時間；耗時運算仍需自行檢查取消狀態。
+- 使用 Netty ByteBuf 解析二進位封包，包含長度檢查、Reader Index 回滾與 unsigned 讀取，並提供 HTTP 解析入口。
+- 以 LengthFieldBasedFrameDecoder 與封包 decoder / encoder pipeline 示範黏包拆解、半包補齊後才輸出。
+- 以 IdleStateHandler 示範 3 秒讀取閒置逾時、模擬心跳與關閉 channel；以 ChannelGroup 示範全體廣播、room 篩選與關閉後移除。</p>
 
-<p class="plain-paragraph"><strong>主要技術：</strong>Java、Spring Boot、gRPC、Protocol Buffers、Netty ByteBuf。</p>
+<p class="plain-paragraph"><strong>驗證方式與範圍：</strong>Netty 三個 Demo 使用 EmbeddedChannel，可直接執行 main() 觀察結果；另有 Controller 單元測試與 Spring Boot context 測試，尚未涵蓋完整 TCP / HTTP 端到端流程。</p>
+
+<p class="plain-paragraph"><strong>主要技術：</strong>Java、Spring Boot、gRPC、Protocol Buffers、Netty ByteBuf、EmbeddedChannel、LengthFieldBasedFrameDecoder、IdleStateHandler、ChannelGroup。</p>
 
 <p class="plain-paragraph"><strong>Repo：</strong>https://github.com/wei310129/Java-gRPC</p></article>
 
@@ -1888,9 +1898,12 @@ Yahoo Finance 與本專案中的行情資料均不應視為交易所保證的下
 <p class="plain-project-purpose">專案定位：JVM Profiling / JFR / JMC</p>
 
 <p class="plain-paragraph"><strong>實作與驗證：</strong>
-- 建立 CPU、記憶體、執行緒爭用與慢速操作等可重現負載情境。
-- 自訂 Service Operation 與 HTTP Request JFR 事件，搭配事件錄製、讀取與整合測試。
-- 使用 JFR 錄製檔離線分析，或透過 JMX / JMC 即時監控 CPU 熱點、GC / Heap 趨勢與鎖爭用。</p>
+- 透過 HTTP API 觸發 CPU、記憶體配置、鎖爭用與慢速操作，對照 CPU 熱點、GC / Heap、Monitor 與 Thread Sleep 事件。
+- 在 Service 中錄製 ServiceOperation 自訂事件，以操作名稱、輸入規模、結果與 duration 連結應用操作及 JVM 行為。
+- 使用自訂 JFR profile，提供保留最近 5 分鐘的連續錄製、60 秒定時錄製，以及僅開 JMX 後手動錄製三種模式。
+- 使用 JMC 開啟 .jfr 離線分析，或透過 localhost:9099 JMX 連線觀察運行中的 JVM，並在 Event Browser 核對自訂事件。</p>
+
+<p class="plain-paragraph"><strong>驗證方式與範圍：</strong>自訂事件錄製／讀取測試、JDK 內建事件示範與 Service 整合測試；HttpRequest 事件類別已定義，但尚未接入 HTTP 請求流程，不會隨 API 呼叫自動產生。</p>
 
 <p class="plain-paragraph"><strong>主要技術：</strong>Java、Spring Boot、Java Flight Recorder、Java Mission Control、JMX。</p>
 
@@ -2012,14 +2025,18 @@ Repo：https://github.com/wei310129/pulse-platform
 Repo：https://github.com/wei310129/RescueHero
 
 【專案 03-5】Java-gRPC
-專案定位：gRPC 通訊與 Netty 封包解析
+專案定位：gRPC 通訊與 Netty 網路程式設計
 
 實作與驗證：
 - 實作 Unary RPC、Server Streaming、跨 Server 轉發與全域例外處理。
-- 沿用上游 Deadline，無 Deadline 時設定下游 Timeout，管理呼叫鏈逾時與取消。
-- 使用 Netty ByteBuf 解析二進位封包：讀取前檢查長度、資料不足時回滾 Reader Index，並使用 unsigned 讀取。
+- 下游沿用上游 Deadline，無 Deadline 時設定 3 秒期限，限制呼叫鏈等待時間；耗時運算仍需自行檢查取消狀態。
+- 使用 Netty ByteBuf 解析二進位封包，包含長度檢查、Reader Index 回滾與 unsigned 讀取，並提供 HTTP 解析入口。
+- 以 LengthFieldBasedFrameDecoder 與封包 decoder / encoder pipeline 示範黏包拆解、半包補齊後才輸出。
+- 以 IdleStateHandler 示範 3 秒讀取閒置逾時、模擬心跳與關閉 channel；以 ChannelGroup 示範全體廣播、room 篩選與關閉後移除。
 
-主要技術：Java、Spring Boot、gRPC、Protocol Buffers、Netty ByteBuf。
+驗證方式與範圍：Netty 三個 Demo 使用 EmbeddedChannel，可直接執行 main() 觀察結果；另有 Controller 單元測試與 Spring Boot context 測試，尚未涵蓋完整 TCP / HTTP 端到端流程。
+
+主要技術：Java、Spring Boot、gRPC、Protocol Buffers、Netty ByteBuf、EmbeddedChannel、LengthFieldBasedFrameDecoder、IdleStateHandler、ChannelGroup。
 
 Repo：https://github.com/wei310129/Java-gRPC
 
@@ -2027,9 +2044,12 @@ Repo：https://github.com/wei310129/Java-gRPC
 專案定位：JVM Profiling / JFR / JMC
 
 實作與驗證：
-- 建立 CPU、記憶體、執行緒爭用與慢速操作等可重現負載情境。
-- 自訂 Service Operation 與 HTTP Request JFR 事件，搭配事件錄製、讀取與整合測試。
-- 使用 JFR 錄製檔離線分析，或透過 JMX / JMC 即時監控 CPU 熱點、GC / Heap 趨勢與鎖爭用。
+- 透過 HTTP API 觸發 CPU、記憶體配置、鎖爭用與慢速操作，對照 CPU 熱點、GC / Heap、Monitor 與 Thread Sleep 事件。
+- 在 Service 中錄製 ServiceOperation 自訂事件，以操作名稱、輸入規模、結果與 duration 連結應用操作及 JVM 行為。
+- 使用自訂 JFR profile，提供保留最近 5 分鐘的連續錄製、60 秒定時錄製，以及僅開 JMX 後手動錄製三種模式。
+- 使用 JMC 開啟 .jfr 離線分析，或透過 localhost:9099 JMX 連線觀察運行中的 JVM，並在 Event Browser 核對自訂事件。
+
+驗證方式與範圍：自訂事件錄製／讀取測試、JDK 內建事件示範與 Service 整合測試；HttpRequest 事件類別已定義，但尚未接入 HTTP 請求流程，不會隨 API 呼叫自動產生。
 
 主要技術：Java、Spring Boot、Java Flight Recorder、Java Mission Control、JMX。
 
