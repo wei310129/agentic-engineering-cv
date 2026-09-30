@@ -1041,12 +1041,12 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline:3px so
 <button class="overview-card" data-jump="mms" type="button">
 <div class="ov-top"><span class="ov-num">01 · AI PRODUCT</span><span class="ov-priority">主打</span></div>
 <strong>My Mobile Secretary</strong>
-<p>Spring AI + LLM + Agent / Intent / Session，真正把 AI 放進 Backend 系統。</p>
+<p>LLM 理解、Java 確定性執行；RLS 資料隔離、Outbox 通知與分層回歸驗證。</p>
 </button>
 <button class="overview-card" data-jump="taiwan" type="button">
 <div class="ov-top"><span class="ov-num">02 · AI-ASSISTED ENGINEERING</span><span class="ov-priority">主打</span></div>
 <strong>Taiwan Weighted Index Prediction</strong>
-<p>AI 參與需求、架構、Coding、測試與研究治理；Private README 可直接閱讀。</p>
+<p>資料可見範圍、成交與成本契約；改版 guard、研究證據及後端權限控制。</p>
 </button>
 <button class="overview-card" data-jump="poc" type="button">
 <div class="ov-top"><span class="ov-num">03 · BACKEND PoC / MVP 專案</span></div>
@@ -1071,24 +1071,16 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline:3px so
         Backend 負責規則驗證與真正執行，避免模型直接控制核心業務。
       </p>
 <div class="fact-grid">
-<div class="fact">
-<h3>AI / Agent 核心</h3>
-<ul>
-<li>LINE Webhook + LLM，多輪 Session 與自然語言意圖解析。</li>
-<li>Intent Interpreter / AI Dispatcher / Trigger 等模組化設計。</li>
-<li>將 LLM Interpretation 與 Domain / Tool Execution 分離。</li>
-<li>朝行事曆、提醒、規劃、外部服務整合的個人助理方向擴充。</li>
-</ul>
-</div>
-<div class="fact">
-<h3>AI Coding Governance</h3>
-<ul>
-<li>My Mobile Secretary 前期曾使用 Claude Code；ChatGPT / Codex 用於需求拆解、Architecture、Coding、Refactoring、Testing、Debug。</li>
-<li>以 Interface、Domain Boundary、Validation 限制 AI 修改與執行範圍。</li>
-<li>自動化測試驗證 Intent Interpretation 與 Provider-neutral 行為。</li>
-<li>降低 Prompt / Model 調整或長 Context 造成的 Regression。</li>
-</ul>
-</div>
+<div class="fact"><h3>可靠執行與資料隔離</h3><ul>
+<li>LLM 理解與表達，Java 驗證權限、時間、地理、狀態及業務規則。</li>
+<li>模組化單體＋provider adapter；整合 LINE／REST、行程、任務、提醒與知識。</li>
+<li>workspace／actor scope＋PostgreSQL RLS，Flyway 管理 schema。</li>
+<li>Notification Outbox 先落地，再交付外部通知通道。</li></ul></div>
+<div class="fact"><h3>Agentic Coding 與驗收</h3><ul>
+<li>我負責需求、架構、執行邊界及驗收；AI 協助實作與迭代。</li>
+<li>固定 Clock 修復時間推進造成的回歸，保留業務斷言。</li>
+<li>Fast／Testcontainers／opt-in live evaluation 分層，以測試和 CI gate 核對產出。</li>
+<li>ai-dispatcher 是隔離的開發自動化，不屬於產品 runtime；完成度見 README。</li></ul></div>
 </div>
 <div class="tags">
 <span class="tag">Java 21</span><span class="tag">Spring Boot</span><span class="tag">Spring AI</span>
@@ -1105,7 +1097,7 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline:3px so
 <div class="card-head">
 <div class="title-row">
 <span class="project-num">02</span>
-<h2>Taiwan Weighted Index Prediction</h2>
+<h2>Taiwan Weighted Index Prediction（衡策）</h2>
 <span class="badge major">主要專案</span>
 <span class="badge private">Private Repo</span>
 </div>
@@ -1117,32 +1109,16 @@ button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline:3px so
         AI 深度參與需求拆解、架構設計、實作、重構、測試與文件治理。
       </p>
 <div class="fact-grid">
-<div class="fact">
-<h3>研究 / 工程 Pipeline</h3>
-<pre class="pipeline">Market Data
-    ↓
-Data Reliability
-    ↓
-Research / Feature
-    ↓
-Strategy Engine
-    ↓
-Backtest
-    ↓
-Validation / Audit
-    ↓
-Performance Report</pre>
-</div>
-<div class="fact">
-<h3>最值得看的工程點</h3>
-<ul>
-<li>防止 Look-ahead Bias，訊號與成交時點分離。</li>
-<li>交易成本、滑價、商品限制納入 Backtest。</li>
-<li>Market Data completeness / cache / fallback / data gate。</li>
-<li>Research Integrity Audit + Performance Regression Guard。</li>
-<li>Discovery / Validation / Holdout、Walk-forward、Sensitivity Test。</li>
-</ul>
-</div>
+<div class="fact"><h3>研究與資料契約</h3><ul>
+<li>T-1 訊號／T 開盤成交，完成高週期 K 棒與歷史截止日限制，避免前視偏誤。</li>
+<li>商品自身行情、企業行動及成本；快取／續傳、官方補齊、degraded 狀態與 data gate。</li>
+<li>改版比較報告保留原因與風險交換；依研究 protocol 區分開發、驗證與保留期。</li>
+<li>通用尋優完整績效包含選參資料，不能一律視為樣本外結果。</li></ul></div>
+<div class="fact"><h3>工程交付與權限</h3><ul>
+<li>我定義計算口徑及驗收，AI 協助需求拆解、實作、重構與文件。</li>
+<li>直接相關測試＋typecheck／build／改版 guard，配合桌面與 390px 手機實際驗收。</li>
+<li>Google OAuth、白名單、單裝置 Session、版本簽署均由後端驗證。</li>
+<li>LINE 核實交易日排程／補送；金融與選擇權部分仍屬 Beta／研究觀察。</li></ul></div>
 </div>
 <div class="tags">
 <span class="tag">Vue 3</span><span class="tag">TypeScript</span><span class="tag">Node.js / Express</span>
@@ -1168,44 +1144,51 @@ Performance Report</pre>
 <article class="poc-card" id="redis-work-project">
 <span class="poc-focus teal">工作實務 · Redis High Availability</span>
 <h3>k8s-for-redis</h3>
-<p>實際工作中實作 Redis Sentinel 與 Cluster 方案，並實際測試 Failover；公開 Repository 收錄 Kubernetes Sentinel 部署設定。</p>
-<p class="project-tools"><strong>部署與驗證工具：</strong>Kubernetes、kubectl、redis-cli</p>
+<p><strong>工作實務：</strong>工作中實作 Sentinel 與 Cluster，並實際測試 Failover；公開 Repo 收錄 Kubernetes Sentinel 部署。</p>
+<p><strong>驗證重點：</strong>用 Sentinel 探索、ROLE／INFO replication 與 client 重連讀寫核對角色切換；故障判定設定與實際恢復時間分開記錄。</p>
+<p><strong>架構取捨：</strong>Sentinel 管理非分片主從，Cluster 另處理分片；目前 emptyDir 部署不能據此宣稱持久化或零資料遺失。</p>
 <a href="https://github.com/wei310129/k8s-for-redis" rel="noopener" target="_blank">GitHub →</a>
 </article>
 
 <article class="poc-card">
 <span class="poc-focus blue">Performance · Observability</span>
 <h3>QPS Tuning</h3>
-<p>Redis Rate Limit / Semaphore、Pipeline、OOM、Sentinel Failover、JVM GC；Micrometer + Prometheus + Grafana + OpenTelemetry + Tempo。</p>
+<p><strong>控制與觀察：</strong>Redis 共用 rate limiter／semaphore，分辨 429 限流與 503 並發拒絕；HTTP histogram 與 order.processing span 連結 Prometheus、Grafana、Tempo。</p>
+<p><strong>實驗方法：</strong>對照 Redis 循序／Pipeline、OOM 寫入拒絕、Lua 忙等與 Sentinel 切換，搭配 JVM GC 負載；固定環境與輸入，再比較延遲、錯誤及資源。</p>
+<p><strong>驗證範圍：</strong>提供可重現負載與故障觀察入口；目前自動化以 context 測試為主，尚未附固定環境的前後效能報告。</p>
 <a href="https://github.com/wei310129/QPS-tuning" rel="noopener" target="_blank">GitHub →</a>
 </article>
 <article class="poc-card">
 <span class="poc-focus teal">Event-driven · High Throughput</span>
 <h3>Pulse Platform</h3>
-<p>Ingestion API → Kafka → Consumer → Redis / PostgreSQL；驗證 Partition、Consumer Group、水平擴展，並搭配 Micrometer / Prometheus 與 k6。</p>
+<p><strong>事件管線：</strong>HTTP Ingestion → Kafka → PostgreSQL／Redis；serviceId 分區、8 partitions、4 consumer threads、手動 ack，Redis 按 UTC 分鐘聚合。</p>
+<p><strong>一致性取捨：</strong>event_id UNIQUE 防止 PostgreSQL 重複落地；資料庫成功後 Redis 失敗的重播仍可能漏聚合，這是跨儲存一致性待補強的邊界。</p>
+<p><strong>完成與驗證：</strong>已實作核心管線與聚合 mock 單元測試；Dashboard、DLQ、k6 壓測及自動擴容尚待完成，HTTP 202 也不等於持久化成功。</p>
 <a href="https://github.com/wei310129/pulse-platform" rel="noopener" target="_blank">GitHub →</a>
 </article>
 <article class="poc-card">
 <span class="poc-focus purple">救援任務派遣平台 · DDD</span>
 <h3>RescueHero</h3>
 <p><strong>專案緣起：</strong>緣起於 2025 年 9 月花蓮馬太鞍溪堰塞湖潰壩事件。有感於災後志工登記與任務分派的協作需求，開發救援任務派遣平台，讓組織與志工能統一調度、即時溝通，減少資訊分散造成的人力物力耗損。</p>
-<p>DDD、Kafka、Redis、PostgreSQL、MongoDB、WebSocket、JWT、Docker Compose，驗證完整事件驅動與分散式 Web Application 架構。</p>
+<p><strong>領域與通訊：</strong>以 DDD 分組救援、任務、物資等模組；WebSocket 經 Kafka，使用每個 backend 獨立 consumer group 向各自連線的使用者分送訊息。</p>
+<p><strong>架構取捨：</strong>PostgreSQL／MongoDB／Redis 分別承擔關聯資料、聊天文件與登入狀態；多實例 fan-out 的文件去重、topic 副本與聊天室授權仍需補強。</p>
+<p><strong>驗證範圍：</strong>Playwright 以 mock API 驗證登入／註冊 UI；多實例容器配置尚不能代替真實聊天、故障恢復與可靠送達驗收。</p>
 <a href="https://github.com/wei310129/RescueHero" rel="noopener" target="_blank">GitHub →</a>
 </article>
 <article class="poc-card">
 <span class="poc-focus">gRPC · Netty 網路程式設計</span>
 <h3>Java-gRPC</h3>
-<p><strong>通訊流程：</strong>Unary RPC、Server Streaming、跨 Server 轉發、Deadline 傳播與全域例外處理；以 ByteBuf 解析自訂二進位封包並提供 HTTP 入口。</p>
-<p><strong>Netty 核心：</strong>長度欄位解碼與 pipeline 處理黏包／半包；IdleStateHandler 示範讀取閒置逾時與模擬心跳；ChannelGroup 示範群組廣播、room 篩選及 channel 移除。</p>
-<p><strong>驗證方式：</strong>三個 EmbeddedChannel Demo 可直接執行，搭配 Controller 單元測試與 Spring Boot context 測試；目前以本機 PoC 驗證為範圍。</p>
+<p><strong>通訊契約：</strong>Unary、Server Streaming、跨 server 轉發與例外映射；沿用上游 Deadline，未指定時補 3 秒期限，限制呼叫鏈等待。</p>
+<p><strong>Netty 核心：</strong>ByteBuf 長度檢查／reader index 回滾；length-field pipeline 示範黏包／半包，IdleStateHandler 管理閒置，ChannelGroup 處理 room 廣播及移除。</p>
+<p><strong>驗證範圍：</strong>三個 EmbeddedChannel Demo 可執行，另有 Controller 單元與 context 測試；尚未提供正式 TCP server、TLS 或完整端到端驗收。</p>
 <a href="https://github.com/wei310129/Java-gRPC" rel="noopener" target="_blank">GitHub →</a>
 </article>
 <article class="poc-card">
 <span class="poc-focus">JVM Profiling · JFR / JMC</span>
 <h3>jfr-jmc</h3>
-<p><strong>負載與事件：</strong>以 API 觸發 CPU、記憶體配置、鎖爭用與慢速操作；ServiceOperation 自訂事件記錄操作名稱、輸入規模、結果與 duration，對照 JVM 行為。</p>
-<p><strong>分析流程：</strong>自訂 JFR profile 與連續／60 秒定時／JMX 手動錄製三種模式；用 JMC 離線分析 .jfr 或即時連線，觀察 CPU 熱點、GC／Heap、鎖爭用與 Thread Sleep。</p>
-<p><strong>驗證範圍：</strong>事件錄製／讀取與 Service 整合測試；HttpRequest 事件類別已定義，尚未接入 HTTP 請求流程。</p>
+<p><strong>診斷方法：</strong>API 分別觸發 CPU、配置、鎖爭用與等待；ServiceOperation 事件以操作、輸入與 duration 連結業務及 JVM 行為，對照 CPU／GC／Monitor。</p>
+<p><strong>錄製與分析：</strong>自訂 JFR profile，連續保留最近 5 分鐘、60 秒定時或 JMX 手動錄製，再以 JMC 離線／即時及 Event Browser 核對。</p>
+<p><strong>驗證範圍：</strong>自訂事件錄製／讀取與 Service 整合測試；HttpRequest 事件尚未接入請求流程，Repo 未附調校改善幅度或示例 .jfr。</p>
 <a href="https://github.com/wei310129/jfr-jmc" rel="noopener" target="_blank">GitHub →</a>
 </article>
 </div>
@@ -1249,434 +1232,151 @@ Claude Code 曾用於 My Mobile Secretary 前期及部分 PoC 開發。</p>
 </div>
 <div class="plain-text plain-document" id="plain-mms"><h3 class="plain-project-title">1. My Mobile Secretary — AI Agent 個人智慧助理【主要專案】</h3>
 
-<p class="plain-paragraph"><strong>定位：</strong>Java Backend + Spring AI + LLM / AI Agent</p>
+<p class="plain-paragraph"><strong>定位：</strong>以情境感知、可靠提醒與確定性執行為核心的個人秘書。</p>
 
-<p class="plain-paragraph"><strong>開發工具：</strong>Claude Code（前期）、ChatGPT、Codex</p>
-
-<p class="plain-paragraph">使用 Java / Spring Boot / Spring AI 開發個人 AI 助理，整合 LINE Webhook、LLM 意圖解析、任務派送與 Session 管理。</p>
+<p class="plain-paragraph"><strong>開發工具：</strong>Claude Code（前期）、ChatGPT、Codex。</p>
 
 <p class="plain-paragraph"><strong>主要實作重點：</strong>
-- 以 LLM 將自然語言轉換成後端可處理的結構化 Intent。
-- 建立 Intent Interpreter、AI Dispatcher、Session / Trigger 等模組。
-- 將 LLM 語意判斷與 Backend Domain / Tool Execution 分離，避免模型直接控制核心業務流程。
-- 專案前期曾使用 Claude Code；亦使用 ChatGPT / Codex 協助需求拆解、架構設計、Coding、Refactoring、Testing 與 Debug。
-- 以 Interface、Domain Boundary、Validation 限制 AI 修改與執行範圍。
-- 透過自動化測試驗證 Intent Interpretation 與 Provider-neutral 行為，降低 Prompt / Model 調整或長 Context 造成的 Regression。</p>
+- LLM 只理解意圖、輸出結構化資料與表達結果；Java application/domain 驗證權限、時間、地理、狀態及業務規則，再執行異動。
+- 模組化單體與 provider adapter，整合 LINE／REST、行程、任務、提醒與個人知識，控制單人開發的部署及整合成本。
+- workspace／actor scope 與 PostgreSQL RLS 隔離私人資料；Flyway 管理 schema，Notification Outbox 分離交易與外部通知交付。
+- 固定 Clock 回歸案例與 Fast／Testcontainers／opt-in live evaluation 分層；以直接相關測試與交付 gate 驗收 AI 產出。</p>
 
-<p class="plain-paragraph"><strong>主要技術：</strong>
-Java 21、Spring Boot、Spring AI、LLM、AI Agent、LINE Webhook、Domain Design、Automated Testing</p>
+<p class="plain-paragraph"><strong>開發治理：</strong>我負責需求、架構及驗收；internal/ai-dispatcher 是獨立 build／database／lifecycle 的開發自動化，不屬於產品 runtime。完成度以 README 的能力與驗收閘門為準。</p>
+
+<p class="plain-paragraph"><strong>主要技術：</strong>Java 21、Spring Boot、Spring AI、LINE、PostgreSQL／PostGIS／RLS、Redis、Flyway、Testcontainers。</p>
 
 <p class="plain-paragraph"><strong>Repo：</strong>
 https://github.com/wei310129/my-mobile-secretary</p></div>
 </section>
 <section class="plain-section anchor-section track-section" data-key="taiwan" id="text-taiwan">
 <div class="plain-head">
-<h2>02 · Taiwan Weighted Index Prediction</h2>
+<h2>02 · Taiwan Weighted Index Prediction（衡策）</h2>
 <button class="copy-btn" data-copy-target="plain-taiwan" type="button">複製此段</button>
 </div>
-<div class="plain-text plain-document" id="plain-taiwan"><h3 class="plain-project-title">2. Taiwan Weighted Index Prediction — AI 輔助量化研究與回測平台【主要專案】</h3>
+<div class="plain-text plain-document" id="plain-taiwan"><h3 class="plain-project-title">2. Taiwan Weighted Index Prediction（衡策）— 量化策略研究平台【主要專案】</h3>
 
-<p class="plain-paragraph"><strong>定位：</strong>AI-assisted Software Engineering + Quant Research / Backtesting Platform</p>
+<p class="plain-paragraph"><strong>定位：</strong>在一致的資料可見範圍、成交時點與成本下，建立可比較、可追溯的研究流程。</p>
 
-<p class="plain-paragraph"><strong>開發工具：</strong>ChatGPT、Codex</p>
-
-<p class="plain-paragraph">將市場資料、策略研究、歷史回測、研究驗證與決策輔助整合成一套可長期維護的研究平台。AI 深度參與需求拆解、架構設計、程式實作、Refactoring、Testing 與文件治理。</p>
+<p class="plain-paragraph"><strong>開發工具：</strong>ChatGPT、Codex。</p>
 
 <p class="plain-paragraph"><strong>主要實作重點：</strong>
-- 建立 Market Data → Data Reliability → Research / Feature → Strategy Engine → Backtest → Validation / Audit → Performance Report 的研究 Pipeline。
-- 防止 Look-ahead Bias，將策略訊號產生與實際成交時點分離。
-- 將手續費、交易稅、滑價與商品限制納入 Backtest。
-- 處理行情完整度、Cache / Resume、企業行動、Fallback / Degraded Mode 與 Data Gate。
-- 建立 Research Integrity Audit 與 Performance Regression Guard，避免策略改版後歷史績效退化被靜默覆蓋。
-- 採用 Discovery / Validation / Holdout、Walk-forward、Sensitivity Test 等方式驗證研究結果。
-- 使用 AI 輔助需求分析、架構方案比較、Coding、Refactoring、Testing 與研究文件整理。</p>
+- T-1 完成資料形成訊號、T 開盤執行；高週期 K 棒完整後才可使用，指定歷史截止日後所有研究同步截斷，避免前視偏誤。
+- 使用各商品實際行情、企業行動、成本及基準，處理快取／續傳、官方補齊、degraded 狀態與啟動 data gate。
+- 改版 guard 要求舊／新版比較報告並保留風險交換；各研究按 protocol 區分開發／驗證／保留期，通用尋優的完整績效包含選參資料。
+- Google OAuth、白名單、單裝置 Session 與版本簽署由後端驗證；LINE 依核實交易日排程及補送通知。
+- 我定義計算口徑與驗收，以直接相關測試、typecheck、build、研究證據與桌面／390px 瀏覽器驗收 AI 產出。</p>
 
-<p class="plain-paragraph"><strong>主要技術：</strong>
-Vue 3、TypeScript、Node.js / Express、SQLite、Backtesting、Research Validation、GitHub Actions、AI-assisted Development</p>
+<p class="plain-paragraph"><strong>主要技術：</strong>Vue 3、TypeScript、Node.js／Express、SQLite、Backtesting、GitHub Actions。</p>
 
-<p class="plain-paragraph"><strong>Repo 狀態：</strong>
-Private。完整 README 已內嵌，不需要 GitHub 權限即可閱讀。</p></div>
+<p class="plain-paragraph"><strong>Repo 狀態：</strong>Private。README 內嵌於網頁並隱去管理者帳號，可直接查看；金融與選擇權部分仍為 Beta／研究觀察。</p></div>
 <details class="plain-details">
-<summary>完整 README（Private Repo 備份，可直接選取 / 複製）</summary>
+<summary>README（已隱去管理者帳號，可直接選取／複製）</summary>
 <div style="padding:10px 12px 0;">
 <button class="copy-btn" data-copy-target="plain-readme" type="button">複製完整 README</button>
 </div>
 <pre class="plain-readme" id="plain-readme"># 衡策｜量化策略研究平台
 
-衡策是一套將**市場資料、策略研究、歷史回測、研究驗證與決策輔助**整合在同一系統中的量化研究平台。
+一套以相同資料、交易成本與成交時點，公平比較投資策略的 Vue + Node.js 量化研究與決策輔助平台。目前支援臺灣50系列、五個金融研究標的，以及只做買方的臺指選擇權 Call／Put。各商品各自使用實際行情、成本與基準；金融與臺指選擇權研究目前為 Beta、限 Admin 使用。
 
-系統以實際歷史行情為基礎，在一致的資料可見範圍、成交時點與交易成本下比較不同策略，並特別處理前視偏誤（look-ahead bias）、資料缺漏、企業行動、參數尋優以及策略改版造成的績效退化。
+開發本專案前，請先閱讀 [`docs/development-guidelines.md`](docs/development-guidelines.md)；其中記錄共用元件索引、介面規格、互動原則與完成前的瀏覽器驗證要求。新增或修改行情來源時，另須遵守 [`docs/market-data-reliability.md`](docs/market-data-reliability.md) 的供應者介面、快取、續傳、降級與故障測試契約。
 
-&gt; 專案目標不是找出歷史報酬最高的策略，而是建立一套**可重現、可驗證、可比較、可追溯**的研究流程。
+## 工程重點與驗證入口
 
-目前研究範圍包含臺灣 50 系列、金融股策略，以及臺指選擇權買方策略。部分金融與衍生商品研究仍屬 Beta／研究觀察階段，不代表正式投資建議。
+本專案的工程核心是建立可比較、可追溯的研究流程：資料是否當時可見、交易是否真能在該時點成交、成本是否一致，以及改版是否有證據支持。AI 協助需求拆解、方案比較、實作、重構、測試與文件整理；計算口徑、驗收條件與風險交換由我決定，再以測試、研究文件與交付閘門核對。
 
----
+| 問題 | 設計取捨 | 證據入口 |
+| --- | --- | --- |
+| 前視偏誤與虛構成交 | T-1 完成資料形成訊號、T 開盤執行；高週期 K 棒完成後才可用；指定截止日後所有研究同步截斷 | 下方回測規則與 tests/ |
+| 不同商品不可公平比較 | 使用商品自身行情、企業行動、交易成本與基準；資金流與價格報酬分開記帳 | 回測規則、資料與限制 |
+| 外部資料缺日或故障 | provider 契約、快取／續傳、官方資料補齊、degraded 狀態與啟動 data gate | [資料可靠性](docs/market-data-reliability.md)、[維護 SOP](docs/data-maintenance-sop.md) |
+| 新版結果退化或過度配適 | guard:strategy-performance 要求舊／新版報告，保留原因及風險交換；依各研究協議區分開發、驗證、保留期及已見資料 | docs/strategy-performance-reports/、各研究與 protocol 文件 |
+| 前端隱藏功能不足以保護 API | Google OAuth、白名單、單裝置 Session、Admin 與版本化簽署由後端驗證 | [公開服務與 SSO](docs/public-google-sso.md)、shared/consent-definitions.ts |
 
-## 專案重點
+### 研究結果的解讀邊界
 
-這個專案不只實作技術指標或單一回測公式，而是將策略研究視為一個需要長期維護的工程系統。
+多週期條件研究採 60%／20%／20% 切分；其他研究以各自 protocol 為準，不能把所有頁面績效一律稱為樣本外結果。通用附加尋優選定參數後呈現完整範圍，包含選參資料；事後排名與已見近期稽核需揭露其限制，不等同可交易驗證。金融與選擇權的 Beta／研究觀察狀態也應和正式策略分開。
 
-核心設計包含：
+### 開發與驗收
 
-- 不同策略使用一致的時間範圍、成交假設與成本模型比較。
-- 訊號只能使用決策當下已完成、當時可取得的資料。
-- ETF、股票與選擇權使用各自實際行情，不用其他商品報酬人工合成。
-- 手續費、交易稅、滑價／價差等交易成本納入績效。
-- 對行情來源建立資料閘門、快取、續傳、降級與缺漏修復機制。
-- 策略或回測邏輯修改時，CI 會要求產生改版前後績效比較。
-- 研究結果、integrity audit 與 performance report 保存在 repository 中。
-- 對可能存在過度配適的結果保留研究觀察狀態，而不是直接升格為正式策略。
+使用 ChatGPT／Codex 協助 Agentic coding，將需求拆成可驗收變更；以直接相關測試、typecheck、build、策略改版 guard 與實際桌面／390px 手機瀏覽器檢查完成驗收。測試通過範圍以當次報告為準，不把歷史研究報酬當成軟體品質或未來績效的保證。
 
----
+## 第一版功能
 
-## Research Pipeline
+- 使用滑桿選擇 1～15 年回測期間
+- 策略研究總覽依「臺灣50系列」、「金融股策略模擬」與「衍生商品策略研究」各顯示一張族群面板，再由符合介面風格的展開選單進入標的；各標的的網址、行情快取、回測請求、基準與瀏覽器工作區彼此獨立
+- 金融標的只比較金融產業趨勢、相對強弱、量價、多因子及其金融智能策略，不與 0050、槓反或其他族群策略共用
+- 臺指選擇權以0050組合年度第一名作Call／Put共同母訊號；偏多且通過Call規則時買Call，第一名存在且市場弱勢連續確認時可切換買Put。只做買方、不做賣方、不使用保證金；Call／Put分開研究，未合格權利別固定空手
+- 舊版正向即All in Call固定保留為研究對照且不推薦；選擇權專用2.0及買方3.0以三段開發資料自動選擇起始投入與累積加減碼幅度。精選快退8.0只在趨勢、動能與RSI同向時解鎖，採權利金15%停損、最多持有5日，但跳空仍可能穿越停損；它以顯著犧牲報酬換取低頻與較低回撤，只並列研究觀察而不取代3.0。所有風險等級使用同一組可達100%候選，風險等級只依最大回撤否決；三段資格或回撤門檻不合格時固定空手。每口以權利金點數 × NT$50 記帳並逐筆扣成本
+- 選約明細提供期交所免費即時行情外部入口，以同月份、Call／Put權利別與履約價核對，買進看賣一、賣出看原契約買一；站內T日權利金仍明示為盤後參考價，不擷取或轉送官方即時行情。日後可改接服務端永豐Shioaji授權串流
+- 資產曲線下方共用持倉比例副圖：臺灣50組合顯示0050／正2／反1，選擇權顯示買Call／買Put；選擇權比例採日終實際權利金市值除以總資產，不拿0050方向或風險預算代替。同日進出即使日終為0%，仍用Call／Put短交易標記保留進場與出場痕跡。主圖空手線連到進場日開盤成交點，持有線從同一點連至出場日開盤成交點，再由空手線接續。任何一筆選擇權投入若以0點權利金退出或到期結算，資產主圖與Call／Put副圖都會同步標示從首次投入到歸零的完整區段及歸零日
+- 策略計算與研究檔變更由 `npm run guard:strategy-performance` 強制要求 `docs/strategy-performance-reports/` 的舊版／新版比較；報酬下降時必須分析原因並選擇維持舊版、保留觀察或接受風險交換
+- 可指定任一歷史日期作為回測最後一天；非交易日自動採前一交易日，並依所選期間向前回推
+- 同時比較買進持有、多週期趨勢、相對動能、多頭回檔、量價突破、多策略集成、日 K 期望值退場、KD、MACD、週 K、雙週 K、月 K 趨勢及月 MACD × K 退場策略
+- 顯示累積／年化報酬、最大回撤、Sharpe、Calmar、勝率、交易次數，並分列手續費、證交稅、滑價／價差隱含成本與合計
+- 計入券商手續費、各商品適用的賣出證交稅與滑價；ETF 預設 0.1%，股票預設 0.3%
+- 依投入資金、目前持股及策略目標曝險，換算買進／賣出股數或不操作
+- Admin 可在策略研究總覽查看所有帳號最後登入與逐筆登入歷史；成功登入、最後活動、登出與裝置取代持續保存，既有快照與系統驗證明確分類。
+- 可將白名單 Google 帳號安全綁定 LINE 官方帳號，為每個標的指定一個投資方案；訂閱啟用後每個交易日依設定的台北時間發送通知，非交易日不發送，沒有操作、資格不合格或當天沒有決策也會告知狀態
+- 每日比較 1、3、5、10、20 個交易日的扣成本期望值，顯示最佳持有期、期望退場價與日 K 訊號失效線
+- 買進持有只作市場比較基準，不參與系統首選與可執行策略排名
+- 週 K、雙週 K、月 K 只使用已完整結束的高週期 K 棒，未完成區間不進入訊號
+- 日／週／雙週／月／季條件研究以 60% 發現、20% 驗證、20% 樣本外測試，比較買進或賣出後 1、3、5、10、20 個交易日的扣成本勝率
+- 以近 15 年、10% 方向轉折列出加權指數、電子、金融保險、其他（非金電）每一次大漲／大跌，分別統計五種 K 線在事件前的趨勢、動能、MACD、KD、突破與波動特徵
+- 電子、金融、其他各有獨立操作策略；另以每年前一年底證交所 Fact Book 市值權重整合預測，並保留「加權指數直接預測」作對照
+- 原有主動策略與年度族群整合模型各占 50% 形成最終部位；買進持有與加權指數直接模型維持獨立，方便比較改版前後的預測思路
+- 所有主動策略可附加「上漲時調整」與「下跌時調整」兩個獨立開關，可選加碼／減碼、定額／定比，並可在高波動時額外執行一次；原策略名稱維持不變
+- 所有研究標的都可建立至多五條具名領回規則；每條可同時啟用固定月數或帳面門檻，任一成立即依順序執行第一條符合規則。領回可依總資產賣出持倉，或限制只使用帳面現金，並可另建至多五條無時間判斷的最低保留規則。比例保留額度取「執行當下所選帳面價值 × 比例」與「起始投入 × 同一比例」較高者，固定金額則直接作為保留底線。這是使用者資金流設定，不等同商品本身配息。非選擇權標的另可啟用定期定額。期末資產、累積投入、累積領回與實際損益分開呈現，排名採資金流調整後時間加權報酬，個人結果另列實際損益率及依每日投入、領回與期末資產計算的年化 XIRR
+- 排行榜可自動比較 481 種附加方案：4 個漲跌觸發門檻 × 5 個加減碼幅度 × 8 種方向動作 × 3 種高波動設定，再加上不調整；歷史尋優區間可使用完整固定時間軸，且至少保留 2 年資料（預設結束位置 70%）。選定方案後套用至完整範圍，所有績效與排名都依完整範圍計算。自動尋優與手動設定互斥
+- 自動尋優會將目前檢視策略的勝出參數填回手動欄位；關閉自動後原值保留並立即轉為手動設定
+- Banner 的風險承受滑塊會共同改變首選門檻、策略偏好與自動尋優。低／中低／中／中高／高分別限制最大回撤為 15%／25%／35%／45%／65%；一般ETF的低風險自動附加層仍只允許不調整或減碼。TXO例外地在六個風險等級共用同一組可達100%累積部位候選，不預先縮小投入上限。正2、反1與TXO可使用不設回撤上限的極高風險，但仍保留樣本、正報酬與正 Sharpe 底線
+- 畫面上方提供四組獨立策略設定頁籤，自動儲存回測期間、資金、定期定額、尋優／手動模式、加減碼參數與目前檢視策略；每個商品使用各自的瀏覽器本機工作區
+- 使用各研究標的 Yahoo 實際日線並對齊 ^TWII 與金融保險類指數；價格僅還原分割／反分割，曲線與排名以純價格報酬比較；儀表板另列配息保留為現金、不再投入的含息總報酬、含息年化與相對當前商品基準的績效
+- 自動化測試驗證無前視偏誤、成本扣除、參數邊界與建議股數
+- 顯示 KD（9,3,3）與 MACD（12,26,9）目前數值、狀態及各自完整策略回測
 
-```text
-Market Data
-    │
-    ├─ Yahoo Finance
-    ├─ TWSE
-    ├─ TAIFEX
-    └─ Fact Book / auxiliary data
-    │
-    ▼
-Data Reliability Layer
-    │
-    ├─ completeness check
-    ├─ cache / resume
-    ├─ corporate action adjustment
-    ├─ fallback / degraded mode
-    └─ data gate
-    │
-    ▼
-Research / Feature Layer
-    │
-    ├─ trend
-    ├─ momentum
-    ├─ volume / volatility
-    ├─ market regime
-    └─ multi-timeframe conditions
-    │
-    ▼
-Strategy Engine
-    │
-    ▼
-Backtest Engine
-    │
-    ├─ execution timing
-    ├─ transaction cost
-    ├─ position sizing
-    └─ benchmark
-    │
-    ▼
-Validation / Holdout / Audit
-    │
-    ▼
-Performance Report
-    │
-    ▼
-Decision UI / LINE Notification
-```
+## 執行
 
----
+需求：Node.js 20 以上版本。
 
-## 目前研究範圍
+完整的開發、測試與部署規範以 [`docs/development-guidelines.md`](docs/development-guidelines.md) 的「現行開發與公開運行模式」為準。
 
-### 臺灣 50 系列
-
-- `0050`
-- `00631L`
-- `00632R`
-- `T50COMBO`：0050／正 2／反 1 三資產輪動研究
-
-槓桿與反向 ETF 均使用自身實際歷史行情、企業行動、交易成本與基準，不以 0050 日報酬直接乘以 `2` 或 `-1` 合成。
-
-### 金融研究（Beta）
-
-目前包含：
-
-- `0055`
-- `2882`
-- `2891`
-- `2886`
-- `2885`
-
-金融標的使用自己的行情與金融產業特徵，不直接沿用臺灣 50 或槓反策略的訊號與排名。
-
-### 臺指選擇權研究（Beta）
-
-- `TXO`：臺指月選
-- `TXOW`：臺指週選
-- 僅研究 Call／Put **買方策略**
-- 不建立裸賣部位
-- 不使用選擇權賣方保證金模型
-
-月選與週選的契約、快取、績效、研究紀錄與帳本彼此分離；尚未通過研究門檻的版本只保留為研究觀察，不指定為正式策略。
-
----
-
-## Engineering Highlights
-
-### 1. 防止 Look-ahead Bias
-
-回測中的訊號產生與成交時點刻意分離。
-
-```text
-T-1 已完成資料
-      │
-      ▼
-產生策略訊號
-      │
-      ▼
-T / 下一可交易時點
-      │
-      ▼
-執行部位調整
-```
-
-未完成的日 K、週 K、雙週 K、月 K 或季 K 不得提前進入策略判斷。
-
-指定歷史回測截止日後，行情、指標、研究樣本與策略決策都必須同步截斷，不允許使用截止日之後的資料。
-
-### 2. 真實商品行情，不使用合成捷徑
-
-0050、00631L、00632R 與金融標的各自使用自己的實際歷史行情。
-
-例如：
-
-```text
-錯誤做法
-0050 daily return × 2
-        ↓
-模擬 00631L
-
-衡策
-00631L actual OHLCV
-        ↓
-Backtest
-```
-
-這避免忽略槓桿 ETF 的每日重設、波動耗損、複利路徑與實際交易價格。
-
-### 3. Transaction-cost-aware Backtest
-
-策略比較會納入：
-
-- 券商手續費
-- 商品適用的證交稅
-- 滑價／價差隱含成本
-- 實際進出場時點
-- 整股或整數口數限制
-
-績效指標包含：
-
-- 累積報酬
-- 年化報酬
-- 最大回撤
-- Sharpe Ratio
-- Calmar Ratio
-- 勝率
-- 交易次數
-- 成本拆分
-
-買進持有作為比較基準，不直接參與主動策略首選。
-
-### 4. Research Integrity 與 Performance Regression Guard
-
-策略研究不是只比較「新版報酬有沒有比較高」。
-
-repository 中保留：
-
-```text
-docs/
-├─ research-preregistrations/
-├─ strategy-integrity-audits/
-├─ strategy-performance-reports/
-├─ *-research.md
-└─ *-protocol.md
-```
-
-策略計算或研究檔變更時：
+### 本機互動開發
 
 ```bash
-npm run guard:strategy-performance
+npm install
+npm run dev
 ```
 
-會要求產生新版／舊版的績效比較。
+開啟 `http://localhost:5173`。開發模式的前後端都只監聽本機回環位址，並同時啟動：
 
-若新版報酬下降，研究結果必須留下原因與風險交換說明，例如：
+- Vue 前端：`http://localhost:5173`
+- Node.js API：`http://localhost:8787`
 
-- 維持舊版
-- 保留新版為研究觀察
-- 接受較低報酬換取較低回撤／較低頻率
-- 判定沒有增量效益
+不再提供區域網路直連或 Windows 5173 portproxy。手機一律使用 ngrok 公開網址，不得為手機測試重新開放 Vite 或後端埠。
 
-避免策略邏輯改版後，歷史績效退化卻被靜默覆蓋。
+本機開發與常駐公開服務共用行情快取及 SQLite；執行 `npm run dev` 前應先停止 `hengce-public.service`，避免兩個後端同時執行。
 
-### 5. Development / Validation / Holdout
+### 正式公開模式
 
-部分研究採分段方式進行，例如：
+人工前景啟動：
 
-```text
-Historical Data
-│
-├─ 60% Discovery
-│
-├─ 20% Validation
-│
-└─ 20% Holdout / Out-of-sample
+```bash
+npm run public:secure
 ```
 
-研究過程中也保留固定樣本、walk-forward、事件研究與 sensitivity test 等不同驗證方式。
+目前正式常駐採 `ngrok HTTPS Tunnel → Nginx 18787 → Unix Socket → Node`，Google OAuth 驗證、系統登入白名單、Admin 權限與裝置 Session 全由 Node 後端處理。Node 不監聽任何 TCP 埠，只有 Nginx 能經權限設為 `0600` 的 Socket 代理 API；由 systemd 啟動並以健康 timer 自動修復。安裝、白名單、Admin 設定、重啟、登出與故障排查請見 [`docs/public-google-sso.md`](docs/public-google-sso.md)。開發分支 commit 後執行 `npm run deliver:main`，即可由 GitHub Actions 或本機備援完成驗證、安全快轉 `main`、部署與 API 稽核；機器只回傳精簡 JSON 摘要，完整日誌保留在 `.runtime/release/`。
 
-README 不將單一歷史高報酬視為策略有效性的充分證據；實際研究證據以 `docs/` 中的 protocol、audit 與 performance report 為準。
+### 版本化簽署與使用權限
 
-### 6. Market Data Reliability
+首頁可公開瀏覽，不要求 Google SSO 或簽署。進入策略研究時，系統先完成 Google OAuth 與系統登入白名單驗證，再檢查單一裝置 Session；只有 `設定的管理者帳號` 具備 Admin 權限，其餘白名單帳號都是一般使用者。登入完成後才讀取 `/api/consents/current`。只要任一必填項目尚未同意目前版本，畫面就會顯示不可關閉的簽署視窗，策略研究 API 也會回傳 `428 CONSENT_REQUIRED`；後端成功保存整包簽署結果後才開放使用。
 
-行情資料不是單純「API 有回就算成功」。
+- 現行項目、必填／選填、版本、上架時間與原文集中於 `shared/consent-definitions.ts`。
+- 每次提交都保存整包項目，包含同意或拒絕、版本、簽署時間與當版原文；自己的歷史紀錄可由 `/api/consents/history` 查詢。
+- 必填項目推出新版會要求所有使用者重新簽署；只有選填項目更新時不會中斷使用。
+- SQLite 紀錄預設保存在 `server/.cache/user-consents.sqlite`，舊版原文與最初上架時間不會被新版覆寫。
 
-資料層會處理：
-
-- 預期交易日與實際資料完整度
-- 快取與缺漏月份補抓
-- 中間缺日與尾端缺日
-- 企業行動（split / reverse split）
-- 官方資料交叉確認
-- 資料源失效時的降級與告警
-- 服務啟動時的 data gate
-
-完整契約請參閱：
-
-- [`docs/market-data-reliability.md`](docs/market-data-reliability.md)
-- [`docs/data-maintenance-sop.md`](docs/data-maintenance-sop.md)
-
----
-
-## Backtest Contract
-
-README 僅保留最重要的回測契約；商品與策略的完整規則放在各研究文件中。
-
-1. **只使用當時可見資料**  
-   策略訊號不能讀取未來資料。
-
-2. **訊號與成交時間分離**  
-   完成資料產生訊號後，才在下一個合法成交時點執行。
-
-3. **公平比較**  
-   同一組策略比較使用一致的起訖日、資金、成本與 benchmark。
-
-4. **交易成本不可忽略**  
-   手續費、稅負、滑價與商品限制均納入。
-
-5. **高週期資料必須完整收盤**  
-   未完成的週／月／季資料不得提早進入判斷。
-
-6. **商品使用自身實際行情**  
-   不以其他商品報酬人工生成歷史價格。
-
-7. **研究結果與正式策略分離**  
-   少量樣本、高報酬或單一期間成功，不代表策略已通過正式研究門檻。
-
-8. **歷史績效退化不可靜默覆蓋**  
-   策略改版需留下 performance comparison 與研究決策。
-
-更多限制與 guardrail 請參閱：
-
-- [`docs/backtest-settings-guardrails.md`](docs/backtest-settings-guardrails.md)
-- [`docs/option-native-strategy-research.md`](docs/option-native-strategy-research.md)
-- [`docs/weekly-option-strategy-research.md`](docs/weekly-option-strategy-research.md)
-
----
-
-## 系統架構
-
-```text
-Browser
-  │
-  ▼
-Vue 3 + TypeScript
-  │
-  ▼
-Node.js / Express API
-  │
-  ├─ Authentication / Consent
-  ├─ Market Data Service
-  ├─ Strategy Engine
-  ├─ Backtest Engine
-  ├─ Research Engine
-  ├─ Portfolio / Cash-flow Calculation
-  └─ LINE Notification
-        │
-        ├─ SQLite / local cache
-        ├─ Yahoo Finance
-        ├─ TWSE
-        ├─ TAIFEX
-        └─ auxiliary research data
-```
-
-正式公開環境：
-
-```text
-Internet
-   │
-   ▼
-ngrok HTTPS Tunnel
-   │
-   ▼
-Nginx
-   │
-   ▼
-Unix Socket
-   │
-   ▼
-Node.js
-```
-
-Node.js 正式服務不直接暴露公開 TCP API，由 reverse proxy 與後端存取控制共同處理外部入口。
-
-Google OAuth、系統 allowlist、Admin／一般使用者權限、單一裝置 Session 與版本化 consent 均由後端驗證。
-
-詳細部署與故障排查流程請參閱：
-
-[`docs/public-google-sso.md`](docs/public-google-sso.md)
-
----
-
-## 決策與通知
-
-系統可以依投入資金、目前持倉與策略目標曝險，換算：
-
-- 買進
-- 賣出
-- 維持
-- 目標部位
-- 策略判斷理由
-
-白名單帳號可綁定 LINE 官方帳號並設定研究方案通知。
-
-LINE 通知屬於**決策輔助**：
-
-```text
-Research Result
-      │
-      ▼
-Decision
-      │
-      ▼
-LINE Notification
-      │
-      X
-Automatic Order
-```
-
-系統不會自動下單。
-
----
-
-## 測試與 CI
-
-本機驗證：
+## 測試
 
 ```bash
 npm test
@@ -1684,141 +1384,81 @@ npm run typecheck
 npm run build
 ```
 
-CI 驗證：
+測試採紅燈、綠燈、重構流程；新增或修正回測規則時，應先建立失敗案例。
 
-```bash
-npm run ci:validate
-```
+## 回測規則
 
-主要包含：
+1. 策略在 T-1 日資料完整後產生目標曝險。
+2. T 日開盤才執行部位調整；回測結束日預設為台北當天，尚未收盤或非交易日時以最近已取得日 K 的交易日為實際截止日。
+3. 曝險可為 0%、25%、50%、75% 或 100%，不放空、不融資。
+4. 每次部位變化依方向扣除手續費、賣出證交稅及滑價。
+5. 期末結清預設關閉，持倉按期末行情估值；只有啟用時才平倉並將賣出成本計入績效。
+6. 所有策略使用同一個起訖日、資金與成本設定。
+7. 日 K 期望值策略以相似的趨勢、RSI、波動及相對強弱狀態估算未來持有期；每個歷史判斷只能使用當時以前已完成的樣本。
+8. 可執行首選須有正年化報酬、最大回撤不超過 30%、Sharpe 大於零，且完整交易次數通過所選回測期間的動態門檻。
+9. 週／雙週／月 K 訊號在高週期 K 棒完整收盤後產生，下一交易日開盤才調整部位。
+10. 多週期條件研究的週、雙週、月、季 K 只採用完整 K 棒；買進與賣出勝率都以次日開盤執行並扣除來回成本。
+11. 附加部位調整先取得原策略目標，再依單日漲跌調整；高波動選項會額外執行一次相同調整，最終曝險限制在 0%～100%。買進持有基準不套用附加層。
+12. 留空結束日代表最新資料；指定結束日後，行情快照、訊號、回測、退場與多週期研究全部截斷於該日，不使用任何之後資料。資料不足完整期間與指標暖機時會拒絕執行。
+13. 定期定額於回測區間第一天及之後每週／每月第一個交易日投入。定期／條件領回可建立至多五條具名規則並調整順序；每條的每 N 個月與帳面門檻是可同時啟用的 OR 條件，同日多條符合時只執行排序最前者。門檻以前一完整交易日的總資產帳面價值／帳面現金跨越「原始投入比例或固定金額」判斷；帳面現金包含另列且尚未投入的現金配息，門檻跌破後才重新待命。下一交易日開盤執行時，總資產模式可賣出持倉並計入賣出成本，帳面現金模式不賣持倉且領回額不超過現金。每次領回可用所選帳面價值的比例或固定金額計算。最低保留資金由獨立開關控制，也可建立至多五條具名規則；它不判斷每 N 個月，只在領回發生時依所選帳面價值由上到下套用第一條「每次」或「達門檻」的下限，沒有符合條件時不加下限。比例模式保留「執行當下所選帳面價值 × 比例」與「起始投入 × 同一比例」較高者，固定金額模式直接保留設定金額，賣出成本也不得侵蝕這次領回的保留底線。投入與領回都屬外部資金流：TWR 在領回執行點前後切分當日報酬再連乘，排除資金流但保留必要賣出成本；最大回撤使用資金流調整後淨值；XIRR 將投入列為負現金流、領回與期末資產列為正現金流。價格獲利固定為「期末價格資產＋由價格帳本支付的領回－起始資金－定期投入」；直接領回配息不會再算一次價格獲利。
+    這項領回設定適用所有研究標的（包含臺指選擇權），且與商品是否實際配息無關。選擇權總資產模式只能以執行日實際開盤權利金賣出足夠整數口數；沒有可驗證開盤價時不偽造成交。
+14. 自動尋優預設用較早 70% 歷史尋優區間比較 481 種附加方案，使用者可調整左右端，右端最高可到最後一個交易日，區間最短不得少於 2 年。選定後將同一方案套用到完整回測範圍；總報酬、年化報酬、勝率、Sharpe、回撤、品質分、排行榜與資格皆使用完整範圍。自動開啟時手動設定停用且不加入候選；關閉自動後才套用保留的手動參數。
+15. KD 第 9 根日 K 起計算 RSV、K、D；MACD 需完成 26 日慢線與 9 日訊號線暖機後才產生部位，所有訊號皆於次日開盤成交。
+16. 曲線與策略排名採純價格報酬：0050 分割前的價格與成交量會按分割比例還原；^TWII 使用加權價格指數。現金配息依策略在除息日前的實際持有部位另計，不重投、不改變資產曲線與策略排名；儀表板收合摘要另以配息留在現金部位的方式逐日計算含息總報酬、含息年化與相對0050績效。配息為稅前估算，未扣個人稅負與補充保費。
+17. 月 MACD × K 策略只使用已完成的加權指數月 K：MACD（12、26、9）柱狀體負轉正後於下一交易日開盤買進 0050；持有後月 DIF 達 400 且月 K（9,3）達 76 時啟動退場偵測，之後任一跌破門檻即於下一交易日開盤賣出；D 值不參與。
+18. 10% 大漲／大跌高低點必須等反向走勢確認後才能回頭標記，因此只作事件研究，不當成可交易訊號；實際族群策略仍以 T-1 已完成 K 棒產生訊號、T 日開盤成交。
+19. 年度產業權重採前一年底資料避免前視偏誤。電子是半導體、電腦週邊、光電、通信網路、電子零組件、電子通路、資訊服務、其他電子八類合計；金融在 15 年內曾超過 10%，即使 2026 年基準降到 9.68% 仍保留獨立模型；其餘歸入非金電。
+20. 0050、00631L、00632R 各自獨立使用實際行情、上市日、企業行動、成本、基準與工作區。正 2／反 1 是單日曝險目標，跨日報酬會受每日重設、波動耗損與複利路徑影響；歷史行情不得以 0050 日報酬直接乘以 2 或 -1 合成。00631L 的買進持有基準、均線、報酬、RSI、波動與回撤一律標示為 00631L；只有智能策略明確共用的 0050 完成 K 棒與成交量欄位保留「共用指標｜0050」標示。
+21. `T50COMBO` 為獨立的臺灣50三資產輪動研究：使用0050、00631L、00632R三檔真實行情的共同交易日與一個共同資金池，不借款、不放空，權重合計不超過100%。三檔各自在每個年度開始前，以當時可見資料及個別風險承受門檻淘汰不合格正式策略，再封存年度首選；沒有合格者時該子標的不可用。0050與正2作互斥正向輪動，只有兩者都空手時反1首選才能接手；反1不是與多頭並存的持股避險。每個子策略保留自己的原始進退場政策，只有反1場景快攻使用預掛停利／停損，智能2.0反向鏡像則依鏡像期望優勢失效訊號退出。T日完成資料決定目標，T+1共同交易日開盤先賣後買，逐檔以實際價格、整股、手續費、ETF賣出稅及滑價記帳；0050配息留在現金。比較基準固定為同期100%持有0050。
+22. 00631L、00632R 額外提供專用「槓反短期淨期望智能策略」：1、2、3、5、10 日只是期望值預測窗，不是持有期限。策略每日以商品實際隔日開盤報酬重算，完整扣買進手續費／滑價及賣出手續費／證交稅／滑價；只使用判斷日前已完成的樣本，並以預測窗重疊調整後、扣除一個標準誤的保守淨期望值決定 0%、50% 或 100% 部位。通用附加加減碼不再疊加到此策略。
+23. 0055、2882、2891、2886、2885 各自使用實際行情、配息、上市日、適用稅率、基準與工作區。金融研究只使用金融產業趨勢、相對強弱、量價、多因子與由這些金融候選組成的智能策略，不與臺灣50、槓反、電子或非金電策略共用。
+24. 0050、00631L、00632R 的所有智能策略共用 0050 本身的完成日 K 與成交量判斷。量比只用訊號日前 20 日均量；盤勢先按訊號日前一日與前 20／60 日均價分成多頭、空頭、轉折，再套用不同解讀。現階段只有空頭排列下的爆量破底具有較集中的續跌預警證據；它會列入決策理由與技術分析，但保守淨期望尚未轉正。另以智能 2.0 測試 64 組降倉上限與延續日後，所有家族都未通過三段開發一致性，保留期也沒有增量效益，所以不能單獨開倉、平倉或改變部位。
+25. `TXO` 為Admin限定的臺指月選買方研究，只買權利，不建立賣方或使用保證金。底層`0050 + 2 × 00631L - 00632R`的年度第一名是共同母訊號；Call承接偏多規則，Put則由獨立弱勢投票在連續確認時覆蓋Call。3.0分層比較3,160組候選後，最低三折合格版在弱勢連續2日達5/7票時投入5%，七票齊全加到10%；只買距到期至少28天、量與未平倉各100以上的價平月選Put，採+150%停利、-65%停損、最長20日與1日冷卻。T日只用完成資料，T+1一般盤同契約實際開盤成交。介面明列權利別、履約價、價內外、到期與流動性、參考權利金及退出公式。2024-01-09後Put單邊虧損且雙向3.0落後Call 2.0、回撤較大，因此維持研究觀察並保留退化警示。主要比較基準為同期100%持有0050純價格；每次策略或資料口徑改版若報酬下降或達重大差距，必須顯示差距、原因、風險交換與建議，不得靜默取代舊版。完整證據見`docs/option-native-strategy-research.md`與`docs/strategy-performance-reports/`。
+26. `TXOW` 是與 `TXO` 分離的Admin限定臺指週選買方標的，同時納入官方 `W` 與 `F` 週契約；網址、快取、策略代碼、績效、排名及帳本全部獨立。0050是資金配置的機會成本，代表不承擔選擇權高風險時的替代方案，不是每筆選擇權交易都必須勝過的硬門檻；逐筆相同進出場區間、各自扣成本的比較仍完整揭露，升格則綜合固定樣本期的整體扣成本超額報酬、回撤與風險代價、最差單筆、Call／Put平衡及雙向大行情捕捉。大行情按每一段複利10%行情腿計數，還須在價格走完一半前以正確權利別進場、實際參與至少1%同方向0050移動並以正權利金淨報酬退出。台灣大盤共同源頭引擎只整合0050組合年度第一名、月／週選方向與分行情、加權市場、完成夜盤與期交所法人風險，輸出大盤狀態；TXO與TXOW仍各自使用產品專屬的風險、契約、天期與退出。缺值固定計0且不重分配，混合月／週選的法人彙總只作風險證據。大盤共源分流6.0保留5.0的多頭發動／續勢與空頭轉弱／跌破／反彈失敗獨立對策，另加0.40反彈失敗去雜訊、0.65危機Put及只在原分流空手時以0.75品質與3%風險補捉Call。至2026-08-28的重播為127筆，總報酬+149.18%、年化13.51%、最大回撤6.40%、Sharpe 1.622，捕捉上漲8/35、下跌2/16；但同期超額勝率55.12%低於5.0的57.04%，第一開發折與已見近期稽核仍不合格，所以6.0與旧版全部並列研究觀察，不指定正式主動首選。週選歷史權利金目前只納入一般盤；台指期完成夜盤只作下一次一般盤前證據，不能冒充週選夜盤成交。完整證據見`docs/weekly-option-strategy-research.md`。
+25. 00632R 恐慌賣壓的七項條件每日顯示通過項數與尚缺條件。6/7 會標成「接近成立」研究觀察，但不等於 85.7% 獲利機率；保留期 27 筆交易勝率只有 48.1%、平均淨報酬 -0.65%。5/7 與 4/7 也為負，因此正式快攻仍只在 7/7 全數成立時進場。
+26. 00632R 另提供「智能 2.0 反向鏡像」研究觀察策略：0050 智能 2.0 降至 0% 時，下一共同交易日開盤持有反 1；智能 2.0 恢復部位或 0050 反彈條件達 5/5 票，代表鏡像期望優勢失效並於下一開盤退出，不設最長持有天數。歷史 40 日候選的第一開發段只有 1 筆且為負，保留期也只有 2 筆、平均 +1.89%、勝率 50%，只保留為研究證據；目前曲線依不限持有日規則重算，仍須通過既有首選門檻，不把少量獲利當成穩定證據。它與反 1 場景快攻都採低頻事件策略的固定最低 4 筆完整交易門檻，不隨畫面回測年數增加；其他正報酬、Sharpe、回撤與相對基準門檻不變。
+27. 00631L 主智能策略使用 0050「智能盤勢自適應配置 2.0」的同一判斷日目標，於下一共同交易日開盤交易 00631L；進場、加減碼與退場不得比 0050 晚。成交價格、成本與績效仍取 00631L 自身實際行情，不用 0050 報酬乘二合成。正2專用風險尋優只比較 70%／80%／90%／100% 最高曝險，只能減少同步部位，不得在 0050 空手時重新建立部位；兩段開發選出的仍是 100%，其餘候選未通過保留門檻，所以正式部位維持 100% 上限且不套用通用附加尋優。
+28. 風險承受預設為中，策略資產總價值從先前歷史高點回落的最大可接受幅度為35%；這不是單筆投入的虧損或停損上限。低風險可接受首選報酬低於持有基準，以換取更嚴格的回撤、Sharpe 與正期望值資格；高風險與正2／反1專用的極高風險仍不得降低最低交易樣本、正報酬與正 Sharpe 門檻。極高風險不設最大回撤上限，並以更高報酬權重及更積極的附加調整候選尋優。
+29. 商品是否配息由共用研究標的目錄的 `capabilities.cashDistributions` 控制。00631L、00632R 目前不收益分配，因此正2、反1頁面的含息摘要、現金配息、含息總獲利、配息事件與相關說明全部關閉；其他配息標的維持原有含息計算。共用儀表板與策略表只接受能力入參，不以商品代碼各自判斷。
+30. 臺灣50三資產研究正式比較三個逐層增加商品範圍的年度策略：「0050年度風險合格首選策略」、「0050／正2年度正向輪動」及「三資產年度風險合格輪動」；另保留「三資產目前首選事後回放（研究觀察）」揭露事後選擇偏誤。0050、正2、反1的啟用開關與個別風險整合在同一面板，關閉者不參與尋優、訊號或回測配置，但至少必須保留一檔。低／中低／中／中高／高／極高分別代表15%／25%／35%／45%／65%／無上限的最大可接受回撤；風險只淘汰超標子策略，不縮減合格策略原始部位。子標的開啟自動尋優時，只有選參期間已在年度封存日前結束的方案可參選，不用未來資料回寫歷史年度。一般標的仍顯示六級刻度，但可互動滑軌只到「高」；高到極高的灰色線段與極高端點完全不接收點擊或拖曳，只有讀到舊的極高設定時才自動正規化為最接近的「高」。正2與反1可使用全部六級。
+31. 組合頁的「持倉比例／資金配置／核心目標」是實際投入資金權重，三檔合計不超過100%；「有效市場曝險」另依 `0050 + 2 × 00631L - 00632R` 顯示。因此100%持有00631L等於100%資金配置、200%有效市場曝險，介面不得把後者標成部位或資金配置。
+32. 組合決策的加碼／減碼／投入持平只比較前後兩次目標總投入，不受市價漂移影響；同額賣A買B屬投入持平。持倉內容另標示看多轉倉正2、看空轉倉反1或保守轉倉0050與移轉比例；若轉倉同時增加或收回資金，剩餘淨加減碼也必須分開列出。決策卡收合時仍顯示持倉操作，但使用「轉正2 30%｜減反1 70%」等短版，手機最多兩行；展開後保留完整目的語意。
+33. 調整風險、日期、成本、資金、定期投入或其他回測設定時，完成後必須維持修改前正在檢視的同一策略，不得依新版排名自動改成推薦策略或首筆策略。首次進入且尚未選過策略時才可自動選擇推薦方案；若原策略已從策略目錄移除，介面須保留其識別並明確提示，不得靜默代換。
+34. 組合「進出場紀錄」的前後比例一律記錄三檔實際投入比例總和，範圍為0%～100%；正2乘二後的有效市場曝險只留在專用欄位，不得顯示成200%投入。紀錄以靠右且非全寬的日期排序下拉選單切換較新或較舊優先，「日期排序」標籤使用主要白色文字。當日決策收合摘要的日期固定單行，持倉操作在其餘可用寬度內精簡顯示；手機策略排行不論表格或卡片檢視，過長策略名稱與說明必須在自己的欄位換行，不得侵入決策驗證入口或相鄰欄位。
+35. 手機策略決策驗證視窗使用動態視窗高度，不得因瀏覽器網址列使面板頂端落在可視區外；每次開啟都必須把面板捲動位置歸零並顯示「策略決策驗證」標頭。
+36. 臺灣50動態組合的期末結清預設關閉：回測最後一天保留持股，以該日最新完整收盤價計入期末資產與未實現損益，不預扣尚未發生的賣出成本。啟用時才按收盤價賣出、扣除手續費、ETF交易稅與滑價並轉為已實現損益。全新工作區預設開啟四組方案全局共用；使用者關閉後會保留該選擇，手動重新啟用前必須先確認，確認後才可用目前值覆寫四組方案。
 
-```text
-Strategy Performance Guard
-        │
-        ▼
-Automated Tests
-        │
-        ▼
-Type Check
-        │
-        ▼
-Production Build
-```
+### 槓反短期淨期望智能策略（Beta）
 
-測試涵蓋的核心風險包括：
+- 00631L 依正向 2 倍的偏多方向、00632R 依反向 1 倍的偏空方向，將加權指數近 1 日／5 日方向與波動狀態分組；報酬仍只採各 ETF 自身實際行情，不用 0050 合成。
+- 每個歷史樣本都以訊號後第一個交易日開盤進場，於 1、2、3、5 或 10 個交易日後開盤出場；尚未完整發生的結果不得進入當日估計。
+- 畫面同時公開最佳預測窗、平均淨期望值、重疊調整後的保守淨期望值、歷史勝率與樣本數。保守淨期望值不大於零時空手；大於零但勝率低於 52% 時最多 50%，達 52% 才能為 100%。
+- 每日重算後只要保守淨期望值仍為正即可續抱；沒有「持有滿 N 日強制賣出」規則。正期望值也不是獲利保證，仍須通過完整回測的交易次數、正報酬、30% 回撤與 Sharpe 資格門檻。
 
-- 前視偏誤
-- 成交時點
-- 成本扣除
-- 參數邊界
-- 部位／建議股數
-- 市場資料完整性
-- 策略 regression
+### 日 K 期望值退場
 
-新增或修正回測規則時，以失敗案例先固定預期行為，再修改實作。
+- 進場條件沿用多策略集成訊號。
+- 每日收盤比較持有 1、3、5、10、20 個交易日的歷史淨期望值。
+- 候選報酬扣除賣出手續費、ETF 證交稅與滑價。
+- 所有候選期望值不足時，下一交易日開盤退場；優勢偏弱時降至 25% 部位。
+- 日 K 收盤跌破前一日訊號失效線時，下一交易日開盤退場。
+- 「期望退場價」是相似樣本的平均結果，不是固定停利委託價或保證價格。
 
----
-
-## Tech Stack
-
-| Layer | Technology |
-| --- | --- |
-| Frontend | Vue 3, TypeScript, Vite |
-| Backend | Node.js, Express, TypeScript |
-| Test | Vitest, vue-tsc |
-| Data | SQLite, filesystem cache |
-| Market Data | Yahoo Finance, TWSE, TAIFEX |
-| Auth | Google OAuth, allowlist, server-side session |
-| Notification | LINE Messaging |
-| Reverse Proxy | Nginx |
-| Public Tunnel | ngrok |
-| Process | systemd |
-| CI/CD | GitHub Actions + project validation scripts |
-
----
-
-## 本機執行
-
-需求：
-
-- Node.js 20+
-
-```bash
-npm install
-npm run dev
-```
-
-預設：
-
-```text
-Vue frontend : http://localhost:5173
-Node API     : http://localhost:8787
-```
-
-完整的開發規範、共用元件、介面契約與瀏覽器驗證要求請參閱：
-
-[`docs/development-guidelines.md`](docs/development-guidelines.md)
-
----
-
-## Documentation
-
-README 只提供整體入口；策略細節、研究證據與操作 SOP 依用途分開保存。
-
-```text
-docs/
-│
-├─ development-guidelines.md
-├─ market-data-reliability.md
-├─ data-maintenance-sop.md
-├─ backtest-settings-guardrails.md
-│
-├─ research-preregistrations/
-├─ strategy-integrity-audits/
-├─ strategy-performance-reports/
-│
-├─ option-native-strategy-research.md
-├─ weekly-option-strategy-research.md
-└─ other strategy / protocol / research documents
-```
-
-### 建議閱讀順序
-
-想了解工程設計：
-
-1. `README.md`
-2. `docs/market-data-reliability.md`
-3. `docs/backtest-settings-guardrails.md`
-4. `docs/development-guidelines.md`
-
-想了解策略研究：
-
-1. 對應的 `*-protocol.md`
-2. 對應的 `*-research.md`
-3. `docs/strategy-integrity-audits/`
-4. `docs/strategy-performance-reports/`
-
----
+綜合評分由完整回測範圍的年化報酬、Sharpe、Calmar、最大回撤控制與交易樣本數組成。完整範圍包含用來選參數的歷史尋優區間，因此結果可能受過度配適影響。買進持有只作基準，不參與主動策略首選。
 
 ## 資料與限制
 
-日線主資料以 Yahoo Finance 為主要來源，並搭配證交所／期交所官方資料進行確認、補齊或研究。
+服務啟動前會執行資料閘門，驗證 0050、加權指數及各輔助來源的預期／實際日期；通過後再背景預載 00631L 與 00632R，其餘金融商品於進入研究時載入自己的行情快取。每日排程逐一更新八個有真實來源代號的研究標的；`T50COMBO` 沒有虛構遠端代號，初始化直接組合後端已保存的三檔行情。每日盤後更新時間、資料庫狀態、降級與修復流程詳見 [`docs/data-maintenance-sop.md`](docs/data-maintenance-sop.md)。目前狀態可由 `/api/health` 或 `/api/data-status` 查詢。
 
-對 ETF 的分割／反分割會依企業行動調整，避免把企業行動誤判成市場暴漲暴跌。
+- 日線主資料由 Yahoo Finance chart API 取得，最新完成交易日另以證交所官方單日成交資料確認；若 ETF 當月日線有中間或尾端缺日，使用證交所 `STOCK_DAY` 的同商品官方 OHLCV 補齊。00631L、00632R 與五個金融標的都只使用自己的實際 K 線，再依交易日對齊同日大盤與輔助資料；資料在 `server/.cache/` 保存快取，台股盤中每五分鐘更新，收盤後快取六小時。
+- 電子、金融保險與非金電日指數由證交所歷史端點取得並另存快取；啟動時只補缺少月份。介面會顯示近 15 年完整度；官方月份暫時缺漏時以加權指數當日報酬延伸指數水準並明確警告，完成官方快取前族群結果只供參考。
+- 年度權重來自證交所 2011～2026 Fact Book 的前一年度產業市值，應用年度為 2011～2026。
+- 各 ETF 價量只還原分割／反分割：0050 的 2025 年 1 拆 4、00631L 的 2026-03-31 1 拆 22 與 00632R 的 2024-12-11 1 併 7 都不能被誤認為真實暴漲暴跌；共用分割歷程卡會列出日期與比例，配息不加回曲線，只列入含配息總獲利的補充統計。
+- 畫面的操作建議一律只使用最近一個完整交易日收盤資料，供下一交易日開盤前準備並於開盤執行；不再使用盤中價格代理尚未完成的日 K 訊號。
+- LINE 訂閱啟用後，每個交易日於使用者設定的台北時間（00:00～08:55、五分鐘一格）發送，每組每個交易日一則。操作內容沿用前一完整交易日產生的當日策略決策，完整發送買賣、維持、目標部位與全部決策理由；推薦資格與原因只作標示，不得據此隱藏或替換操作內容。非交易日不發送任何訂閱通知；交易日資料確實不可用時仍通知目前狀態。交易日共用證交所官方年度開休市表，日曆未核實時暫停發送。正常通知對齊五分鐘時刻的 00 秒，提前一分鐘準備策略；例如 06:59 前儲存的 07:00 訂閱在 07:00 發送。非 0、5 分只補發當天已過時未發的通知；服務啟動及每個整分鐘檢查漏送與失敗重試，跨日不補送；不會自動下單。
+- Yahoo Finance 並非交易所保證的下單行情；實際交易前必須在券商軟體確認價格。
 
-所有畫面上的策略判斷僅使用最近一個已完成交易時點的資料。即時行情、歷史回測行情與實際券商成交行情並不等價。
-
-Yahoo Finance 與本專案中的行情資料均不應視為交易所保證的下單價格；實際交易前仍需自行確認市場與券商資訊。
-
----
-
-## Disclaimer
-
-本專案是**量化研究與決策輔助工具**，不是自動交易系統，也不保證獲利。
-
-歷史績效、回測結果、勝率、Sharpe Ratio、最大回撤或任何策略研究結果都不代表未來表現。
-
-研究中保留的 Beta、候選策略與研究觀察結果，可能因樣本數、資料期間、過度配適、市場結構改變或交易成本而失效。
+歷史績效不代表未來表現。本專案是量化研究與決策輔助工具，不保證獲利。
 </pre>
 </details>
 </section>
@@ -1839,11 +1479,9 @@ Yahoo Finance 與本專案中的行情資料均不應視為交易所保證的下
 <p class="plain-project-purpose">專案定位：Kubernetes / Redis 高可用【工作實務】</p>
 
 <p class="plain-paragraph"><strong>實作與驗證：</strong>
-- 實際工作中使用 Redis，實作 Sentinel 與 Cluster 兩種方案，並實際測試 Failover。
-- 涵蓋 Redis 主從複寫、高可用架構及故障切換驗證。
-- 公開 Repository 目前收錄 Kubernetes 上的 Sentinel 部署設定；Cluster 方案屬工作實作經驗。</p>
-
-<p class="plain-paragraph"><strong>部署與驗證工具：</strong>Kubernetes、kubectl、redis-cli。</p>
+- 工作實務：工作中實作 Sentinel 與 Cluster，並實際測試 Failover；公開 Repo 收錄 Kubernetes Sentinel 部署。
+- 驗證重點：用 Sentinel 探索、ROLE／INFO replication 與 client 重連讀寫核對角色切換；故障判定設定與實際恢復時間分開記錄。
+- 架構取捨：Sentinel 管理非分片主從，Cluster 另處理分片；目前 emptyDir 部署不能據此宣稱持久化或零資料遺失。</p>
 
 <p class="plain-paragraph"><strong>Repo：</strong>https://github.com/wei310129/k8s-for-redis</p></article>
 
@@ -1851,9 +1489,9 @@ Yahoo Finance 與本專案中的行情資料均不應視為交易所保證的下
 <p class="plain-project-purpose">專案定位：Performance / Reliability / Observability</p>
 
 <p class="plain-paragraph"><strong>實作與驗證：</strong>
-- 驗證 Redis Distributed Rate Limit / Semaphore、Pipeline、Redis OOM、Sentinel Failover、JVM GC。
-- 導入 Micrometer + Prometheus + Grafana 觀察 HTTP Latency、錯誤率與 JVM Metrics。
-- 使用 Micrometer Tracing / OpenTelemetry + Grafana Tempo 分析 Distributed Trace。</p>
+- 控制與觀察：Redis 共用 rate limiter／semaphore，分辨 429 限流與 503 並發拒絕；HTTP histogram 與 order.processing span 連結 Prometheus、Grafana、Tempo。
+- 實驗方法：對照 Redis 循序／Pipeline、OOM 寫入拒絕、Lua 忙等與 Sentinel 切換，搭配 JVM GC 負載；固定環境與輸入，再比較延遲、錯誤及資源。
+- 驗證範圍：提供可重現負載與故障觀察入口；目前自動化以 context 測試為主，尚未附固定環境的前後效能報告。</p>
 
 <p class="plain-paragraph"><strong>Repo：</strong>https://github.com/wei310129/QPS-tuning</p></article>
 
@@ -1861,9 +1499,9 @@ Yahoo Finance 與本專案中的行情資料均不應視為交易所保證的下
 <p class="plain-project-purpose">專案定位：Event-driven / High Throughput</p>
 
 <p class="plain-paragraph"><strong>實作與驗證：</strong>
-- 建立 Ingestion API → Kafka → Consumer → Redis / PostgreSQL 的事件處理 Pipeline。
-- 驗證 Kafka Partition、Consumer Group、水平擴展、即時資料聚合與訊息可靠性。
-- 搭配 Micrometer / Prometheus 與 k6 進行效能觀測與壓力測試。</p>
+- 事件管線：HTTP Ingestion → Kafka → PostgreSQL／Redis；serviceId 分區、8 partitions、4 consumer threads、手動 ack，Redis 按 UTC 分鐘聚合。
+- 一致性取捨：event_id UNIQUE 防止 PostgreSQL 重複落地；資料庫成功後 Redis 失敗的重播仍可能漏聚合，這是跨儲存一致性待補強的邊界。
+- 完成與驗證：已實作核心管線與聚合 mock 單元測試；Dashboard、DLQ、k6 壓測及自動擴容尚待完成，HTTP 202 也不等於持久化成功。</p>
 
 <p class="plain-paragraph"><strong>Repo：</strong>https://github.com/wei310129/pulse-platform</p></article>
 
@@ -1873,8 +1511,9 @@ Yahoo Finance 與本專案中的行情資料均不應視為交易所保證的下
 <p class="plain-paragraph"><strong>專案緣起：</strong>緣起於 2025 年 9 月花蓮馬太鞍溪堰塞湖潰壩事件。有感於災後志工登記與任務分派的協作需求，開發救援任務派遣平台，讓組織與志工能統一調度、即時溝通，減少資訊分散造成的人力物力耗損。</p>
 
 <p class="plain-paragraph"><strong>實作與驗證：</strong>
-- 使用 DDD、Kafka、Redis、PostgreSQL、MongoDB、WebSocket、JWT、Docker Compose。
-- 驗證 Domain Design、事件驅動、即時通訊與分散式 Web Application 架構。</p>
+- 領域與通訊：以 DDD 分組救援、任務、物資等模組；WebSocket 經 Kafka，使用每個 backend 獨立 consumer group 向各自連線的使用者分送訊息。
+- 架構取捨：PostgreSQL／MongoDB／Redis 分別承擔關聯資料、聊天文件與登入狀態；多實例 fan-out 的文件去重、topic 副本與聊天室授權仍需補強。
+- 驗證範圍：Playwright 以 mock API 驗證登入／註冊 UI；多實例容器配置尚不能代替真實聊天、故障恢復與可靠送達驗收。</p>
 
 <p class="plain-paragraph"><strong>Repo：</strong>https://github.com/wei310129/RescueHero</p></article>
 
@@ -1882,15 +1521,9 @@ Yahoo Finance 與本專案中的行情資料均不應視為交易所保證的下
 <p class="plain-project-purpose">專案定位：gRPC 通訊與 Netty 網路程式設計</p>
 
 <p class="plain-paragraph"><strong>實作與驗證：</strong>
-- 實作 Unary RPC、Server Streaming、跨 Server 轉發與全域例外處理。
-- 下游沿用上游 Deadline，無 Deadline 時設定 3 秒期限，限制呼叫鏈等待時間；耗時運算仍需自行檢查取消狀態。
-- 使用 Netty ByteBuf 解析二進位封包，包含長度檢查、Reader Index 回滾與 unsigned 讀取，並提供 HTTP 解析入口。
-- 以 LengthFieldBasedFrameDecoder 與封包 decoder / encoder pipeline 示範黏包拆解、半包補齊後才輸出。
-- 以 IdleStateHandler 示範 3 秒讀取閒置逾時、模擬心跳與關閉 channel；以 ChannelGroup 示範全體廣播、room 篩選與關閉後移除。</p>
-
-<p class="plain-paragraph"><strong>驗證方式與範圍：</strong>Netty 三個 Demo 使用 EmbeddedChannel，可直接執行 main() 觀察結果；另有 Controller 單元測試與 Spring Boot context 測試，尚未涵蓋完整 TCP / HTTP 端到端流程。</p>
-
-<p class="plain-paragraph"><strong>主要技術：</strong>Java、Spring Boot、gRPC、Protocol Buffers、Netty ByteBuf、EmbeddedChannel、LengthFieldBasedFrameDecoder、IdleStateHandler、ChannelGroup。</p>
+- 通訊契約：Unary、Server Streaming、跨 server 轉發與例外映射；沿用上游 Deadline，未指定時補 3 秒期限，限制呼叫鏈等待。
+- Netty 核心：ByteBuf 長度檢查／reader index 回滾；length-field pipeline 示範黏包／半包，IdleStateHandler 管理閒置，ChannelGroup 處理 room 廣播及移除。
+- 驗證範圍：三個 EmbeddedChannel Demo 可執行，另有 Controller 單元與 context 測試；尚未提供正式 TCP server、TLS 或完整端到端驗收。</p>
 
 <p class="plain-paragraph"><strong>Repo：</strong>https://github.com/wei310129/Java-gRPC</p></article>
 
@@ -1898,14 +1531,9 @@ Yahoo Finance 與本專案中的行情資料均不應視為交易所保證的下
 <p class="plain-project-purpose">專案定位：JVM Profiling / JFR / JMC</p>
 
 <p class="plain-paragraph"><strong>實作與驗證：</strong>
-- 透過 HTTP API 觸發 CPU、記憶體配置、鎖爭用與慢速操作，對照 CPU 熱點、GC / Heap、Monitor 與 Thread Sleep 事件。
-- 在 Service 中錄製 ServiceOperation 自訂事件，以操作名稱、輸入規模、結果與 duration 連結應用操作及 JVM 行為。
-- 使用自訂 JFR profile，提供保留最近 5 分鐘的連續錄製、60 秒定時錄製，以及僅開 JMX 後手動錄製三種模式。
-- 使用 JMC 開啟 .jfr 離線分析，或透過 localhost:9099 JMX 連線觀察運行中的 JVM，並在 Event Browser 核對自訂事件。</p>
-
-<p class="plain-paragraph"><strong>驗證方式與範圍：</strong>自訂事件錄製／讀取測試、JDK 內建事件示範與 Service 整合測試；HttpRequest 事件類別已定義，但尚未接入 HTTP 請求流程，不會隨 API 呼叫自動產生。</p>
-
-<p class="plain-paragraph"><strong>主要技術：</strong>Java、Spring Boot、Java Flight Recorder、Java Mission Control、JMX。</p>
+- 診斷方法：API 分別觸發 CPU、配置、鎖爭用與等待；ServiceOperation 事件以操作、輸入與 duration 連結業務及 JVM 行為，對照 CPU／GC／Monitor。
+- 錄製與分析：自訂 JFR profile，連續保留最近 5 分鐘、60 秒定時或 JMX 手動錄製，再以 JMC 離線／即時及 Event Browser 核對。
+- 驗證範圍：自訂事件錄製／讀取與 Service 整合測試；HttpRequest 事件尚未接入請求流程，Repo 未附調校改善幅度或示例 .jfr。</p>
 
 <p class="plain-paragraph"><strong>Repo：</strong>https://github.com/wei310129/jfr-jmc</p></article></div>
 </section>
@@ -1930,48 +1558,39 @@ Claude Code 曾用於 My Mobile Secretary 前期及部分 PoC 開發。
 
 1. My Mobile Secretary — AI Agent 個人智慧助理【主要專案】
 
-定位：Java Backend + Spring AI + LLM / AI Agent
+定位：以情境感知、可靠提醒與確定性執行為核心的個人秘書。
 
-開發工具：Claude Code（前期）、ChatGPT、Codex
-
-使用 Java / Spring Boot / Spring AI 開發個人 AI 助理，整合 LINE Webhook、LLM 意圖解析、任務派送與 Session 管理。
+開發工具：Claude Code（前期）、ChatGPT、Codex。
 
 主要實作重點：
-- 以 LLM 將自然語言轉換成後端可處理的結構化 Intent。
-- 建立 Intent Interpreter、AI Dispatcher、Session / Trigger 等模組。
-- 將 LLM 語意判斷與 Backend Domain / Tool Execution 分離，避免模型直接控制核心業務流程。
-- 專案前期曾使用 Claude Code；亦使用 ChatGPT / Codex 協助需求拆解、架構設計、Coding、Refactoring、Testing 與 Debug。
-- 以 Interface、Domain Boundary、Validation 限制 AI 修改與執行範圍。
-- 透過自動化測試驗證 Intent Interpretation 與 Provider-neutral 行為，降低 Prompt / Model 調整或長 Context 造成的 Regression。
+- LLM 只理解意圖、輸出結構化資料與表達結果；Java application/domain 驗證權限、時間、地理、狀態及業務規則，再執行異動。
+- 模組化單體與 provider adapter，整合 LINE／REST、行程、任務、提醒與個人知識，控制單人開發的部署及整合成本。
+- workspace／actor scope 與 PostgreSQL RLS 隔離私人資料；Flyway 管理 schema，Notification Outbox 分離交易與外部通知交付。
+- 固定 Clock 回歸案例與 Fast／Testcontainers／opt-in live evaluation 分層；以直接相關測試與交付 gate 驗收 AI 產出。
 
-主要技術：
-Java 21、Spring Boot、Spring AI、LLM、AI Agent、LINE Webhook、Domain Design、Automated Testing
+開發治理：我負責需求、架構及驗收；internal/ai-dispatcher 是獨立 build／database／lifecycle 的開發自動化，不屬於產品 runtime。完成度以 README 的能力與驗收閘門為準。
+
+主要技術：Java 21、Spring Boot、Spring AI、LINE、PostgreSQL／PostGIS／RLS、Redis、Flyway、Testcontainers。
 
 Repo：
 https://github.com/wei310129/my-mobile-secretary
 
-2. Taiwan Weighted Index Prediction — AI 輔助量化研究與回測平台【主要專案】
+2. Taiwan Weighted Index Prediction（衡策）— 量化策略研究平台【主要專案】
 
-定位：AI-assisted Software Engineering + Quant Research / Backtesting Platform
+定位：在一致的資料可見範圍、成交時點與成本下，建立可比較、可追溯的研究流程。
 
-開發工具：ChatGPT、Codex
-
-將市場資料、策略研究、歷史回測、研究驗證與決策輔助整合成一套可長期維護的研究平台。AI 深度參與需求拆解、架構設計、程式實作、Refactoring、Testing 與文件治理。
+開發工具：ChatGPT、Codex。
 
 主要實作重點：
-- 建立 Market Data → Data Reliability → Research / Feature → Strategy Engine → Backtest → Validation / Audit → Performance Report 的研究 Pipeline。
-- 防止 Look-ahead Bias，將策略訊號產生與實際成交時點分離。
-- 將手續費、交易稅、滑價與商品限制納入 Backtest。
-- 處理行情完整度、Cache / Resume、企業行動、Fallback / Degraded Mode 與 Data Gate。
-- 建立 Research Integrity Audit 與 Performance Regression Guard，避免策略改版後歷史績效退化被靜默覆蓋。
-- 採用 Discovery / Validation / Holdout、Walk-forward、Sensitivity Test 等方式驗證研究結果。
-- 使用 AI 輔助需求分析、架構方案比較、Coding、Refactoring、Testing 與研究文件整理。
+- T-1 完成資料形成訊號、T 開盤執行；高週期 K 棒完整後才可使用，指定歷史截止日後所有研究同步截斷，避免前視偏誤。
+- 使用各商品實際行情、企業行動、成本及基準，處理快取／續傳、官方補齊、degraded 狀態與啟動 data gate。
+- 改版 guard 要求舊／新版比較報告並保留風險交換；各研究按 protocol 區分開發／驗證／保留期，通用尋優的完整績效包含選參資料。
+- Google OAuth、白名單、單裝置 Session 與版本簽署由後端驗證；LINE 依核實交易日排程及補送通知。
+- 我定義計算口徑與驗收，以直接相關測試、typecheck、build、研究證據與桌面／390px 瀏覽器驗收 AI 產出。
 
-主要技術：
-Vue 3、TypeScript、Node.js / Express、SQLite、Backtesting、Research Validation、GitHub Actions、AI-assisted Development
+主要技術：Vue 3、TypeScript、Node.js／Express、SQLite、Backtesting、GitHub Actions。
 
-Repo 狀態：
-Private。完整 README 已內嵌，不需要 GitHub 權限即可閱讀。
+Repo 狀態：Private。README 內嵌於網頁並隱去管理者帳號，可直接查看；金融與選擇權部分仍為 Beta／研究觀察。
 
 3. Backend PoC / MVP 與 Redis 高可用工作實務【延伸經驗】
 
@@ -1985,11 +1604,9 @@ Private。完整 README 已內嵌，不需要 GitHub 權限即可閱讀。
 專案定位：Kubernetes / Redis 高可用【工作實務】
 
 實作與驗證：
-- 實際工作中使用 Redis，實作 Sentinel 與 Cluster 兩種方案，並實際測試 Failover。
-- 涵蓋 Redis 主從複寫、高可用架構及故障切換驗證。
-- 公開 Repository 目前收錄 Kubernetes 上的 Sentinel 部署設定；Cluster 方案屬工作實作經驗。
-
-部署與驗證工具：Kubernetes、kubectl、redis-cli。
+- 工作實務：工作中實作 Sentinel 與 Cluster，並實際測試 Failover；公開 Repo 收錄 Kubernetes Sentinel 部署。
+- 驗證重點：用 Sentinel 探索、ROLE／INFO replication 與 client 重連讀寫核對角色切換；故障判定設定與實際恢復時間分開記錄。
+- 架構取捨：Sentinel 管理非分片主從，Cluster 另處理分片；目前 emptyDir 部署不能據此宣稱持久化或零資料遺失。
 
 Repo：https://github.com/wei310129/k8s-for-redis
 
@@ -1997,9 +1614,9 @@ Repo：https://github.com/wei310129/k8s-for-redis
 專案定位：Performance / Reliability / Observability
 
 實作與驗證：
-- 驗證 Redis Distributed Rate Limit / Semaphore、Pipeline、Redis OOM、Sentinel Failover、JVM GC。
-- 導入 Micrometer + Prometheus + Grafana 觀察 HTTP Latency、錯誤率與 JVM Metrics。
-- 使用 Micrometer Tracing / OpenTelemetry + Grafana Tempo 分析 Distributed Trace。
+- 控制與觀察：Redis 共用 rate limiter／semaphore，分辨 429 限流與 503 並發拒絕；HTTP histogram 與 order.processing span 連結 Prometheus、Grafana、Tempo。
+- 實驗方法：對照 Redis 循序／Pipeline、OOM 寫入拒絕、Lua 忙等與 Sentinel 切換，搭配 JVM GC 負載；固定環境與輸入，再比較延遲、錯誤及資源。
+- 驗證範圍：提供可重現負載與故障觀察入口；目前自動化以 context 測試為主，尚未附固定環境的前後效能報告。
 
 Repo：https://github.com/wei310129/QPS-tuning
 
@@ -2007,9 +1624,9 @@ Repo：https://github.com/wei310129/QPS-tuning
 專案定位：Event-driven / High Throughput
 
 實作與驗證：
-- 建立 Ingestion API → Kafka → Consumer → Redis / PostgreSQL 的事件處理 Pipeline。
-- 驗證 Kafka Partition、Consumer Group、水平擴展、即時資料聚合與訊息可靠性。
-- 搭配 Micrometer / Prometheus 與 k6 進行效能觀測與壓力測試。
+- 事件管線：HTTP Ingestion → Kafka → PostgreSQL／Redis；serviceId 分區、8 partitions、4 consumer threads、手動 ack，Redis 按 UTC 分鐘聚合。
+- 一致性取捨：event_id UNIQUE 防止 PostgreSQL 重複落地；資料庫成功後 Redis 失敗的重播仍可能漏聚合，這是跨儲存一致性待補強的邊界。
+- 完成與驗證：已實作核心管線與聚合 mock 單元測試；Dashboard、DLQ、k6 壓測及自動擴容尚待完成，HTTP 202 也不等於持久化成功。
 
 Repo：https://github.com/wei310129/pulse-platform
 
@@ -2019,8 +1636,9 @@ Repo：https://github.com/wei310129/pulse-platform
 專案緣起：緣起於 2025 年 9 月花蓮馬太鞍溪堰塞湖潰壩事件。有感於災後志工登記與任務分派的協作需求，開發救援任務派遣平台，讓組織與志工能統一調度、即時溝通，減少資訊分散造成的人力物力耗損。
 
 實作與驗證：
-- 使用 DDD、Kafka、Redis、PostgreSQL、MongoDB、WebSocket、JWT、Docker Compose。
-- 驗證 Domain Design、事件驅動、即時通訊與分散式 Web Application 架構。
+- 領域與通訊：以 DDD 分組救援、任務、物資等模組；WebSocket 經 Kafka，使用每個 backend 獨立 consumer group 向各自連線的使用者分送訊息。
+- 架構取捨：PostgreSQL／MongoDB／Redis 分別承擔關聯資料、聊天文件與登入狀態；多實例 fan-out 的文件去重、topic 副本與聊天室授權仍需補強。
+- 驗證範圍：Playwright 以 mock API 驗證登入／註冊 UI；多實例容器配置尚不能代替真實聊天、故障恢復與可靠送達驗收。
 
 Repo：https://github.com/wei310129/RescueHero
 
@@ -2028,15 +1646,9 @@ Repo：https://github.com/wei310129/RescueHero
 專案定位：gRPC 通訊與 Netty 網路程式設計
 
 實作與驗證：
-- 實作 Unary RPC、Server Streaming、跨 Server 轉發與全域例外處理。
-- 下游沿用上游 Deadline，無 Deadline 時設定 3 秒期限，限制呼叫鏈等待時間；耗時運算仍需自行檢查取消狀態。
-- 使用 Netty ByteBuf 解析二進位封包，包含長度檢查、Reader Index 回滾與 unsigned 讀取，並提供 HTTP 解析入口。
-- 以 LengthFieldBasedFrameDecoder 與封包 decoder / encoder pipeline 示範黏包拆解、半包補齊後才輸出。
-- 以 IdleStateHandler 示範 3 秒讀取閒置逾時、模擬心跳與關閉 channel；以 ChannelGroup 示範全體廣播、room 篩選與關閉後移除。
-
-驗證方式與範圍：Netty 三個 Demo 使用 EmbeddedChannel，可直接執行 main() 觀察結果；另有 Controller 單元測試與 Spring Boot context 測試，尚未涵蓋完整 TCP / HTTP 端到端流程。
-
-主要技術：Java、Spring Boot、gRPC、Protocol Buffers、Netty ByteBuf、EmbeddedChannel、LengthFieldBasedFrameDecoder、IdleStateHandler、ChannelGroup。
+- 通訊契約：Unary、Server Streaming、跨 server 轉發與例外映射；沿用上游 Deadline，未指定時補 3 秒期限，限制呼叫鏈等待。
+- Netty 核心：ByteBuf 長度檢查／reader index 回滾；length-field pipeline 示範黏包／半包，IdleStateHandler 管理閒置，ChannelGroup 處理 room 廣播及移除。
+- 驗證範圍：三個 EmbeddedChannel Demo 可執行，另有 Controller 單元與 context 測試；尚未提供正式 TCP server、TLS 或完整端到端驗收。
 
 Repo：https://github.com/wei310129/Java-gRPC
 
@@ -2044,14 +1656,9 @@ Repo：https://github.com/wei310129/Java-gRPC
 專案定位：JVM Profiling / JFR / JMC
 
 實作與驗證：
-- 透過 HTTP API 觸發 CPU、記憶體配置、鎖爭用與慢速操作，對照 CPU 熱點、GC / Heap、Monitor 與 Thread Sleep 事件。
-- 在 Service 中錄製 ServiceOperation 自訂事件，以操作名稱、輸入規模、結果與 duration 連結應用操作及 JVM 行為。
-- 使用自訂 JFR profile，提供保留最近 5 分鐘的連續錄製、60 秒定時錄製，以及僅開 JMX 後手動錄製三種模式。
-- 使用 JMC 開啟 .jfr 離線分析，或透過 localhost:9099 JMX 連線觀察運行中的 JVM，並在 Event Browser 核對自訂事件。
-
-驗證方式與範圍：自訂事件錄製／讀取測試、JDK 內建事件示範與 Service 整合測試；HttpRequest 事件類別已定義，但尚未接入 HTTP 請求流程，不會隨 API 呼叫自動產生。
-
-主要技術：Java、Spring Boot、Java Flight Recorder、Java Mission Control、JMX。
+- 診斷方法：API 分別觸發 CPU、配置、鎖爭用與等待；ServiceOperation 事件以操作、輸入與 duration 連結業務及 JVM 行為，對照 CPU／GC／Monitor。
+- 錄製與分析：自訂 JFR profile，連續保留最近 5 分鐘、60 秒定時或 JMX 手動錄製，再以 JMC 離線／即時及 Event Browser 核對。
+- 驗證範圍：自訂事件錄製／讀取與 Service 整合測試；HttpRequest 事件尚未接入請求流程，Repo 未附調校改善幅度或示例 .jfr。
 
 Repo：https://github.com/wei310129/jfr-jmc</pre>
 </main>
@@ -2063,469 +1670,200 @@ Repo：https://github.com/wei310129/jfr-jmc</pre>
 <div class="readme-title-row">
 <div class="readme-title">
 <strong id="readme-title">Taiwan Weighted Index Prediction · README</strong>
-<span>Private Repo · 內嵌完整 README，不需要 GitHub 權限</span>
+<span>Private Repo · 內嵌 README，已隱去管理者帳號</span>
 </div>
 <div class="readme-actions">
 <button class="overlay-copy" data-copy-target="plain-readme" type="button">複製 README</button>
 <button aria-label="關閉 README" class="close-btn" id="close-readme" type="button">×</button>
 </div>
 </div>
-<nav aria-label="README 章節導覽" class="readme-nav"><button class="readme-tab" data-readme-target="readme-section-1" type="button">專案重點</button><button class="readme-tab" data-readme-target="readme-section-2" type="button">Research Pipeline</button><button class="readme-tab" data-readme-target="readme-section-4" type="button">Engineering Highlights</button><button class="readme-tab" data-readme-target="readme-section-5" type="button">Backtest Contract</button><button class="readme-tab" data-readme-target="readme-section-6" type="button">系統架構</button><button class="readme-tab" data-readme-target="readme-section-8" type="button">測試與 CI</button><button class="readme-tab" data-readme-target="readme-section-9" type="button">Tech Stack</button><button class="readme-tab" data-readme-target="readme-section-12" type="button">資料與限制</button></nav>
+<nav aria-label="README 章節導覽" class="readme-nav"><button class="readme-tab" data-readme-target="readme-section-4" type="button">工程重點</button><button class="readme-tab" data-readme-target="readme-section-2" type="button">研究解讀邊界</button><button class="readme-tab" data-readme-target="readme-section-8" type="button">開發與驗收</button><button class="readme-tab" data-readme-target="readme-section-1" type="button">功能列表</button><button class="readme-tab" data-readme-target="readme-section-9" type="button">本機開發</button><button class="readme-tab" data-readme-target="readme-section-6" type="button">公開運行</button><button class="readme-tab" data-readme-target="readme-section-5" type="button">回測規則</button><button class="readme-tab" data-readme-target="readme-section-12" type="button">資料與限制</button></nav>
 </div>
 <div class="readme-body" id="readme-body" tabindex="0" aria-label="README 內容">
 <div class="readme-banner">
         此為 Private Repository 的 README，完整內容已內嵌；相關文件路徑僅供參考。
       </div>
 <article class="readme-content"><h1>衡策｜量化策略研究平台</h1>
-<p>衡策是一套將<strong>市場資料、策略研究、歷史回測、研究驗證與決策輔助</strong>整合在同一系統中的量化研究平台。</p>
-<p>系統以實際歷史行情為基礎，在一致的資料可見範圍、成交時點與交易成本下比較不同策略，並特別處理前視偏誤（look-ahead bias）、資料缺漏、企業行動、參數尋優以及策略改版造成的績效退化。</p>
-<blockquote>
-<p>專案目標不是找出歷史報酬最高的策略，而是建立一套<strong>可重現、可驗證、可比較、可追溯</strong>的研究流程。</p>
-</blockquote>
-<p>目前研究範圍包含臺灣 50 系列、金融股策略，以及臺指選擇權買方策略。部分金融與衍生商品研究仍屬 Beta／研究觀察階段，不代表正式投資建議。</p>
-<hr/>
-<h2 id="readme-section-1">專案重點</h2>
-<p>這個專案不只實作技術指標或單一回測公式，而是將策略研究視為一個需要長期維護的工程系統。</p>
-<p>核心設計包含：</p>
+<p>一套以相同資料、交易成本與成交時點，公平比較投資策略的 Vue + Node.js 量化研究與決策輔助平台。目前支援臺灣50系列、五個金融研究標的，以及只做買方的臺指選擇權 Call／Put。各商品各自使用實際行情、成本與基準；金融與臺指選擇權研究目前為 Beta、限 Admin 使用。</p>
+<p>開發本專案前，請先閱讀 <a href="https://github.com/wei310129/taiwan-weighted-index-prediction/blob/main/docs/development-guidelines.md" target="_blank" rel="noopener"><code>docs/development-guidelines.md</code></a>；其中記錄共用元件索引、介面規格、互動原則與完成前的瀏覽器驗證要求。新增或修改行情來源時，另須遵守 <a href="https://github.com/wei310129/taiwan-weighted-index-prediction/blob/main/docs/market-data-reliability.md" target="_blank" rel="noopener"><code>docs/market-data-reliability.md</code></a> 的供應者介面、快取、續傳、降級與故障測試契約。</p>
+<h2 id="readme-section-4">工程重點與驗證入口</h2>
+<p>本專案的工程核心是建立可比較、可追溯的研究流程：資料是否當時可見、交易是否真能在該時點成交、成本是否一致，以及改版是否有證據支持。AI 協助需求拆解、方案比較、實作、重構、測試與文件整理；計算口徑、驗收條件與風險交換由我決定，再以測試、研究文件與交付閘門核對。</p>
+<table>
+<thead>
+<tr>
+<th>問題</th>
+<th>設計取捨</th>
+<th>證據入口</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>前視偏誤與虛構成交</td>
+<td>T-1 完成資料形成訊號、T 開盤執行；高週期 K 棒完成後才可用；指定截止日後所有研究同步截斷</td>
+<td>下方回測規則與 tests/</td>
+</tr>
+<tr>
+<td>不同商品不可公平比較</td>
+<td>使用商品自身行情、企業行動、交易成本與基準；資金流與價格報酬分開記帳</td>
+<td>回測規則、資料與限制</td>
+</tr>
+<tr>
+<td>外部資料缺日或故障</td>
+<td>provider 契約、快取／續傳、官方資料補齊、degraded 狀態與啟動 data gate</td>
+<td><a href="https://github.com/wei310129/taiwan-weighted-index-prediction/blob/main/docs/market-data-reliability.md" target="_blank" rel="noopener">資料可靠性</a>、<a href="https://github.com/wei310129/taiwan-weighted-index-prediction/blob/main/docs/data-maintenance-sop.md" target="_blank" rel="noopener">維護 SOP</a></td>
+</tr>
+<tr>
+<td>新版結果退化或過度配適</td>
+<td>guard:strategy-performance 要求舊／新版報告，保留原因及風險交換；依各研究協議區分開發、驗證、保留期及已見資料</td>
+<td>docs/strategy-performance-reports/、各研究與 protocol 文件</td>
+</tr>
+<tr>
+<td>前端隱藏功能不足以保護 API</td>
+<td>Google OAuth、白名單、單裝置 Session、Admin 與版本化簽署由後端驗證</td>
+<td><a href="https://github.com/wei310129/taiwan-weighted-index-prediction/blob/main/docs/public-google-sso.md" target="_blank" rel="noopener">公開服務與 SSO</a>、shared/consent-definitions.ts</td>
+</tr>
+</tbody></table>
+<h3 id="readme-section-2">研究結果的解讀邊界</h3>
+<p>多週期條件研究採 60%／20%／20% 切分；其他研究以各自 protocol 為準，不能把所有頁面績效一律稱為樣本外結果。通用附加尋優選定參數後呈現完整範圍，包含選參資料；事後排名與已見近期稽核需揭露其限制，不等同可交易驗證。金融與選擇權的 Beta／研究觀察狀態也應和正式策略分開。</p>
+<h3 id="readme-section-8">開發與驗收</h3>
+<p>使用 ChatGPT／Codex 協助 Agentic coding，將需求拆成可驗收變更；以直接相關測試、typecheck、build、策略改版 guard 與實際桌面／390px 手機瀏覽器檢查完成驗收。測試通過範圍以當次報告為準，不把歷史研究報酬當成軟體品質或未來績效的保證。</p>
+<h2 id="readme-section-1">第一版功能</h2>
 <ul>
-<li>不同策略使用一致的時間範圍、成交假設與成本模型比較。</li>
-<li>訊號只能使用決策當下已完成、當時可取得的資料。</li>
-<li>ETF、股票與選擇權使用各自實際行情，不用其他商品報酬人工合成。</li>
-<li>手續費、交易稅、滑價／價差等交易成本納入績效。</li>
-<li>對行情來源建立資料閘門、快取、續傳、降級與缺漏修復機制。</li>
-<li>策略或回測邏輯修改時，CI 會要求產生改版前後績效比較。</li>
-<li>研究結果、integrity audit 與 performance report 保存在 repository 中。</li>
-<li>對可能存在過度配適的結果保留研究觀察狀態，而不是直接升格為正式策略。</li>
+<li>使用滑桿選擇 1～15 年回測期間</li>
+<li>策略研究總覽依「臺灣50系列」、「金融股策略模擬」與「衍生商品策略研究」各顯示一張族群面板，再由符合介面風格的展開選單進入標的；各標的的網址、行情快取、回測請求、基準與瀏覽器工作區彼此獨立</li>
+<li>金融標的只比較金融產業趨勢、相對強弱、量價、多因子及其金融智能策略，不與 0050、槓反或其他族群策略共用</li>
+<li>臺指選擇權以0050組合年度第一名作Call／Put共同母訊號；偏多且通過Call規則時買Call，第一名存在且市場弱勢連續確認時可切換買Put。只做買方、不做賣方、不使用保證金；Call／Put分開研究，未合格權利別固定空手</li>
+<li>舊版正向即All in Call固定保留為研究對照且不推薦；選擇權專用2.0及買方3.0以三段開發資料自動選擇起始投入與累積加減碼幅度。精選快退8.0只在趨勢、動能與RSI同向時解鎖，採權利金15%停損、最多持有5日，但跳空仍可能穿越停損；它以顯著犧牲報酬換取低頻與較低回撤，只並列研究觀察而不取代3.0。所有風險等級使用同一組可達100%候選，風險等級只依最大回撤否決；三段資格或回撤門檻不合格時固定空手。每口以權利金點數 × NT$50 記帳並逐筆扣成本</li>
+<li>選約明細提供期交所免費即時行情外部入口，以同月份、Call／Put權利別與履約價核對，買進看賣一、賣出看原契約買一；站內T日權利金仍明示為盤後參考價，不擷取或轉送官方即時行情。日後可改接服務端永豐Shioaji授權串流</li>
+<li>資產曲線下方共用持倉比例副圖：臺灣50組合顯示0050／正2／反1，選擇權顯示買Call／買Put；選擇權比例採日終實際權利金市值除以總資產，不拿0050方向或風險預算代替。同日進出即使日終為0%，仍用Call／Put短交易標記保留進場與出場痕跡。主圖空手線連到進場日開盤成交點，持有線從同一點連至出場日開盤成交點，再由空手線接續。任何一筆選擇權投入若以0點權利金退出或到期結算，資產主圖與Call／Put副圖都會同步標示從首次投入到歸零的完整區段及歸零日</li>
+<li>策略計算與研究檔變更由 <code>npm run guard:strategy-performance</code> 強制要求 <code>docs/strategy-performance-reports/</code> 的舊版／新版比較；報酬下降時必須分析原因並選擇維持舊版、保留觀察或接受風險交換</li>
+<li>可指定任一歷史日期作為回測最後一天；非交易日自動採前一交易日，並依所選期間向前回推</li>
+<li>同時比較買進持有、多週期趨勢、相對動能、多頭回檔、量價突破、多策略集成、日 K 期望值退場、KD、MACD、週 K、雙週 K、月 K 趨勢及月 MACD × K 退場策略</li>
+<li>顯示累積／年化報酬、最大回撤、Sharpe、Calmar、勝率、交易次數，並分列手續費、證交稅、滑價／價差隱含成本與合計</li>
+<li>計入券商手續費、各商品適用的賣出證交稅與滑價；ETF 預設 0.1%，股票預設 0.3%</li>
+<li>依投入資金、目前持股及策略目標曝險，換算買進／賣出股數或不操作</li>
+<li>Admin 可在策略研究總覽查看所有帳號最後登入與逐筆登入歷史；成功登入、最後活動、登出與裝置取代持續保存，既有快照與系統驗證明確分類。</li>
+<li>可將白名單 Google 帳號安全綁定 LINE 官方帳號，為每個標的指定一個投資方案；訂閱啟用後每個交易日依設定的台北時間發送通知，非交易日不發送，沒有操作、資格不合格或當天沒有決策也會告知狀態</li>
+<li>每日比較 1、3、5、10、20 個交易日的扣成本期望值，顯示最佳持有期、期望退場價與日 K 訊號失效線</li>
+<li>買進持有只作市場比較基準，不參與系統首選與可執行策略排名</li>
+<li>週 K、雙週 K、月 K 只使用已完整結束的高週期 K 棒，未完成區間不進入訊號</li>
+<li>日／週／雙週／月／季條件研究以 60% 發現、20% 驗證、20% 樣本外測試，比較買進或賣出後 1、3、5、10、20 個交易日的扣成本勝率</li>
+<li>以近 15 年、10% 方向轉折列出加權指數、電子、金融保險、其他（非金電）每一次大漲／大跌，分別統計五種 K 線在事件前的趨勢、動能、MACD、KD、突破與波動特徵</li>
+<li>電子、金融、其他各有獨立操作策略；另以每年前一年底證交所 Fact Book 市值權重整合預測，並保留「加權指數直接預測」作對照</li>
+<li>原有主動策略與年度族群整合模型各占 50% 形成最終部位；買進持有與加權指數直接模型維持獨立，方便比較改版前後的預測思路</li>
+<li>所有主動策略可附加「上漲時調整」與「下跌時調整」兩個獨立開關，可選加碼／減碼、定額／定比，並可在高波動時額外執行一次；原策略名稱維持不變</li>
+<li>所有研究標的都可建立至多五條具名領回規則；每條可同時啟用固定月數或帳面門檻，任一成立即依順序執行第一條符合規則。領回可依總資產賣出持倉，或限制只使用帳面現金，並可另建至多五條無時間判斷的最低保留規則。比例保留額度取「執行當下所選帳面價值 × 比例」與「起始投入 × 同一比例」較高者，固定金額則直接作為保留底線。這是使用者資金流設定，不等同商品本身配息。非選擇權標的另可啟用定期定額。期末資產、累積投入、累積領回與實際損益分開呈現，排名採資金流調整後時間加權報酬，個人結果另列實際損益率及依每日投入、領回與期末資產計算的年化 XIRR</li>
+<li>排行榜可自動比較 481 種附加方案：4 個漲跌觸發門檻 × 5 個加減碼幅度 × 8 種方向動作 × 3 種高波動設定，再加上不調整；歷史尋優區間可使用完整固定時間軸，且至少保留 2 年資料（預設結束位置 70%）。選定方案後套用至完整範圍，所有績效與排名都依完整範圍計算。自動尋優與手動設定互斥</li>
+<li>自動尋優會將目前檢視策略的勝出參數填回手動欄位；關閉自動後原值保留並立即轉為手動設定</li>
+<li>Banner 的風險承受滑塊會共同改變首選門檻、策略偏好與自動尋優。低／中低／中／中高／高分別限制最大回撤為 15%／25%／35%／45%／65%；一般ETF的低風險自動附加層仍只允許不調整或減碼。TXO例外地在六個風險等級共用同一組可達100%累積部位候選，不預先縮小投入上限。正2、反1與TXO可使用不設回撤上限的極高風險，但仍保留樣本、正報酬與正 Sharpe 底線</li>
+<li>畫面上方提供四組獨立策略設定頁籤，自動儲存回測期間、資金、定期定額、尋優／手動模式、加減碼參數與目前檢視策略；每個商品使用各自的瀏覽器本機工作區</li>
+<li>使用各研究標的 Yahoo 實際日線並對齊 ^TWII 與金融保險類指數；價格僅還原分割／反分割，曲線與排名以純價格報酬比較；儀表板另列配息保留為現金、不再投入的含息總報酬、含息年化與相對當前商品基準的績效</li>
+<li>自動化測試驗證無前視偏誤、成本扣除、參數邊界與建議股數</li>
+<li>顯示 KD（9,3,3）與 MACD（12,26,9）目前數值、狀態及各自完整策略回測</li>
 </ul>
-<hr/>
-<h2 id="readme-section-2">Research Pipeline</h2>
-<pre><code class="language-text">Market Data
-    │
-    ├─ Yahoo Finance
-    ├─ TWSE
-    ├─ TAIFEX
-    └─ Fact Book / auxiliary data
-    │
-    ▼
-Data Reliability Layer
-    │
-    ├─ completeness check
-    ├─ cache / resume
-    ├─ corporate action adjustment
-    ├─ fallback / degraded mode
-    └─ data gate
-    │
-    ▼
-Research / Feature Layer
-    │
-    ├─ trend
-    ├─ momentum
-    ├─ volume / volatility
-    ├─ market regime
-    └─ multi-timeframe conditions
-    │
-    ▼
-Strategy Engine
-    │
-    ▼
-Backtest Engine
-    │
-    ├─ execution timing
-    ├─ transaction cost
-    ├─ position sizing
-    └─ benchmark
-    │
-    ▼
-Validation / Holdout / Audit
-    │
-    ▼
-Performance Report
-    │
-    ▼
-Decision UI / LINE Notification
+<h2>執行</h2>
+<p>需求：Node.js 20 以上版本。</p>
+<p>完整的開發、測試與部署規範以 <a href="https://github.com/wei310129/taiwan-weighted-index-prediction/blob/main/docs/development-guidelines.md" target="_blank" rel="noopener"><code>docs/development-guidelines.md</code></a> 的「現行開發與公開運行模式」為準。</p>
+<h3 id="readme-section-9">本機互動開發</h3>
+<pre><code class="language-bash">npm install
+npm run dev
 </code></pre>
-<hr/>
-<h2 id="readme-section-3">目前研究範圍</h2>
-<h3 id="readme-sub-1">臺灣 50 系列</h3>
+<p>開啟 <code>http://localhost:5173</code>。開發模式的前後端都只監聽本機回環位址，並同時啟動：</p>
 <ul>
-<li><code>0050</code></li>
-<li><code>00631L</code></li>
-<li><code>00632R</code></li>
-<li><code>T50COMBO</code>：0050／正 2／反 1 三資產輪動研究</li>
+<li>Vue 前端：<code>http://localhost:5173</code></li>
+<li>Node.js API：<code>http://localhost:8787</code></li>
 </ul>
-<p>槓桿與反向 ETF 均使用自身實際歷史行情、企業行動、交易成本與基準，不以 0050 日報酬直接乘以 <code>2</code> 或 <code>-1</code> 合成。</p>
-<h3 id="readme-sub-2">金融研究（Beta）</h3>
-<p>目前包含：</p>
-<ul>
-<li><code>0055</code></li>
-<li><code>2882</code></li>
-<li><code>2891</code></li>
-<li><code>2886</code></li>
-<li><code>2885</code></li>
-</ul>
-<p>金融標的使用自己的行情與金融產業特徵，不直接沿用臺灣 50 或槓反策略的訊號與排名。</p>
-<h3 id="readme-sub-3">臺指選擇權研究（Beta）</h3>
-<ul>
-<li><code>TXO</code>：臺指月選</li>
-<li><code>TXOW</code>：臺指週選</li>
-<li>僅研究 Call／Put <strong>買方策略</strong></li>
-<li>不建立裸賣部位</li>
-<li>不使用選擇權賣方保證金模型</li>
-</ul>
-<p>月選與週選的契約、快取、績效、研究紀錄與帳本彼此分離；尚未通過研究門檻的版本只保留為研究觀察，不指定為正式策略。</p>
-<hr/>
-<h2 id="readme-section-4">Engineering Highlights</h2>
-<h3 id="readme-sub-4">1. 防止 Look-ahead Bias</h3>
-<p>回測中的訊號產生與成交時點刻意分離。</p>
-<pre><code class="language-text">T-1 已完成資料
-      │
-      ▼
-產生策略訊號
-      │
-      ▼
-T / 下一可交易時點
-      │
-      ▼
-執行部位調整
+<p>不再提供區域網路直連或 Windows 5173 portproxy。手機一律使用 ngrok 公開網址，不得為手機測試重新開放 Vite 或後端埠。</p>
+<p>本機開發與常駐公開服務共用行情快取及 SQLite；執行 <code>npm run dev</code> 前應先停止 <code>hengce-public.service</code>，避免兩個後端同時執行。</p>
+<h3 id="readme-section-6">正式公開模式</h3>
+<p>人工前景啟動：</p>
+<pre><code class="language-bash">npm run public:secure
 </code></pre>
-<p>未完成的日 K、週 K、雙週 K、月 K 或季 K 不得提前進入策略判斷。</p>
-<p>指定歷史回測截止日後，行情、指標、研究樣本與策略決策都必須同步截斷，不允許使用截止日之後的資料。</p>
-<h3 id="readme-sub-5">2. 真實商品行情，不使用合成捷徑</h3>
-<p>0050、00631L、00632R 與金融標的各自使用自己的實際歷史行情。</p>
-<p>例如：</p>
-<pre><code class="language-text">錯誤做法
-0050 daily return × 2
-        ↓
-模擬 00631L
-
-衡策
-00631L actual OHLCV
-        ↓
-Backtest
-</code></pre>
-<p>這避免忽略槓桿 ETF 的每日重設、波動耗損、複利路徑與實際交易價格。</p>
-<h3 id="readme-sub-6">3. Transaction-cost-aware Backtest</h3>
-<p>策略比較會納入：</p>
+<p>目前正式常駐採 <code>ngrok HTTPS Tunnel → Nginx 18787 → Unix Socket → Node</code>，Google OAuth 驗證、系統登入白名單、Admin 權限與裝置 Session 全由 Node 後端處理。Node 不監聽任何 TCP 埠，只有 Nginx 能經權限設為 <code>0600</code> 的 Socket 代理 API；由 systemd 啟動並以健康 timer 自動修復。安裝、白名單、Admin 設定、重啟、登出與故障排查請見 <a href="https://github.com/wei310129/taiwan-weighted-index-prediction/blob/main/docs/public-google-sso.md" target="_blank" rel="noopener"><code>docs/public-google-sso.md</code></a>。開發分支 commit 後執行 <code>npm run deliver:main</code>，即可由 GitHub Actions 或本機備援完成驗證、安全快轉 <code>main</code>、部署與 API 稽核；機器只回傳精簡 JSON 摘要，完整日誌保留在 <code>.runtime/release/</code>。</p>
+<h3>版本化簽署與使用權限</h3>
+<p>首頁可公開瀏覽，不要求 Google SSO 或簽署。進入策略研究時，系統先完成 Google OAuth 與系統登入白名單驗證，再檢查單一裝置 Session；只有 <code>設定的管理者帳號</code> 具備 Admin 權限，其餘白名單帳號都是一般使用者。登入完成後才讀取 <code>/api/consents/current</code>。只要任一必填項目尚未同意目前版本，畫面就會顯示不可關閉的簽署視窗，策略研究 API 也會回傳 <code>428 CONSENT_REQUIRED</code>；後端成功保存整包簽署結果後才開放使用。</p>
 <ul>
-<li>券商手續費</li>
-<li>商品適用的證交稅</li>
-<li>滑價／價差隱含成本</li>
-<li>實際進出場時點</li>
-<li>整股或整數口數限制</li>
+<li>現行項目、必填／選填、版本、上架時間與原文集中於 <code>shared/consent-definitions.ts</code>。</li>
+<li>每次提交都保存整包項目，包含同意或拒絕、版本、簽署時間與當版原文；自己的歷史紀錄可由 <code>/api/consents/history</code> 查詢。</li>
+<li>必填項目推出新版會要求所有使用者重新簽署；只有選填項目更新時不會中斷使用。</li>
+<li>SQLite 紀錄預設保存在 <code>server/.cache/user-consents.sqlite</code>，舊版原文與最初上架時間不會被新版覆寫。</li>
 </ul>
-<p>績效指標包含：</p>
-<ul>
-<li>累積報酬</li>
-<li>年化報酬</li>
-<li>最大回撤</li>
-<li>Sharpe Ratio</li>
-<li>Calmar Ratio</li>
-<li>勝率</li>
-<li>交易次數</li>
-<li>成本拆分</li>
-</ul>
-<p>買進持有作為比較基準，不直接參與主動策略首選。</p>
-<h3 id="readme-sub-7">4. Research Integrity 與 Performance Regression Guard</h3>
-<p>策略研究不是只比較「新版報酬有沒有比較高」。</p>
-<p>repository 中保留：</p>
-<pre><code class="language-text">docs/
-├─ research-preregistrations/
-├─ strategy-integrity-audits/
-├─ strategy-performance-reports/
-├─ *-research.md
-└─ *-protocol.md
-</code></pre>
-<p>策略計算或研究檔變更時：</p>
-<pre><code class="language-bash">npm run guard:strategy-performance
-</code></pre>
-<p>會要求產生新版／舊版的績效比較。</p>
-<p>若新版報酬下降，研究結果必須留下原因與風險交換說明，例如：</p>
-<ul>
-<li>維持舊版</li>
-<li>保留新版為研究觀察</li>
-<li>接受較低報酬換取較低回撤／較低頻率</li>
-<li>判定沒有增量效益</li>
-</ul>
-<p>避免策略邏輯改版後，歷史績效退化卻被靜默覆蓋。</p>
-<h3 id="readme-sub-8">5. Development / Validation / Holdout</h3>
-<p>部分研究採分段方式進行，例如：</p>
-<pre><code class="language-text">Historical Data
-│
-├─ 60% Discovery
-│
-├─ 20% Validation
-│
-└─ 20% Holdout / Out-of-sample
-</code></pre>
-<p>研究過程中也保留固定樣本、walk-forward、事件研究與 sensitivity test 等不同驗證方式。</p>
-<p>README 不將單一歷史高報酬視為策略有效性的充分證據；實際研究證據以 <code>docs/</code> 中的 protocol、audit 與 performance report 為準。</p>
-<h3 id="readme-sub-9">6. Market Data Reliability</h3>
-<p>行情資料不是單純「API 有回就算成功」。</p>
-<p>資料層會處理：</p>
-<ul>
-<li>預期交易日與實際資料完整度</li>
-<li>快取與缺漏月份補抓</li>
-<li>中間缺日與尾端缺日</li>
-<li>企業行動（split / reverse split）</li>
-<li>官方資料交叉確認</li>
-<li>資料源失效時的降級與告警</li>
-<li>服務啟動時的 data gate</li>
-</ul>
-<p>完整契約請參閱：</p>
-<ul>
-<li><span class="private-path" title="Private repository path">docs/market-data-reliability.md</span></li>
-<li><span class="private-path" title="Private repository path">docs/data-maintenance-sop.md</span></li>
-</ul>
-<hr/>
-<h2 id="readme-section-5">Backtest Contract</h2>
-<p>README 僅保留最重要的回測契約；商品與策略的完整規則放在各研究文件中。</p>
-<ol>
-<li><p><strong>只使用當時可見資料</strong><br/>
-策略訊號不能讀取未來資料。</p>
-</li>
-<li><p><strong>訊號與成交時間分離</strong><br/>
-完成資料產生訊號後，才在下一個合法成交時點執行。</p>
-</li>
-<li><p><strong>公平比較</strong><br/>
-同一組策略比較使用一致的起訖日、資金、成本與 benchmark。</p>
-</li>
-<li><p><strong>交易成本不可忽略</strong><br/>
-手續費、稅負、滑價與商品限制均納入。</p>
-</li>
-<li><p><strong>高週期資料必須完整收盤</strong><br/>
-未完成的週／月／季資料不得提早進入判斷。</p>
-</li>
-<li><p><strong>商品使用自身實際行情</strong><br/>
-不以其他商品報酬人工生成歷史價格。</p>
-</li>
-<li><p><strong>研究結果與正式策略分離</strong><br/>
-少量樣本、高報酬或單一期間成功，不代表策略已通過正式研究門檻。</p>
-</li>
-<li><p><strong>歷史績效退化不可靜默覆蓋</strong><br/>
-策略改版需留下 performance comparison 與研究決策。</p>
-</li>
-</ol>
-<p>更多限制與 guardrail 請參閱：</p>
-<ul>
-<li><span class="private-path" title="Private repository path">docs/backtest-settings-guardrails.md</span></li>
-<li><span class="private-path" title="Private repository path">docs/option-native-strategy-research.md</span></li>
-<li><span class="private-path" title="Private repository path">docs/weekly-option-strategy-research.md</span></li>
-</ul>
-<hr/>
-<h2 id="readme-section-6">系統架構</h2>
-<pre><code class="language-text">Browser
-  │
-  ▼
-Vue 3 + TypeScript
-  │
-  ▼
-Node.js / Express API
-  │
-  ├─ Authentication / Consent
-  ├─ Market Data Service
-  ├─ Strategy Engine
-  ├─ Backtest Engine
-  ├─ Research Engine
-  ├─ Portfolio / Cash-flow Calculation
-  └─ LINE Notification
-        │
-        ├─ SQLite / local cache
-        ├─ Yahoo Finance
-        ├─ TWSE
-        ├─ TAIFEX
-        └─ auxiliary research data
-</code></pre>
-<p>正式公開環境：</p>
-<pre><code class="language-text">Internet
-   │
-   ▼
-ngrok HTTPS Tunnel
-   │
-   ▼
-Nginx
-   │
-   ▼
-Unix Socket
-   │
-   ▼
-Node.js
-</code></pre>
-<p>Node.js 正式服務不直接暴露公開 TCP API，由 reverse proxy 與後端存取控制共同處理外部入口。</p>
-<p>Google OAuth、系統 allowlist、Admin／一般使用者權限、單一裝置 Session 與版本化 consent 均由後端驗證。</p>
-<p>詳細部署與故障排查流程請參閱：</p>
-<p><span class="private-path" title="Private repository path">docs/public-google-sso.md</span></p>
-<hr/>
-<h2 id="readme-section-7">決策與通知</h2>
-<p>系統可以依投入資金、目前持倉與策略目標曝險，換算：</p>
-<ul>
-<li>買進</li>
-<li>賣出</li>
-<li>維持</li>
-<li>目標部位</li>
-<li>策略判斷理由</li>
-</ul>
-<p>白名單帳號可綁定 LINE 官方帳號並設定研究方案通知。</p>
-<p>LINE 通知屬於<strong>決策輔助</strong>：</p>
-<pre><code class="language-text">Research Result
-      │
-      ▼
-Decision
-      │
-      ▼
-LINE Notification
-      │
-      X
-Automatic Order
-</code></pre>
-<p>系統不會自動下單。</p>
-<hr/>
-<h2 id="readme-section-8">測試與 CI</h2>
-<p>本機驗證：</p>
+<h2>測試</h2>
 <pre><code class="language-bash">npm test
 npm run typecheck
 npm run build
 </code></pre>
-<p>CI 驗證：</p>
-<pre><code class="language-bash">npm run ci:validate
-</code></pre>
-<p>主要包含：</p>
-<pre><code class="language-text">Strategy Performance Guard
-        │
-        ▼
-Automated Tests
-        │
-        ▼
-Type Check
-        │
-        ▼
-Production Build
-</code></pre>
-<p>測試涵蓋的核心風險包括：</p>
-<ul>
-<li>前視偏誤</li>
-<li>成交時點</li>
-<li>成本扣除</li>
-<li>參數邊界</li>
-<li>部位／建議股數</li>
-<li>市場資料完整性</li>
-<li>策略 regression</li>
-</ul>
-<p>新增或修正回測規則時，以失敗案例先固定預期行為，再修改實作。</p>
-<hr/>
-<h2 id="readme-section-9">Tech Stack</h2>
-<div class="table-scroll"><table>
-<thead>
-<tr>
-<th>Layer</th>
-<th>Technology</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Frontend</td>
-<td>Vue 3, TypeScript, Vite</td>
-</tr>
-<tr>
-<td>Backend</td>
-<td>Node.js, Express, TypeScript</td>
-</tr>
-<tr>
-<td>Test</td>
-<td>Vitest, vue-tsc</td>
-</tr>
-<tr>
-<td>Data</td>
-<td>SQLite, filesystem cache</td>
-</tr>
-<tr>
-<td>Market Data</td>
-<td>Yahoo Finance, TWSE, TAIFEX</td>
-</tr>
-<tr>
-<td>Auth</td>
-<td>Google OAuth, allowlist, server-side session</td>
-</tr>
-<tr>
-<td>Notification</td>
-<td>LINE Messaging</td>
-</tr>
-<tr>
-<td>Reverse Proxy</td>
-<td>Nginx</td>
-</tr>
-<tr>
-<td>Public Tunnel</td>
-<td>ngrok</td>
-</tr>
-<tr>
-<td>Process</td>
-<td>systemd</td>
-</tr>
-<tr>
-<td>CI/CD</td>
-<td>GitHub Actions + project validation scripts</td>
-</tr>
-</tbody>
-</table></div>
-<hr/>
-<h2 id="readme-section-10">本機執行</h2>
-<p>需求：</p>
-<ul>
-<li>Node.js 20+</li>
-</ul>
-<pre><code class="language-bash">npm install
-npm run dev
-</code></pre>
-<p>預設：</p>
-<pre><code class="language-text">Vue frontend : http://localhost:5173
-Node API     : http://localhost:8787
-</code></pre>
-<p>完整的開發規範、共用元件、介面契約與瀏覽器驗證要求請參閱：</p>
-<p><span class="private-path" title="Private repository path">docs/development-guidelines.md</span></p>
-<hr/>
-<h2 id="readme-section-11">Documentation</h2>
-<p>README 只提供整體入口；策略細節、研究證據與操作 SOP 依用途分開保存。</p>
-<pre><code class="language-text">docs/
-│
-├─ development-guidelines.md
-├─ market-data-reliability.md
-├─ data-maintenance-sop.md
-├─ backtest-settings-guardrails.md
-│
-├─ research-preregistrations/
-├─ strategy-integrity-audits/
-├─ strategy-performance-reports/
-│
-├─ option-native-strategy-research.md
-├─ weekly-option-strategy-research.md
-└─ other strategy / protocol / research documents
-</code></pre>
-<h3 id="readme-sub-10">建議閱讀順序</h3>
-<p>想了解工程設計：</p>
+<p>測試採紅燈、綠燈、重構流程；新增或修正回測規則時，應先建立失敗案例。</p>
+<h2 id="readme-section-5">回測規則</h2>
 <ol>
-<li><code>README.md</code></li>
-<li><code>docs/market-data-reliability.md</code></li>
-<li><code>docs/backtest-settings-guardrails.md</code></li>
-<li><code>docs/development-guidelines.md</code></li>
+<li>策略在 T-1 日資料完整後產生目標曝險。</li>
+<li>T 日開盤才執行部位調整；回測結束日預設為台北當天，尚未收盤或非交易日時以最近已取得日 K 的交易日為實際截止日。</li>
+<li>曝險可為 0%、25%、50%、75% 或 100%，不放空、不融資。</li>
+<li>每次部位變化依方向扣除手續費、賣出證交稅及滑價。</li>
+<li>期末結清預設關閉，持倉按期末行情估值；只有啟用時才平倉並將賣出成本計入績效。</li>
+<li>所有策略使用同一個起訖日、資金與成本設定。</li>
+<li>日 K 期望值策略以相似的趨勢、RSI、波動及相對強弱狀態估算未來持有期；每個歷史判斷只能使用當時以前已完成的樣本。</li>
+<li>可執行首選須有正年化報酬、最大回撤不超過 30%、Sharpe 大於零，且完整交易次數通過所選回測期間的動態門檻。</li>
+<li>週／雙週／月 K 訊號在高週期 K 棒完整收盤後產生，下一交易日開盤才調整部位。</li>
+<li>多週期條件研究的週、雙週、月、季 K 只採用完整 K 棒；買進與賣出勝率都以次日開盤執行並扣除來回成本。</li>
+<li>附加部位調整先取得原策略目標，再依單日漲跌調整；高波動選項會額外執行一次相同調整，最終曝險限制在 0%～100%。買進持有基準不套用附加層。</li>
+<li>留空結束日代表最新資料；指定結束日後，行情快照、訊號、回測、退場與多週期研究全部截斷於該日，不使用任何之後資料。資料不足完整期間與指標暖機時會拒絕執行。</li>
+<li>定期定額於回測區間第一天及之後每週／每月第一個交易日投入。定期／條件領回可建立至多五條具名規則並調整順序；每條的每 N 個月與帳面門檻是可同時啟用的 OR 條件，同日多條符合時只執行排序最前者。門檻以前一完整交易日的總資產帳面價值／帳面現金跨越「原始投入比例或固定金額」判斷；帳面現金包含另列且尚未投入的現金配息，門檻跌破後才重新待命。下一交易日開盤執行時，總資產模式可賣出持倉並計入賣出成本，帳面現金模式不賣持倉且領回額不超過現金。每次領回可用所選帳面價值的比例或固定金額計算。最低保留資金由獨立開關控制，也可建立至多五條具名規則；它不判斷每 N 個月，只在領回發生時依所選帳面價值由上到下套用第一條「每次」或「達門檻」的下限，沒有符合條件時不加下限。比例模式保留「執行當下所選帳面價值 × 比例」與「起始投入 × 同一比例」較高者，固定金額模式直接保留設定金額，賣出成本也不得侵蝕這次領回的保留底線。投入與領回都屬外部資金流：TWR 在領回執行點前後切分當日報酬再連乘，排除資金流但保留必要賣出成本；最大回撤使用資金流調整後淨值；XIRR 將投入列為負現金流、領回與期末資產列為正現金流。價格獲利固定為「期末價格資產＋由價格帳本支付的領回－起始資金－定期投入」；直接領回配息不會再算一次價格獲利。
+這項領回設定適用所有研究標的（包含臺指選擇權），且與商品是否實際配息無關。選擇權總資產模式只能以執行日實際開盤權利金賣出足夠整數口數；沒有可驗證開盤價時不偽造成交。</li>
+<li>自動尋優預設用較早 70% 歷史尋優區間比較 481 種附加方案，使用者可調整左右端，右端最高可到最後一個交易日，區間最短不得少於 2 年。選定後將同一方案套用到完整回測範圍；總報酬、年化報酬、勝率、Sharpe、回撤、品質分、排行榜與資格皆使用完整範圍。自動開啟時手動設定停用且不加入候選；關閉自動後才套用保留的手動參數。</li>
+<li>KD 第 9 根日 K 起計算 RSV、K、D；MACD 需完成 26 日慢線與 9 日訊號線暖機後才產生部位，所有訊號皆於次日開盤成交。</li>
+<li>曲線與策略排名採純價格報酬：0050 分割前的價格與成交量會按分割比例還原；^TWII 使用加權價格指數。現金配息依策略在除息日前的實際持有部位另計，不重投、不改變資產曲線與策略排名；儀表板收合摘要另以配息留在現金部位的方式逐日計算含息總報酬、含息年化與相對0050績效。配息為稅前估算，未扣個人稅負與補充保費。</li>
+<li>月 MACD × K 策略只使用已完成的加權指數月 K：MACD（12、26、9）柱狀體負轉正後於下一交易日開盤買進 0050；持有後月 DIF 達 400 且月 K（9,3）達 76 時啟動退場偵測，之後任一跌破門檻即於下一交易日開盤賣出；D 值不參與。</li>
+<li>10% 大漲／大跌高低點必須等反向走勢確認後才能回頭標記，因此只作事件研究，不當成可交易訊號；實際族群策略仍以 T-1 已完成 K 棒產生訊號、T 日開盤成交。</li>
+<li>年度產業權重採前一年底資料避免前視偏誤。電子是半導體、電腦週邊、光電、通信網路、電子零組件、電子通路、資訊服務、其他電子八類合計；金融在 15 年內曾超過 10%，即使 2026 年基準降到 9.68% 仍保留獨立模型；其餘歸入非金電。</li>
+<li>0050、00631L、00632R 各自獨立使用實際行情、上市日、企業行動、成本、基準與工作區。正 2／反 1 是單日曝險目標，跨日報酬會受每日重設、波動耗損與複利路徑影響；歷史行情不得以 0050 日報酬直接乘以 2 或 -1 合成。00631L 的買進持有基準、均線、報酬、RSI、波動與回撤一律標示為 00631L；只有智能策略明確共用的 0050 完成 K 棒與成交量欄位保留「共用指標｜0050」標示。</li>
+<li><code>T50COMBO</code> 為獨立的臺灣50三資產輪動研究：使用0050、00631L、00632R三檔真實行情的共同交易日與一個共同資金池，不借款、不放空，權重合計不超過100%。三檔各自在每個年度開始前，以當時可見資料及個別風險承受門檻淘汰不合格正式策略，再封存年度首選；沒有合格者時該子標的不可用。0050與正2作互斥正向輪動，只有兩者都空手時反1首選才能接手；反1不是與多頭並存的持股避險。每個子策略保留自己的原始進退場政策，只有反1場景快攻使用預掛停利／停損，智能2.0反向鏡像則依鏡像期望優勢失效訊號退出。T日完成資料決定目標，T+1共同交易日開盤先賣後買，逐檔以實際價格、整股、手續費、ETF賣出稅及滑價記帳；0050配息留在現金。比較基準固定為同期100%持有0050。</li>
+<li>00631L、00632R 額外提供專用「槓反短期淨期望智能策略」：1、2、3、5、10 日只是期望值預測窗，不是持有期限。策略每日以商品實際隔日開盤報酬重算，完整扣買進手續費／滑價及賣出手續費／證交稅／滑價；只使用判斷日前已完成的樣本，並以預測窗重疊調整後、扣除一個標準誤的保守淨期望值決定 0%、50% 或 100% 部位。通用附加加減碼不再疊加到此策略。</li>
+<li>0055、2882、2891、2886、2885 各自使用實際行情、配息、上市日、適用稅率、基準與工作區。金融研究只使用金融產業趨勢、相對強弱、量價、多因子與由這些金融候選組成的智能策略，不與臺灣50、槓反、電子或非金電策略共用。</li>
+<li>0050、00631L、00632R 的所有智能策略共用 0050 本身的完成日 K 與成交量判斷。量比只用訊號日前 20 日均量；盤勢先按訊號日前一日與前 20／60 日均價分成多頭、空頭、轉折，再套用不同解讀。現階段只有空頭排列下的爆量破底具有較集中的續跌預警證據；它會列入決策理由與技術分析，但保守淨期望尚未轉正。另以智能 2.0 測試 64 組降倉上限與延續日後，所有家族都未通過三段開發一致性，保留期也沒有增量效益，所以不能單獨開倉、平倉或改變部位。</li>
+<li><code>TXO</code> 為Admin限定的臺指月選買方研究，只買權利，不建立賣方或使用保證金。底層<code>0050 + 2 × 00631L - 00632R</code>的年度第一名是共同母訊號；Call承接偏多規則，Put則由獨立弱勢投票在連續確認時覆蓋Call。3.0分層比較3,160組候選後，最低三折合格版在弱勢連續2日達5/7票時投入5%，七票齊全加到10%；只買距到期至少28天、量與未平倉各100以上的價平月選Put，採+150%停利、-65%停損、最長20日與1日冷卻。T日只用完成資料，T+1一般盤同契約實際開盤成交。介面明列權利別、履約價、價內外、到期與流動性、參考權利金及退出公式。2024-01-09後Put單邊虧損且雙向3.0落後Call 2.0、回撤較大，因此維持研究觀察並保留退化警示。主要比較基準為同期100%持有0050純價格；每次策略或資料口徑改版若報酬下降或達重大差距，必須顯示差距、原因、風險交換與建議，不得靜默取代舊版。完整證據見<code>docs/option-native-strategy-research.md</code>與<code>docs/strategy-performance-reports/</code>。</li>
+<li><code>TXOW</code> 是與 <code>TXO</code> 分離的Admin限定臺指週選買方標的，同時納入官方 <code>W</code> 與 <code>F</code> 週契約；網址、快取、策略代碼、績效、排名及帳本全部獨立。0050是資金配置的機會成本，代表不承擔選擇權高風險時的替代方案，不是每筆選擇權交易都必須勝過的硬門檻；逐筆相同進出場區間、各自扣成本的比較仍完整揭露，升格則綜合固定樣本期的整體扣成本超額報酬、回撤與風險代價、最差單筆、Call／Put平衡及雙向大行情捕捉。大行情按每一段複利10%行情腿計數，還須在價格走完一半前以正確權利別進場、實際參與至少1%同方向0050移動並以正權利金淨報酬退出。台灣大盤共同源頭引擎只整合0050組合年度第一名、月／週選方向與分行情、加權市場、完成夜盤與期交所法人風險，輸出大盤狀態；TXO與TXOW仍各自使用產品專屬的風險、契約、天期與退出。缺值固定計0且不重分配，混合月／週選的法人彙總只作風險證據。大盤共源分流6.0保留5.0的多頭發動／續勢與空頭轉弱／跌破／反彈失敗獨立對策，另加0.40反彈失敗去雜訊、0.65危機Put及只在原分流空手時以0.75品質與3%風險補捉Call。至2026-08-28的重播為127筆，總報酬+149.18%、年化13.51%、最大回撤6.40%、Sharpe 1.622，捕捉上漲8/35、下跌2/16；但同期超額勝率55.12%低於5.0的57.04%，第一開發折與已見近期稽核仍不合格，所以6.0與旧版全部並列研究觀察，不指定正式主動首選。週選歷史權利金目前只納入一般盤；台指期完成夜盤只作下一次一般盤前證據，不能冒充週選夜盤成交。完整證據見<code>docs/weekly-option-strategy-research.md</code>。</li>
+<li>00632R 恐慌賣壓的七項條件每日顯示通過項數與尚缺條件。6/7 會標成「接近成立」研究觀察，但不等於 85.7% 獲利機率；保留期 27 筆交易勝率只有 48.1%、平均淨報酬 -0.65%。5/7 與 4/7 也為負，因此正式快攻仍只在 7/7 全數成立時進場。</li>
+<li>00632R 另提供「智能 2.0 反向鏡像」研究觀察策略：0050 智能 2.0 降至 0% 時，下一共同交易日開盤持有反 1；智能 2.0 恢復部位或 0050 反彈條件達 5/5 票，代表鏡像期望優勢失效並於下一開盤退出，不設最長持有天數。歷史 40 日候選的第一開發段只有 1 筆且為負，保留期也只有 2 筆、平均 +1.89%、勝率 50%，只保留為研究證據；目前曲線依不限持有日規則重算，仍須通過既有首選門檻，不把少量獲利當成穩定證據。它與反 1 場景快攻都採低頻事件策略的固定最低 4 筆完整交易門檻，不隨畫面回測年數增加；其他正報酬、Sharpe、回撤與相對基準門檻不變。</li>
+<li>00631L 主智能策略使用 0050「智能盤勢自適應配置 2.0」的同一判斷日目標，於下一共同交易日開盤交易 00631L；進場、加減碼與退場不得比 0050 晚。成交價格、成本與績效仍取 00631L 自身實際行情，不用 0050 報酬乘二合成。正2專用風險尋優只比較 70%／80%／90%／100% 最高曝險，只能減少同步部位，不得在 0050 空手時重新建立部位；兩段開發選出的仍是 100%，其餘候選未通過保留門檻，所以正式部位維持 100% 上限且不套用通用附加尋優。</li>
+<li>風險承受預設為中，策略資產總價值從先前歷史高點回落的最大可接受幅度為35%；這不是單筆投入的虧損或停損上限。低風險可接受首選報酬低於持有基準，以換取更嚴格的回撤、Sharpe 與正期望值資格；高風險與正2／反1專用的極高風險仍不得降低最低交易樣本、正報酬與正 Sharpe 門檻。極高風險不設最大回撤上限，並以更高報酬權重及更積極的附加調整候選尋優。</li>
+<li>商品是否配息由共用研究標的目錄的 <code>capabilities.cashDistributions</code> 控制。00631L、00632R 目前不收益分配，因此正2、反1頁面的含息摘要、現金配息、含息總獲利、配息事件與相關說明全部關閉；其他配息標的維持原有含息計算。共用儀表板與策略表只接受能力入參，不以商品代碼各自判斷。</li>
+<li>臺灣50三資產研究正式比較三個逐層增加商品範圍的年度策略：「0050年度風險合格首選策略」、「0050／正2年度正向輪動」及「三資產年度風險合格輪動」；另保留「三資產目前首選事後回放（研究觀察）」揭露事後選擇偏誤。0050、正2、反1的啟用開關與個別風險整合在同一面板，關閉者不參與尋優、訊號或回測配置，但至少必須保留一檔。低／中低／中／中高／高／極高分別代表15%／25%／35%／45%／65%／無上限的最大可接受回撤；風險只淘汰超標子策略，不縮減合格策略原始部位。子標的開啟自動尋優時，只有選參期間已在年度封存日前結束的方案可參選，不用未來資料回寫歷史年度。一般標的仍顯示六級刻度，但可互動滑軌只到「高」；高到極高的灰色線段與極高端點完全不接收點擊或拖曳，只有讀到舊的極高設定時才自動正規化為最接近的「高」。正2與反1可使用全部六級。</li>
+<li>組合頁的「持倉比例／資金配置／核心目標」是實際投入資金權重，三檔合計不超過100%；「有效市場曝險」另依 <code>0050 + 2 × 00631L - 00632R</code> 顯示。因此100%持有00631L等於100%資金配置、200%有效市場曝險，介面不得把後者標成部位或資金配置。</li>
+<li>組合決策的加碼／減碼／投入持平只比較前後兩次目標總投入，不受市價漂移影響；同額賣A買B屬投入持平。持倉內容另標示看多轉倉正2、看空轉倉反1或保守轉倉0050與移轉比例；若轉倉同時增加或收回資金，剩餘淨加減碼也必須分開列出。決策卡收合時仍顯示持倉操作，但使用「轉正2 30%｜減反1 70%」等短版，手機最多兩行；展開後保留完整目的語意。</li>
+<li>調整風險、日期、成本、資金、定期投入或其他回測設定時，完成後必須維持修改前正在檢視的同一策略，不得依新版排名自動改成推薦策略或首筆策略。首次進入且尚未選過策略時才可自動選擇推薦方案；若原策略已從策略目錄移除，介面須保留其識別並明確提示，不得靜默代換。</li>
+<li>組合「進出場紀錄」的前後比例一律記錄三檔實際投入比例總和，範圍為0%～100%；正2乘二後的有效市場曝險只留在專用欄位，不得顯示成200%投入。紀錄以靠右且非全寬的日期排序下拉選單切換較新或較舊優先，「日期排序」標籤使用主要白色文字。當日決策收合摘要的日期固定單行，持倉操作在其餘可用寬度內精簡顯示；手機策略排行不論表格或卡片檢視，過長策略名稱與說明必須在自己的欄位換行，不得侵入決策驗證入口或相鄰欄位。</li>
+<li>手機策略決策驗證視窗使用動態視窗高度，不得因瀏覽器網址列使面板頂端落在可視區外；每次開啟都必須把面板捲動位置歸零並顯示「策略決策驗證」標頭。</li>
+<li>臺灣50動態組合的期末結清預設關閉：回測最後一天保留持股，以該日最新完整收盤價計入期末資產與未實現損益，不預扣尚未發生的賣出成本。啟用時才按收盤價賣出、扣除手續費、ETF交易稅與滑價並轉為已實現損益。全新工作區預設開啟四組方案全局共用；使用者關閉後會保留該選擇，手動重新啟用前必須先確認，確認後才可用目前值覆寫四組方案。</li>
 </ol>
-<p>想了解策略研究：</p>
-<ol>
-<li>對應的 <code>*-protocol.md</code></li>
-<li>對應的 <code>*-research.md</code></li>
-<li><code>docs/strategy-integrity-audits/</code></li>
-<li><code>docs/strategy-performance-reports/</code></li>
-</ol>
-<hr/>
+<h3>槓反短期淨期望智能策略（Beta）</h3>
+<ul>
+<li>00631L 依正向 2 倍的偏多方向、00632R 依反向 1 倍的偏空方向，將加權指數近 1 日／5 日方向與波動狀態分組；報酬仍只採各 ETF 自身實際行情，不用 0050 合成。</li>
+<li>每個歷史樣本都以訊號後第一個交易日開盤進場，於 1、2、3、5 或 10 個交易日後開盤出場；尚未完整發生的結果不得進入當日估計。</li>
+<li>畫面同時公開最佳預測窗、平均淨期望值、重疊調整後的保守淨期望值、歷史勝率與樣本數。保守淨期望值不大於零時空手；大於零但勝率低於 52% 時最多 50%，達 52% 才能為 100%。</li>
+<li>每日重算後只要保守淨期望值仍為正即可續抱；沒有「持有滿 N 日強制賣出」規則。正期望值也不是獲利保證，仍須通過完整回測的交易次數、正報酬、30% 回撤與 Sharpe 資格門檻。</li>
+</ul>
+<h3>日 K 期望值退場</h3>
+<ul>
+<li>進場條件沿用多策略集成訊號。</li>
+<li>每日收盤比較持有 1、3、5、10、20 個交易日的歷史淨期望值。</li>
+<li>候選報酬扣除賣出手續費、ETF 證交稅與滑價。</li>
+<li>所有候選期望值不足時，下一交易日開盤退場；優勢偏弱時降至 25% 部位。</li>
+<li>日 K 收盤跌破前一日訊號失效線時，下一交易日開盤退場。</li>
+<li>「期望退場價」是相似樣本的平均結果，不是固定停利委託價或保證價格。</li>
+</ul>
+<p>綜合評分由完整回測範圍的年化報酬、Sharpe、Calmar、最大回撤控制與交易樣本數組成。完整範圍包含用來選參數的歷史尋優區間，因此結果可能受過度配適影響。買進持有只作基準，不參與主動策略首選。</p>
 <h2 id="readme-section-12">資料與限制</h2>
-<p>日線主資料以 Yahoo Finance 為主要來源，並搭配證交所／期交所官方資料進行確認、補齊或研究。</p>
-<p>對 ETF 的分割／反分割會依企業行動調整，避免把企業行動誤判成市場暴漲暴跌。</p>
-<p>所有畫面上的策略判斷僅使用最近一個已完成交易時點的資料。即時行情、歷史回測行情與實際券商成交行情並不等價。</p>
-<p>Yahoo Finance 與本專案中的行情資料均不應視為交易所保證的下單價格；實際交易前仍需自行確認市場與券商資訊。</p>
-<hr/>
-<h2 id="readme-section-13">Disclaimer</h2>
-<p>本專案是<strong>量化研究與決策輔助工具</strong>，不是自動交易系統，也不保證獲利。</p>
-<p>歷史績效、回測結果、勝率、Sharpe Ratio、最大回撤或任何策略研究結果都不代表未來表現。</p>
-<p>研究中保留的 Beta、候選策略與研究觀察結果，可能因樣本數、資料期間、過度配適、市場結構改變或交易成本而失效。</p>
+<p>服務啟動前會執行資料閘門，驗證 0050、加權指數及各輔助來源的預期／實際日期；通過後再背景預載 00631L 與 00632R，其餘金融商品於進入研究時載入自己的行情快取。每日排程逐一更新八個有真實來源代號的研究標的；<code>T50COMBO</code> 沒有虛構遠端代號，初始化直接組合後端已保存的三檔行情。每日盤後更新時間、資料庫狀態、降級與修復流程詳見 <a href="https://github.com/wei310129/taiwan-weighted-index-prediction/blob/main/docs/data-maintenance-sop.md" target="_blank" rel="noopener"><code>docs/data-maintenance-sop.md</code></a>。目前狀態可由 <code>/api/health</code> 或 <code>/api/data-status</code> 查詢。</p>
+<ul>
+<li>日線主資料由 Yahoo Finance chart API 取得，最新完成交易日另以證交所官方單日成交資料確認；若 ETF 當月日線有中間或尾端缺日，使用證交所 <code>STOCK_DAY</code> 的同商品官方 OHLCV 補齊。00631L、00632R 與五個金融標的都只使用自己的實際 K 線，再依交易日對齊同日大盤與輔助資料；資料在 <code>server/.cache/</code> 保存快取，台股盤中每五分鐘更新，收盤後快取六小時。</li>
+<li>電子、金融保險與非金電日指數由證交所歷史端點取得並另存快取；啟動時只補缺少月份。介面會顯示近 15 年完整度；官方月份暫時缺漏時以加權指數當日報酬延伸指數水準並明確警告，完成官方快取前族群結果只供參考。</li>
+<li>年度權重來自證交所 2011～2026 Fact Book 的前一年度產業市值，應用年度為 2011～2026。</li>
+<li>各 ETF 價量只還原分割／反分割：0050 的 2025 年 1 拆 4、00631L 的 2026-03-31 1 拆 22 與 00632R 的 2024-12-11 1 併 7 都不能被誤認為真實暴漲暴跌；共用分割歷程卡會列出日期與比例，配息不加回曲線，只列入含配息總獲利的補充統計。</li>
+<li>畫面的操作建議一律只使用最近一個完整交易日收盤資料，供下一交易日開盤前準備並於開盤執行；不再使用盤中價格代理尚未完成的日 K 訊號。</li>
+<li>LINE 訂閱啟用後，每個交易日於使用者設定的台北時間（00:00～08:55、五分鐘一格）發送，每組每個交易日一則。操作內容沿用前一完整交易日產生的當日策略決策，完整發送買賣、維持、目標部位與全部決策理由；推薦資格與原因只作標示，不得據此隱藏或替換操作內容。非交易日不發送任何訂閱通知；交易日資料確實不可用時仍通知目前狀態。交易日共用證交所官方年度開休市表，日曆未核實時暫停發送。正常通知對齊五分鐘時刻的 00 秒，提前一分鐘準備策略；例如 06:59 前儲存的 07:00 訂閱在 07:00 發送。非 0、5 分只補發當天已過時未發的通知；服務啟動及每個整分鐘檢查漏送與失敗重試，跨日不補送；不會自動下單。</li>
+<li>Yahoo Finance 並非交易所保證的下單行情；實際交易前必須在券商軟體確認價格。</li>
+</ul>
+<p>歷史績效不代表未來表現。本專案是量化研究與決策輔助工具，不保證獲利。</p>
 </article>
 </div>
 </div>
