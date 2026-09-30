@@ -965,11 +965,13 @@ body.overlay-open #app-scroll { overflow:hidden; }
 .readme-content { min-width:0; overflow-wrap:anywhere; }
 .readme-content pre { white-space:pre; overflow-wrap:normal; }
 .readme-content img { max-width:100%; height:auto; }
+.readme-table-hint { display:none; }
 .readme-panel { min-height:0; }
 .readme-title { flex:1; }
 .readme-actions { flex-shrink:0; }
 button:focus-visible, a:focus-visible, [tabindex]:focus-visible { outline:3px solid #175cd3; outline-offset:3px; }
 @media (max-width:760px) {
+  .readme-table-hint { display:block; margin:12px 0 6px; font-size:11px; color:#667085; }
   .main-nav { grid-template-columns:repeat(2,minmax(0,1fr)); gap:6px; }
   .nav-btn { padding:7px 8px; gap:4px; font-size:11.5px; }
   .nav-description { font-size:11px; }
@@ -1688,7 +1690,7 @@ Repo：https://github.com/wei310129/jfr-jmc</pre>
 <p>開發本專案前，請先閱讀 <a href="https://github.com/wei310129/taiwan-weighted-index-prediction/blob/main/docs/development-guidelines.md" target="_blank" rel="noopener"><code>docs/development-guidelines.md</code></a>；其中記錄共用元件索引、介面規格、互動原則與完成前的瀏覽器驗證要求。新增或修改行情來源時，另須遵守 <a href="https://github.com/wei310129/taiwan-weighted-index-prediction/blob/main/docs/market-data-reliability.md" target="_blank" rel="noopener"><code>docs/market-data-reliability.md</code></a> 的供應者介面、快取、續傳、降級與故障測試契約。</p>
 <h2 id="readme-section-4">工程重點與驗證入口</h2>
 <p>本專案的工程核心是建立可比較、可追溯的研究流程：資料是否當時可見、交易是否真能在該時點成交、成本是否一致，以及改版是否有證據支持。AI 協助需求拆解、方案比較、實作、重構、測試與文件整理；計算口徑、驗收條件與風險交換由我決定，再以測試、研究文件與交付閘門核對。</p>
-<table>
+<p class="readme-table-hint">表格可左右滑動查看完整內容。</p><div class="table-scroll" tabindex="0" aria-label="工程重點表格，可左右捲動"><table>
 <thead>
 <tr>
 <th>問題</th>
@@ -1721,7 +1723,7 @@ Repo：https://github.com/wei310129/jfr-jmc</pre>
 <td>Google OAuth、白名單、單裝置 Session、Admin 與版本化簽署由後端驗證</td>
 <td><a href="https://github.com/wei310129/taiwan-weighted-index-prediction/blob/main/docs/public-google-sso.md" target="_blank" rel="noopener">公開服務與 SSO</a>、shared/consent-definitions.ts</td>
 </tr>
-</tbody></table>
+</tbody></table></div>
 <h3 id="readme-section-2">研究結果的解讀邊界</h3>
 <p>多週期條件研究採 60%／20%／20% 切分；其他研究以各自 protocol 為準，不能把所有頁面績效一律稱為樣本外結果。通用附加尋優選定參數後呈現完整範圍，包含選參資料；事後排名與已見近期稽核需揭露其限制，不等同可交易驗證。金融與選擇權的 Beta／研究觀察狀態也應和正式策略分開。</p>
 <h3 id="readme-section-8">開發與驗收</h3>
