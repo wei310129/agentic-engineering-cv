@@ -931,7 +931,9 @@ body.overlay-open #app-scroll { overflow:hidden; }
 /* Let the final section reach the reading line even on a tall desktop.
    Otherwise a clamped jump to the preceding project is mistaken for page end. */
 #visual-poc, #text-poc { min-height:calc(100dvh - var(--header-height) - 30px); }
-.overview-card { text-align:left; }
+.overview-grid { align-items:start; }
+.overview-card { display:flex; flex-direction:column; justify-content:flex-start; min-height:0; text-align:left; }
+.ov-top { align-items:center; }
 .main-nav { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; overflow:visible; }
 .nav-btn { min-width:0; width:100%; flex-direction:column; align-items:flex-start; justify-content:flex-start; gap:5px; padding:9px 10px; text-align:left; white-space:normal; }
 .nav-title { display:flex; align-items:baseline; gap:6px; }
