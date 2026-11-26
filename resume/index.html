@@ -14,6 +14,8 @@ a:focus-visible,button:focus-visible { outline:3px solid #337fb5; outline-offset
 .site-header { position:sticky; top:0; z-index:5; background:rgba(255,255,255,.97); border-bottom:1px solid var(--line); }
 .header-inner,nav { max-width:1120px; margin:auto; padding:12px 32px; display:flex; align-items:center; justify-content:space-between; gap:16px; }
 .brand { color:var(--ink); font-size:15px; font-weight:750; text-decoration:none; }
+.portfolio-switch { margin-left:auto; padding:6px 10px; border:1px solid #bacfcb; border-radius:6px; background:var(--wash); color:var(--accent); font-size:12px; font-weight:650; line-height:1.5; text-decoration:none; white-space:nowrap; }
+.portfolio-switch:hover { background:#eaf0ee; }
 .header-actions { display:flex; gap:10px; align-items:center; }
 .language-switch { display:flex; padding:3px; border:1px solid var(--line); border-radius:7px; background:var(--wash); }
 .language-switch button { padding:4px 10px; border:0; border-radius:4px; background:transparent; color:var(--muted); font-size:12px; font-weight:650; }
@@ -168,7 +170,7 @@ nav a { flex-shrink:0; white-space:nowrap; }
 }
 </style></head>
 <body><a class="skip-link" href="#main"><span data-zh="跳至履歷內容" data-en="Skip to resume">跳至履歷內容</span></a>
-<header class="site-header"><div class="header-inner"><a class="brand" href="#top"><span data-zh="陳政瑋｜履歷" data-en="Aiden Chen | Resume">陳政瑋｜履歷</span></a>
+<header class="site-header"><div class="header-inner"><a class="brand" href="#top"><span data-zh="陳政瑋｜履歷" data-en="Aiden Chen | Resume">陳政瑋｜履歷</span></a><a class="portfolio-switch" href="../"><span data-zh="AI 協作開發實戰履歷" data-en="AI Portfolio">AI 協作開發實戰履歷</span> <span aria-hidden="true">↗</span></a>
 <div class="header-actions"><div class="language-switch" role="group" aria-label="語言" data-zh-label="語言" data-en-label="Language"><button type="button" data-language="zh" aria-pressed="true"><span data-zh="中文" data-en="Chinese">中文</span></button><button type="button" data-language="en" aria-pressed="false">English</button></div><button type="button" class="print-button" id="print-resume"><span data-zh="列印／存 PDF" data-en="Print / Save PDF">列印／存 PDF</span></button></div></div>
 <nav aria-label="履歷章節" data-zh-label="履歷章節" data-en-label="Resume sections"><a href="#introduction"><span data-zh="自我介紹" data-en="About">自我介紹</span></a><a href="#experience" aria-current="location"><span data-zh="工作經歷" data-en="Experience">工作經歷</span></a><a href="#skills"><span data-zh="專業技能" data-en="Skills">專業技能</span></a><a href="#education"><span data-zh="學歷與進修" data-en="Education">學歷與進修</span></a><a href="#projects"><span data-zh="精選專案" data-en="Projects">精選專案</span></a><a href="#autobiography"><span data-zh="自傳" data-en="Autobiography">自傳</span></a></nav></header>
 <main id="main" class="resume-shell"><section class="hero" id="top"><div><div class="hero-identity"><img class="profile-photo" src="assets/profile.jpg" width="1005" height="1280" alt="陳政瑋的大頭照" data-zh-alt="陳政瑋的大頭照" data-en-alt="Portrait of Aiden Chen" decoding="async"><div class="hero-name"><p class="eyebrow"><span data-zh="軟體工程師履歷" data-en="SOFTWARE ENGINEER RESUME">軟體工程師履歷</span></p><h1><span data-zh="陳政瑋" data-en="Aiden Chen">陳政瑋</span><span class="secondary-name" data-resume-language="zh">Aiden Chen</span></h1><p class="headline"><span data-zh="Java 後端工程師｜技術領導與專案治理" data-en="Java Backend Engineer | Technical Leadership &amp; Project Governance">Java 後端工程師｜技術領導與專案治理</span></p></div></div>
@@ -312,6 +314,9 @@ nav a { flex-shrink:0; white-space:nowrap; }
   }
   buttons.forEach(button => button.addEventListener('click', () => { setLanguage(button.dataset.language, true); markSection(); }));
   setLanguage(params.has('lang') ? params.get('lang') : preference);
+  document.querySelector('.portfolio-switch').addEventListener('click', () => {
+    try { localStorage.setItem('portfolio-language', document.documentElement.lang === 'en' ? 'en' : 'zh'); } catch (_) {}
+  });
   document.getElementById('print-resume').addEventListener('click', () => window.print());
   const links = [...document.querySelectorAll('nav a')];
   const sections = links.map(link => document.querySelector(link.getAttribute('href')));
